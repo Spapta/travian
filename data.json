@@ -226,31 +226,31 @@
     },
     "Otava River": {
       "Congo River": {
-        "wood": 0,
-        "clay": 0,
-        "metal": 0,
-        "crop": 0
+        "wood": 250,
+        "clay": 250,
+        "metal": 250,
+        "crop": 400
       },
       "Ganga River": {
-        "wood": 0,
-        "clay": 0,
-        "metal": 0,
-        "crop": 0
+        "wood": 250,
+        "clay": 250,
+        "metal": 250,
+        "crop": 400
       },
       "Yangtze River": {
-        "wood": 0,
-        "clay": 0,
-        "metal": 0,
-        "crop": 0
+        "wood": 250,
+        "clay": 250,
+        "metal": 250,
+        "crop": 400
       },
       "Mekong River": {
-        "wood": 0,
-        "clay": 0,
-        "metal": 0,
-        "crop": 0
+        "wood": 250,
+        "clay": 250,
+        "metal": 250,
+        "crop": 400
       },
       "Narmada River": {
-        "wood": 0,
+        "wood": 250,
         "clay": 0,
         "metal": 0,
         "crop": 0
