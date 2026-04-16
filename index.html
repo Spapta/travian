@@ -20,7 +20,7 @@
   }
   body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; font-size: 14px; line-height: 1.5; }
 
-  header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 56px; position: sticky; top: 0; z-index: 10; flex-wrap: wrap; gap: 8px; }
+  header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 56px; position: sticky; top: 0; z-index: 10; }
   .logo { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; }
   .logo-icon { width: 28px; height: 28px; background: var(--accent); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
   .header-right { display: flex; align-items: center; gap: 12px; }
@@ -49,7 +49,7 @@
   .settings-input { background: var(--bg3); border: 1px solid var(--border2); border-radius: var(--radius); color: var(--text); font-size: 13px; padding: 8px 12px; font-family: inherit; }
   .settings-input:focus { outline: none; border-color: var(--accent); }
   .settings-input::placeholder { color: var(--text3); }
-  .save-btn { align-self: flex-end; padding: 8px 20px; border-radius: var(--radius); border: none; background: var(--accent); color: #fff; font-size: 13px; font-weight: 500; cursor: pointer; font-family: inherit; white-space: nowrap; }
+  .save-btn { align-self: flex-end; padding: 8px 20px; border-radius: var(--radius); border: none; background: var(--accent); color: #fff; font-size: 13px; font-weight: 500; cursor: pointer; font-family: inherit; }
   .save-btn:hover { opacity: 0.85; }
   .settings-note { font-size: 11px; color: var(--text3); margin-top: 10px; }
 
@@ -66,11 +66,22 @@
   .vcard { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: border-color 0.15s; }
   .vcard:hover { border-color: var(--border2); }
   .vcard-header { padding: 11px 14px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--bg3); }
+  .vcard-header-left { display: flex; align-items: center; gap: 8px; }
   .vcard-name { font-weight: 600; font-size: 13px; }
   .badge { font-size: 10px; padding: 2px 8px; border-radius: 20px; font-weight: 500; }
   .badge-res { background: rgba(125,191,94,0.15); color: var(--wood); border: 1px solid rgba(125,191,94,0.2); }
   .badge-army { background: rgba(79,126,248,0.15); color: var(--accent); border: 1px solid rgba(79,126,248,0.2); }
-  .badge-ally { background: var(--ally-bg); color: var(--ally); border: 1px solid rgba(167,139,250,0.2); }
+
+  /* Toggle switch */
+  .ally-toggle-wrap { display: flex; align-items: center; gap: 6px; }
+  .ally-toggle-label { font-size: 10px; color: var(--text3); font-weight: 500; letter-spacing: .04em; white-space: nowrap; }
+  .ally-toggle-label.on { color: var(--ally); }
+  .toggle { position: relative; width: 32px; height: 18px; flex-shrink: 0; }
+  .toggle input { opacity: 0; width: 0; height: 0; position: absolute; }
+  .toggle-track { position: absolute; inset: 0; background: var(--bg); border: 1px solid var(--border2); border-radius: 18px; cursor: pointer; transition: background 0.2s, border-color 0.2s; }
+  .toggle input:checked + .toggle-track { background: var(--ally-bg); border-color: var(--ally); }
+  .toggle-thumb { position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; background: var(--text3); border-radius: 50%; transition: transform 0.2s, background 0.2s; pointer-events: none; }
+  .toggle input:checked ~ .toggle-thumb { transform: translateX(14px); background: var(--ally); }
 
   .prod-section { padding: 10px 14px; border-bottom: 1px solid var(--border); }
   .sub-label { font-size: 10px; font-weight: 600; letter-spacing: .07em; color: var(--text3); text-transform: uppercase; margin-bottom: 7px; }
@@ -88,7 +99,6 @@
 
   .vcard-body { padding: 8px 14px; }
   .route-section-label { font-size: 10px; font-weight: 600; letter-spacing: .07em; color: var(--text3); text-transform: uppercase; margin: 6px 0 8px; }
-
   .route-row { display: flex; align-items: center; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--border); }
   .route-row:last-child { border-bottom: none; }
   .route-label { font-size: 12px; color: var(--text2); width: 95px; flex-shrink: 0; }
@@ -101,7 +111,7 @@
   .ri input:focus { outline: none; border-color: var(--accent); background: var(--bg3); }
 
   /* Ally section */
-  .ally-section { border-top: 1px solid var(--border); padding: 10px 14px; }
+  .ally-section { border-top: 1px solid rgba(167,139,250,0.15); padding: 10px 14px; background: rgba(167,139,250,0.04); }
   .ally-route { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 10px; margin-bottom: 8px; }
   .ally-route:last-child { margin-bottom: 0; }
   .ally-top-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
@@ -110,16 +120,17 @@
   .ally-name-input::placeholder { color: var(--text3); }
   .times-select { background: var(--bg); border: 1px solid var(--border2); border-radius: 6px; color: var(--text2); font-size: 11px; padding: 4px 6px; font-family: inherit; cursor: pointer; }
   .times-select:focus { outline: none; border-color: var(--ally); }
-  .ally-res-row { display: flex; gap: 5px; align-items: flex-end; }
+  .ally-res-row { display: flex; gap: 5px; }
   .ally-ri { display: flex; flex-direction: column; align-items: center; gap: 2px; flex: 1; }
   .ally-ri-lbl { font-size: 9px; font-weight: 600; letter-spacing: .05em; }
   .ally-ri input { width: 100%; text-align: center; border: 1px solid var(--border2); border-radius: 6px; background: var(--bg); color: var(--text); font-size: 12px; padding: 4px 2px; font-family: inherit; -moz-appearance: textfield; }
   .ally-ri input::-webkit-inner-spin-button { -webkit-appearance: none; }
   .ally-ri input:hover { border-color: var(--ally); }
   .ally-ri input:focus { outline: none; border-color: var(--ally); background: var(--bg3); }
-  .ally-hr-row { display: flex; gap: 5px; margin-top: 6px; }
-  .ally-hr-item { flex: 1; text-align: center; font-size: 10px; color: var(--text3); }
+  .ally-hr-row { display: flex; gap: 5px; margin-top: 5px; }
+  .ally-hr-item { flex: 1; text-align: center; }
   .ally-hr-val { font-size: 11px; font-weight: 600; color: var(--ally); }
+  .ally-hr-unit { font-size: 9px; color: var(--text3); }
 
   .wood-lbl{color:var(--wood)} .clay-lbl{color:var(--clay)} .metal-lbl{color:var(--metal)} .crop-lbl{color:var(--crop)}
 
@@ -214,12 +225,14 @@ const RES=["wood","clay","metal","crop"];
 const RLBL={wood:"Wood",clay:"Clay",metal:"Metal",crop:"Crop"};
 const RCLS={wood:"wood-lbl",clay:"clay-lbl",metal:"metal-lbl",crop:"crop-lbl"};
 const MAX_ALLY=3;
-const LSK='travian_v3';
+const LSK='travian_v4';
 const CFG_KEY='travian_cfg';
 const DATA_FILE='data.json';
 
 function sid(a,b,c){const s=a+'||'+b+'||'+c;let h=0;for(let i=0;i<s.length;i++)h=Math.imul(31,h)+s.charCodeAt(i)|0;return 'id'+(h>>>0).toString(36);}
 function allyId(rv,slot,field){return sid('ally_'+slot,rv,field);}
+function toggleId(rv){return sid('tog',rv,'ally');}
+function allySectionId(rv){return sid('allysec',rv,'wrap');}
 
 function getConfig(){try{return JSON.parse(localStorage.getItem(CFG_KEY)||'{}')}catch(e){return {};}}
 function setConfig(c){localStorage.setItem(CFG_KEY,JSON.stringify(c));}
@@ -255,8 +268,20 @@ function saveConfig(){
   loadFromGitHub();
 }
 
+function onAllyToggle(rv){
+  const cb=document.getElementById(toggleId(rv));
+  const sec=document.getElementById(allySectionId(rv));
+  const lbl=cb.closest('.ally-toggle-wrap').querySelector('.ally-toggle-label');
+  const on=cb.checked;
+  sec.style.display=on?'':'none';
+  lbl.textContent=on?'Ally routes on':'Ally routes';
+  lbl.className='ally-toggle-label'+(on?' on':'');
+  recalc();
+  triggerSave();
+}
+
 function collectData(){
-  const routes={},production={},ally={};
+  const routes={},production={},ally={},allyEnabled={};
   RV.forEach(rv=>{
     production[rv]={};
     RES.forEach(res=>{const e=document.getElementById(sid(rv,'PROD',res));production[rv][res]=e?Math.max(0,parseInt(e.value)||0):0;});
@@ -265,6 +290,8 @@ function collectData(){
       routes[rv][av]={};
       RES.forEach(res=>{const e=document.getElementById(sid(rv,av,res));routes[rv][av][res]=e?Math.max(0,parseInt(e.value)||0):0;});
     });
+    const cb=document.getElementById(toggleId(rv));
+    allyEnabled[rv]=cb?cb.checked:false;
     ally[rv]=[];
     for(let s=0;s<MAX_ALLY;s++){
       const nameEl=document.getElementById(allyId(rv,s,'name'));
@@ -276,7 +303,7 @@ function collectData(){
       ally[rv].push({name,times,res});
     }
   });
-  return {routes,production,ally};
+  return {routes,production,ally,allyEnabled};
 }
 
 function applyData(data){
@@ -292,16 +319,22 @@ function applyData(data){
         if(e)e.value=(data.routes&&data.routes[rv]&&data.routes[rv][av]&&data.routes[rv][av][res])||0;
       });
     });
+    const enabled=data.allyEnabled&&data.allyEnabled[rv]===true;
+    const cb=document.getElementById(toggleId(rv));
+    const sec=document.getElementById(allySectionId(rv));
+    const lbl=cb&&cb.closest('.ally-toggle-wrap').querySelector('.ally-toggle-label');
+    if(cb){
+      cb.checked=enabled;
+      if(sec)sec.style.display=enabled?'':'none';
+      if(lbl){lbl.textContent=enabled?'Ally routes on':'Ally routes';lbl.className='ally-toggle-label'+(enabled?' on':'');}
+    }
     if(data.ally&&data.ally[rv]){
       data.ally[rv].forEach((slot,s)=>{
         const nameEl=document.getElementById(allyId(rv,s,'name'));
         const timesEl=document.getElementById(allyId(rv,s,'times'));
         if(nameEl)nameEl.value=slot.name||'';
         if(timesEl)timesEl.value=slot.times||1;
-        RES.forEach(r=>{
-          const e=document.getElementById(allyId(rv,s,r));
-          if(e)e.value=(slot.res&&slot.res[r])||0;
-        });
+        RES.forEach(r=>{const e=document.getElementById(allyId(rv,s,r));if(e)e.value=(slot.res&&slot.res[r])||0;});
       });
     }
   });
@@ -375,33 +408,20 @@ function buildResView(){
   RV.forEach(rv=>{
     const card=document.createElement('div');
     card.className='vcard';
+    const tid=toggleId(rv);
+    const secId=allySectionId(rv);
 
-    const prodInputs=RES.map(res=>{
-      const id=sid(rv,'PROD',res);
-      return `<div class="four-item"><span class="four-lbl ${RCLS[res]}">${RLBL[res]}</span><input class="prod-input" type="number" min="0" step="100" value="0" id="${id}"></div>`;
-    }).join('');
-
-    const availItems=RES.map(res=>
-      `<div class="four-item"><span class="four-lbl ${RCLS[res]}">${RLBL[res][0]}</span><span class="avail-val avail-neutral" id="${sid(rv,'AVAIL',res)}">—</span></div>`
-    ).join('');
-
+    const prodInputs=RES.map(res=>`<div class="four-item"><span class="four-lbl ${RCLS[res]}">${RLBL[res]}</span><input class="prod-input" type="number" min="0" step="100" value="0" id="${sid(rv,'PROD',res)}"></div>`).join('');
+    const availItems=RES.map(res=>`<div class="four-item"><span class="four-lbl ${RCLS[res]}">${RLBL[res][0]}</span><span class="avail-val avail-neutral" id="${sid(rv,'AVAIL',res)}">—</span></div>`).join('');
     const routeRows=AV.map(av=>{
-      let inputs=RES.map(res=>{
-        const id=sid(rv,av,res);
-        return `<div class="ri"><span class="ri-lbl ${RCLS[res]}">${RLBL[res][0]}</span><input type="number" min="0" step="100" value="0" id="${id}"></div>`;
-      }).join('');
+      let inputs=RES.map(res=>`<div class="ri"><span class="ri-lbl ${RCLS[res]}">${RLBL[res][0]}</span><input type="number" min="0" step="100" value="0" id="${sid(rv,av,res)}"></div>`).join('');
       return `<div class="route-row"><span class="route-label">${av.replace(' River','')}</span><div class="res-inputs">${inputs}</div></div>`;
     }).join('');
 
-    const timesOptions=[1,2,3,4,6,8,12,24].map(n=>`<option value="${n}">${n}x/day</option>`).join('');
-
+    const timesOptions=[1,2,3,4,6,8,12,24].map(n=>`<option value="${n}">${n}x / day</option>`).join('');
     const allySlots=Array.from({length:MAX_ALLY},(_,s)=>{
-      const resInputs=RES.map(res=>
-        `<div class="ally-ri"><span class="ally-ri-lbl ${RCLS[res]}">${RLBL[res][0]}</span><input type="number" min="0" step="100" value="0" id="${allyId(rv,s,res)}"></div>`
-      ).join('');
-      const hrVals=RES.map(res=>
-        `<div class="ally-hr-item"><span class="ally-hr-val" id="${allyId(rv,s,res+'_hr')}">0</span><br><span style="font-size:9px;color:var(--text3)">/hr</span></div>`
-      ).join('');
+      const resInputs=RES.map(res=>`<div class="ally-ri"><span class="ally-ri-lbl ${RCLS[res]}">${RLBL[res][0]}</span><input type="number" min="0" step="100" value="0" id="${allyId(rv,s,res)}"></div>`).join('');
+      const hrVals=RES.map(res=>`<div class="ally-hr-item"><span class="ally-hr-val" id="${allyId(rv,s,res+'_hr')}">0</span> <span class="ally-hr-unit">/hr</span></div>`).join('');
       return `<div class="ally-route">
         <div class="ally-top-row">
           <input class="ally-name-input" type="text" placeholder="Ally village name" id="${allyId(rv,s,'name')}">
@@ -413,7 +433,20 @@ function buildResView(){
     }).join('');
 
     card.innerHTML=`
-      <div class="vcard-header"><span class="vcard-name">${rv}</span><span class="badge badge-res">resource</span></div>
+      <div class="vcard-header">
+        <div class="vcard-header-left">
+          <span class="vcard-name">${rv}</span>
+          <span class="badge badge-res">resource</span>
+        </div>
+        <div class="ally-toggle-wrap">
+          <span class="ally-toggle-label">Ally routes</span>
+          <label class="toggle">
+            <input type="checkbox" id="${tid}" onchange="onAllyToggle('${rv.replace(/'/g,"\\'")}')">
+            <span class="toggle-track"></span>
+            <span class="toggle-thumb"></span>
+          </label>
+        </div>
+      </div>
       <div class="prod-section">
         <div class="sub-label">Hourly production</div>
         <div class="four-row">${prodInputs}</div>
@@ -424,8 +457,8 @@ function buildResView(){
         <div class="route-section-label">Army routes (per hour)</div>
         ${routeRows}
       </div>
-      <div class="ally-section">
-        <div class="sub-label" style="margin-bottom:8px">Ally routes (per send)</div>
+      <div class="ally-section" id="${secId}" style="display:none">
+        <div class="sub-label" style="margin-bottom:8px;color:var(--ally)">Ally routes (per send)</div>
         ${allySlots}
       </div>`;
     grid.appendChild(card);
@@ -472,11 +505,7 @@ function recalc(){
       });
     });
     let grand=0;
-    RES.forEach(res=>{
-      grand+=avT[res];
-      const tc=document.getElementById(sid(av,'TOT',res));
-      if(tc)tc.textContent=avT[res]===0?'—':avT[res].toLocaleString();
-    });
+    RES.forEach(res=>{grand+=avT[res];const tc=document.getElementById(sid(av,'TOT',res));if(tc)tc.textContent=avT[res]===0?'—':avT[res].toLocaleString();});
     const gp=document.getElementById(sid(av,'TOT','ALL'));
     if(gp)gp.textContent=grand.toLocaleString();
   });
@@ -484,6 +513,8 @@ function recalc(){
   RES.forEach(res=>document.getElementById('s-'+res).textContent=globalTotals[res].toLocaleString());
 
   RV.forEach(rv=>{
+    const cb=document.getElementById(toggleId(rv));
+    const allyOn=cb&&cb.checked;
     let allyHrTotal={wood:0,clay:0,metal:0,crop:0};
     for(let s=0;s<MAX_ALLY;s++){
       const timesEl=document.getElementById(allyId(rv,s,'times'));
@@ -492,28 +523,20 @@ function recalc(){
         const e=document.getElementById(allyId(rv,s,res));
         const perSend=e?Math.max(0,parseInt(e.value)||0):0;
         const perHour=perSend*times/24;
-        allyHrTotal[res]+=perHour;
+        if(allyOn)allyHrTotal[res]+=perHour;
         const hrEl=document.getElementById(allyId(rv,s,res+'_hr'));
-        if(hrEl){
-          hrEl.textContent=perHour===0?'0':perHour%1===0?perHour.toLocaleString():perHour.toFixed(1);
-        }
+        if(hrEl)hrEl.textContent=perHour===0?'0':perHour%1===0?perHour.toLocaleString():perHour.toFixed(1);
       });
     }
-
     RES.forEach(res=>{
       const pe=document.getElementById(sid(rv,'PROD',res));
       const prod=pe?Math.max(0,parseInt(pe.value)||0):0;
-      const armyOut=outgoing[rv][res];
-      const allyOut=allyHrTotal[res];
-      const totalOut=armyOut+allyOut;
+      const totalOut=outgoing[rv][res]+allyHrTotal[res];
       const avail=prod-totalOut;
       const el=document.getElementById(sid(rv,'AVAIL',res));
       if(el){
         if(prod===0){el.textContent='—';el.className='avail-val avail-neutral';}
-        else{
-          el.textContent=avail%1===0?avail.toLocaleString():avail.toFixed(1);
-          el.className='avail-val '+(avail<0?'avail-warn':'avail-ok');
-        }
+        else{el.textContent=avail%1===0?avail.toLocaleString():avail.toFixed(1);el.className='avail-val '+(avail<0?'avail-warn':'avail-ok');}
       }
     });
   });
@@ -526,7 +549,8 @@ function setView(v){
 }
 
 let saveTimer=null;
-function onInput(){recalc();clearTimeout(saveTimer);saveTimer=setTimeout(saveToGitHub,1500);}
+function triggerSave(){clearTimeout(saveTimer);saveTimer=setTimeout(saveToGitHub,1500);}
+function onInput(){recalc();triggerSave();}
 
 buildResView();
 buildArmyView();
