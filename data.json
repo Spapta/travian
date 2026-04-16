@@ -132,8 +132,8 @@
       "Congo River": {
         "wood": 450,
         "clay": 450,
-        "metal": 0,
-        "crop": 0
+        "metal": 250,
+        "crop": 500
       },
       "Ganga River": {
         "wood": 0,
