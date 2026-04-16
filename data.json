@@ -7,8 +7,7 @@
     "Krossá River",
     "Hvítá River",
     "Vltava River",
-    "Otava River",
-    "1"
+    "Otava River"
   ],
   "av": [
     "Congo River",
@@ -18,38 +17,6 @@
     "Narmada River"
   ],
   "routes": {
-    "1": {
-      "Congo River": {
-        "wood": 0,
-        "clay": 0,
-        "metal": 0,
-        "crop": 0
-      },
-      "Ganga River": {
-        "wood": 0,
-        "clay": 0,
-        "metal": 0,
-        "crop": 0
-      },
-      "Yangtze River": {
-        "wood": 0,
-        "clay": 0,
-        "metal": 0,
-        "crop": 0
-      },
-      "Mekong River": {
-        "wood": 0,
-        "clay": 0,
-        "metal": 0,
-        "crop": 0
-      },
-      "Narmada River": {
-        "wood": 0,
-        "clay": 0,
-        "metal": 0,
-        "crop": 0
-      }
-    },
     "Amazon River": {
       "Congo River": {
         "wood": 0,
@@ -308,12 +275,6 @@
     }
   },
   "production": {
-    "1": {
-      "wood": 0,
-      "clay": 0,
-      "metal": 0,
-      "crop": 0
-    },
     "Amazon River": {
       "wood": 438,
       "clay": 438,
@@ -364,38 +325,6 @@
     }
   },
   "ally": {
-    "1": [
-      {
-        "name": "",
-        "times": 1,
-        "res": {
-          "wood": 0,
-          "clay": 0,
-          "metal": 0,
-          "crop": 0
-        }
-      },
-      {
-        "name": "",
-        "times": 1,
-        "res": {
-          "wood": 0,
-          "clay": 0,
-          "metal": 0,
-          "crop": 0
-        }
-      },
-      {
-        "name": "",
-        "times": 1,
-        "res": {
-          "wood": 0,
-          "clay": 0,
-          "metal": 0,
-          "crop": 0
-        }
-      }
-    ],
     "Amazon River": [
       {
         "name": "",
@@ -654,7 +583,6 @@
     ]
   },
   "allyEnabled": {
-    "1": false,
     "Amazon River": false,
     "Brahmaputra River": true,
     "Mississippi River": true,
