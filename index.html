@@ -679,8 +679,6 @@ function recalc(){
     });
   });
 
-  RES.forEach(res=>document.getElementById('s-'+res).textContent=gt[res].toLocaleString());
-
   RV.forEach(rv=>{
     const cb=document.getElementById(toggleId(rv));
     const allyOn=cb&&cb.checked;
