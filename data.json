@@ -1,0 +1,310 @@
+{
+  "routes": {
+    "Amazon River": {
+      "Congo River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Ganga River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Yangtze River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Mekong River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Narmada River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      }
+    },
+    "Brahmaputra River": {
+      "Congo River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Ganga River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Yangtze River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Mekong River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Narmada River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      }
+    },
+    "Mississippi River": {
+      "Congo River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Ganga River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Yangtze River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Mekong River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Narmada River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      }
+    },
+    "Yellow River": {
+      "Congo River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Ganga River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Yangtze River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Mekong River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Narmada River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      }
+    },
+    "Krossá River": {
+      "Congo River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Ganga River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Yangtze River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Mekong River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Narmada River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      }
+    },
+    "Hvítá River": {
+      "Congo River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Ganga River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Yangtze River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Mekong River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Narmada River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      }
+    },
+    "Vltava River": {
+      "Congo River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Ganga River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Yangtze River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Mekong River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Narmada River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      }
+    },
+    "Otava River": {
+      "Congo River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Ganga River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Yangtze River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Mekong River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Narmada River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      }
+    }
+  },
+  "production": {
+    "Amazon River": {
+      "wood": 438,
+      "clay": 0,
+      "metal": 0,
+      "crop": 0
+    },
+    "Brahmaputra River": {
+      "wood": 0,
+      "clay": 0,
+      "metal": 0,
+      "crop": 0
+    },
+    "Mississippi River": {
+      "wood": 0,
+      "clay": 0,
+      "metal": 0,
+      "crop": 0
+    },
+    "Yellow River": {
+      "wood": 0,
+      "clay": 0,
+      "metal": 0,
+      "crop": 0
+    },
+    "Krossá River": {
+      "wood": 0,
+      "clay": 0,
+      "metal": 0,
+      "crop": 0
+    },
+    "Hvítá River": {
+      "wood": 0,
+      "clay": 0,
+      "metal": 0,
+      "crop": 0
+    },
+    "Vltava River": {
+      "wood": 0,
+      "clay": 0,
+      "metal": 0,
+      "crop": 0
+    },
+    "Otava River": {
+      "wood": 0,
+      "clay": 0,
+      "metal": 0,
+      "crop": 0
+    }
+  }
+}
