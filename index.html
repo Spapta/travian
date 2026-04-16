@@ -471,6 +471,9 @@ function buildArmyView(){
     const card=document.createElement('div');
     card.className='vcard';
     card.dataset.av=av;
+    const prodInputs=RES.map(res=>
+      `<div class="ps-item"><span class="ps-lbl ${RCLS[res]}">${RLBL[res]}</span><input class="ps-input" type="number" min="0" step="100" value="0" id="${sid(av,'AVPROD',res)}"></div>`
+    ).join('');
     const rows=RV.map(rv=>
       `<div class="incoming-row">
         <span class="incoming-from">${rv.replace(' River','')}</span>
@@ -489,6 +492,10 @@ function buildArmyView(){
         <div class="vcard-actions">
           <button class="remove-btn" onclick="removeVillage('army','${avSafe}')" title="Remove village">&#x2715;</button>
         </div>
+      </div>
+      <div class="prod-section">
+        <div class="sub-label" style="font-size:8px;font-weight:700;letter-spacing:.06em;color:var(--text3);text-transform:uppercase;margin-bottom:6px">Local production / hr</div>
+        <div class="ps-row">${prodInputs}</div>
       </div>
       <div class="vcard-body">${rows}</div>
       <div class="total-footer"><span class="tfl">Total / hr</span><div class="tfres-row">${totCols}</div></div>`;
@@ -518,7 +525,12 @@ function collectData(){
       ally[rv].push({name:nameEl?nameEl.value.trim():'',times:timesEl?parseInt(timesEl.value)||1:1,res});
     }
   });
-  return {rv:RV, av:AV, routes, production, ally, allyEnabled};
+  const armyProduction={};
+  AV.forEach(av=>{
+    armyProduction[av]={};
+    RES.forEach(res=>{const e=document.getElementById(sid(av,'AVPROD',res));armyProduction[av][res]=e?Math.max(0,parseInt(e.value)||0):0;});
+  });
+  return {rv:RV, av:AV, routes, production, ally, allyEnabled, armyProduction};
 }
 
 /* ── Apply data to DOM ── */
@@ -562,6 +574,13 @@ function applyData(data){
     }
   });
   reorderCards();
+  // Apply army production
+  AV.forEach(av=>{
+    RES.forEach(res=>{
+      const e=document.getElementById(sid(av,'AVPROD',res));
+      if(e)e.value=(data.armyProduction&&data.armyProduction[av]&&data.armyProduction[av][res]!=null)?data.armyProduction[av][res]:0;
+    });
+  });
   recalc();
 }
 
@@ -660,8 +679,10 @@ function recalc(){
       });
     });
     RES.forEach(res=>{
+      const prod=document.getElementById(sid(av,'AVPROD',res));
+      const p=prod?Math.max(0,parseInt(prod.value)||0):0;
       const tc=document.getElementById(sid(av,'TOT',res));
-      if(tc)tc.textContent=avT[res]===0?'\u2014':avT[res].toLocaleString();
+      if(tc)tc.textContent=(avT[res]+p)===0?'\u2014':(avT[res]+p).toLocaleString();
     });
   });
 
@@ -713,6 +734,7 @@ loadFromGitHub();
 
 document.getElementById('res-grid').addEventListener('input',e=>{if(e.target.tagName==='INPUT'||e.target.tagName==='SELECT')onInput();});
 document.getElementById('res-grid').addEventListener('change',e=>{if(e.target.tagName==='SELECT')onInput();});
+document.getElementById('army-grid').addEventListener('input',e=>{if(e.target.tagName==='INPUT')onInput();});
 </script>
 </body>
 </html>
