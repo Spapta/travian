@@ -142,10 +142,10 @@
         "crop": 500
       },
       "Yangtze River": {
-        "wood": 0,
-        "clay": 0,
-        "metal": 0,
-        "crop": 0
+        "wood": 450,
+        "clay": 450,
+        "metal": 250,
+        "crop": 500
       },
       "Mekong River": {
         "wood": 0,
