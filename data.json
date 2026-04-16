@@ -212,10 +212,10 @@
         "crop": 400
       },
       "Mekong River": {
-        "wood": 0,
-        "clay": 0,
-        "metal": 0,
-        "crop": 0
+        "wood": 350,
+        "clay": 350,
+        "metal": 350,
+        "crop": 400
       },
       "Narmada River": {
         "wood": 0,
