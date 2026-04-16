@@ -20,7 +20,6 @@
 }
 body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--bg); color:var(--text); min-height:100vh; font-size:13px; }
 
-/* ── HEADER ── */
 header { background:var(--bg2); border-bottom:1px solid var(--border); padding:0 20px; display:flex; align-items:center; justify-content:space-between; height:48px; position:sticky; top:0; z-index:10; gap:12px; }
 .logo { display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600; white-space:nowrap; }
 .logo-icon { width:24px; height:24px; background:var(--accent); border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:12px; flex-shrink:0; }
@@ -30,7 +29,7 @@ header { background:var(--bg2); border-bottom:1px solid var(--border); padding:0
 .sync-dot.ok { background:var(--success); }
 .sync-dot.err { background:var(--danger); }
 .sync-dot.busy { background:var(--warning); animation:blink 1s infinite; }
-@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+@keyframes blink { 0%,100%{opacity:1}50%{opacity:.3} }
 .hbtn { padding:4px 10px; border-radius:6px; border:1px solid var(--border2); background:transparent; cursor:pointer; font-size:11px; color:var(--text2); font-family:inherit; transition:all .15s; white-space:nowrap; }
 .hbtn:hover { background:var(--bg3); color:var(--text); }
 .view-toggle { display:flex; background:var(--bg3); border:1px solid var(--border); border-radius:var(--r); padding:2px; gap:2px; }
@@ -38,10 +37,8 @@ header { background:var(--bg2); border-bottom:1px solid var(--border); padding:0
 .vtbtn.active { background:var(--accent); color:#fff; font-weight:500; }
 .vtbtn:not(.active):hover { background:var(--border); color:var(--text); }
 
-/* ── MAIN ── */
 main { padding:16px 20px; max-width:1400px; margin:0 auto; }
 
-/* ── SETTINGS ── */
 .settings-panel { background:var(--bg2); border:1px solid var(--border2); border-radius:var(--rl); padding:14px 18px; margin-bottom:16px; }
 .settings-title { font-size:12px; font-weight:600; margin-bottom:3px; }
 .settings-desc { font-size:11px; color:var(--text2); margin-bottom:12px; line-height:1.5; }
@@ -56,27 +53,19 @@ main { padding:16px 20px; max-width:1400px; margin:0 auto; }
 .conn-btn:hover { opacity:.85; }
 .settings-note { font-size:10px; color:var(--text3); margin-top:8px; }
 
-/* ── SUMMARY BAR ── */
 .summary-bar { display:flex; gap:8px; margin-bottom:16px; }
 .smet { background:var(--bg2); border:1px solid var(--border); border-radius:var(--r); padding:8px 14px; flex:1; display:flex; align-items:center; gap:8px; }
 .smet-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
 .smet-info { display:flex; flex-direction:column; gap:1px; }
 .smet-label { font-size:9px; color:var(--text2); text-transform:uppercase; letter-spacing:.06em; font-weight:600; }
 .smet-val { font-size:17px; font-weight:600; letter-spacing:-.01em; line-height:1; }
-#s-wood { color:var(--wood); }
-#s-clay { color:var(--clay); }
-#s-metal { color:var(--metal); }
-#s-crop { color:var(--crop); }
+#s-wood{color:var(--wood)} #s-clay{color:var(--clay)} #s-metal{color:var(--metal)} #s-crop{color:var(--crop)}
 
-/* ── SECTION HEAD ── */
 .section-head { font-size:10px; font-weight:600; letter-spacing:.08em; color:var(--text3); text-transform:uppercase; margin-bottom:10px; }
+.village-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(310px,1fr)); gap:10px; margin-bottom:16px; align-items:start; }
 
-/* ── VILLAGE GRID ── */
-.village-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(310px,1fr)); gap:10px; margin-bottom:16px; }
 .vcard { background:var(--bg2); border:1px solid var(--border); border-radius:var(--rl); overflow:hidden; transition:border-color .15s; }
 .vcard:hover { border-color:var(--border2); }
-
-/* Card header */
 .vcard-header { padding:8px 12px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; background:var(--bg3); }
 .vcard-hl { display:flex; align-items:center; gap:6px; }
 .vcard-name { font-weight:600; font-size:12px; }
@@ -84,7 +73,6 @@ main { padding:16px 20px; max-width:1400px; margin:0 auto; }
 .badge-res { background:rgba(109,170,78,.12); color:var(--wood); border:1px solid rgba(109,170,78,.2); }
 .badge-army { background:var(--accent-bg); color:var(--accent); border:1px solid rgba(68,112,232,.2); }
 
-/* Ally toggle */
 .ally-toggle-wrap { display:flex; align-items:center; gap:5px; }
 .atl { font-size:9px; color:var(--text3); font-weight:500; letter-spacing:.03em; transition:color .2s; }
 .atl.on { color:var(--ally); }
@@ -95,7 +83,6 @@ main { padding:16px 20px; max-width:1400px; margin:0 auto; }
 .tthumb { position:absolute; top:2px; left:2px; width:10px; height:10px; background:var(--text3); border-radius:50%; transition:transform .2s,background .2s; pointer-events:none; }
 .toggle input:checked ~ .tthumb { transform:translateX(12px); background:var(--ally); }
 
-/* Production section */
 .prod-section { padding:7px 12px; border-bottom:1px solid var(--border); }
 .ps-row { display:flex; gap:4px; }
 .ps-item { flex:1; display:flex; flex-direction:column; align-items:center; gap:2px; }
@@ -112,7 +99,6 @@ main { padding:16px 20px; max-width:1400px; margin:0 auto; }
 .ps-divider-line { flex:1; height:1px; background:var(--border); }
 .ps-divider-txt { font-size:8px; font-weight:700; color:var(--text3); letter-spacing:.06em; text-transform:uppercase; white-space:nowrap; }
 
-/* Route rows */
 .vcard-body { padding:4px 12px 6px; }
 .route-row { display:flex; align-items:center; justify-content:space-between; padding:4px 0; border-bottom:1px solid var(--border); }
 .route-row:last-child { border-bottom:none; }
@@ -125,7 +111,6 @@ main { padding:16px 20px; max-width:1400px; margin:0 auto; }
 .ri input:hover { border-color:var(--border2); }
 .ri input:focus { outline:none; border-color:var(--accent); background:var(--bg4); }
 
-/* Ally section */
 .ally-section { border-top:1px solid rgba(144,112,224,.12); padding:6px 12px 8px; background:rgba(144,112,224,.03); }
 .ally-section-lbl { font-size:8px; font-weight:700; color:var(--ally); letter-spacing:.07em; text-transform:uppercase; margin-bottom:6px; opacity:.8; }
 .ally-route { background:var(--bg3); border:1px solid var(--border); border-radius:var(--r); padding:6px 8px; margin-bottom:5px; }
@@ -148,13 +133,8 @@ main { padding:16px 20px; max-width:1400px; margin:0 auto; }
 .ally-hr-val { font-weight:600; color:var(--ally); }
 .ally-hr-unit { color:var(--text3); font-size:9px; }
 
-/* Resource color labels */
-.wood-lbl { color:var(--wood); }
-.clay-lbl { color:var(--clay); }
-.metal-lbl { color:var(--metal); }
-.crop-lbl { color:var(--crop); }
+.wood-lbl{color:var(--wood)} .clay-lbl{color:var(--clay)} .metal-lbl{color:var(--metal)} .crop-lbl{color:var(--crop)}
 
-/* Army view */
 .incoming-row { display:flex; justify-content:space-between; align-items:center; padding:4px 0; border-bottom:1px solid var(--border); }
 .incoming-row:last-child { border-bottom:none; }
 .incoming-from { color:var(--text2); width:90px; flex-shrink:0; font-size:11px; }
@@ -171,7 +151,6 @@ main { padding:16px 20px; max-width:1400px; margin:0 auto; }
 .grand-pill { font-size:12px; font-weight:700; padding:2px 10px; border-radius:20px; background:var(--accent-bg); color:var(--accent); border:1px solid rgba(68,112,232,.2); }
 .zero { color:var(--text3); }
 
-/* Toast */
 .toast { position:fixed; bottom:16px; right:16px; padding:8px 14px; border-radius:var(--r); font-size:12px; font-weight:500; z-index:999; opacity:0; transition:opacity .3s; pointer-events:none; }
 .toast.show { opacity:1; }
 .toast.ok { background:var(--success-bg); color:var(--success); border:1px solid rgba(74,170,120,.3); }
@@ -179,25 +158,19 @@ main { padding:16px 20px; max-width:1400px; margin:0 auto; }
 .toast.info { background:var(--accent-bg); color:var(--accent); border:1px solid rgba(68,112,232,.3); }
 
 @media(max-width:640px) {
-  main { padding:12px; }
-  .summary-bar { flex-wrap:wrap; }
-  .smet { min-width:calc(50% - 4px); }
-  header { flex-wrap:wrap; height:auto; padding:8px 12px; gap:6px; }
+  main{padding:12px}
+  .summary-bar{flex-wrap:wrap}
+  .smet{min-width:calc(50% - 4px)}
+  header{flex-wrap:wrap;height:auto;padding:8px 12px;gap:6px}
 }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">
-    <div class="logo-icon">&#9876;</div>
-    Trade Route Tracker
-  </div>
+  <div class="logo"><div class="logo-icon">&#9876;</div>Trade Route Tracker</div>
   <div class="header-right">
-    <div class="sync-pill">
-      <span class="sync-dot" id="sync-dot"></span>
-      <span id="sync-label">Not configured</span>
-    </div>
+    <div class="sync-pill"><span class="sync-dot" id="sync-dot"></span><span id="sync-label">Not configured</span></div>
     <button class="hbtn" onclick="toggleSettings()">&#9881; Settings</button>
     <button class="hbtn" onclick="loadFromGitHub()">&#8635; Refresh</button>
     <div class="view-toggle">
@@ -210,23 +183,11 @@ main { padding:16px 20px; max-width:1400px; margin:0 auto; }
 <main>
   <div class="settings-panel" id="settings-panel" style="display:none">
     <div class="settings-title">GitHub sync</div>
-    <div class="settings-desc">
-      Data is saved as <code>data.json</code> in your repo. Each person needs their own token from
-      <a href="https://github.com/settings/tokens/new" target="_blank">github.com/settings/tokens/new</a> — select <strong>repo</strong> scope.
-    </div>
+    <div class="settings-desc">Data is saved as <code>data.json</code> in your repo. Each person needs their own token from <a href="https://github.com/settings/tokens/new" target="_blank">github.com/settings/tokens/new</a> — select <strong>repo</strong> scope.</div>
     <div class="settings-row">
-      <div class="sf">
-        <span class="sl">Username</span>
-        <input class="si" id="cfg-owner" placeholder="spapta">
-      </div>
-      <div class="sf">
-        <span class="sl">Repository</span>
-        <input class="si" id="cfg-repo" placeholder="travian">
-      </div>
-      <div class="sf" style="flex:2">
-        <span class="sl">Personal access token</span>
-        <input class="si" id="cfg-token" type="password" placeholder="ghp_...">
-      </div>
+      <div class="sf"><span class="sl">Username</span><input class="si" id="cfg-owner" placeholder="spapta"></div>
+      <div class="sf"><span class="sl">Repository</span><input class="si" id="cfg-repo" placeholder="travian"></div>
+      <div class="sf" style="flex:2"><span class="sl">Personal access token</span><input class="si" id="cfg-token" type="password" placeholder="ghp_..."></div>
       <button class="conn-btn" onclick="saveConfig()">Connect</button>
     </div>
     <div class="settings-note">Token stored only in your browser — never shared.</div>
@@ -243,7 +204,6 @@ main { padding:16px 20px; max-width:1400px; margin:0 auto; }
     <div class="section-head">Resource villages</div>
     <div class="village-grid" id="res-grid"></div>
   </div>
-
   <div id="army-view" style="display:none">
     <div class="section-head">Army villages</div>
     <div class="village-grid" id="army-grid"></div>
@@ -265,346 +225,294 @@ const LSK = 'travian_v5';
 const CFG_KEY = 'travian_cfg';
 const DATA_FILE = 'data.json';
 
-/* ── ID hashing ── */
-function sid(a, b, c) {
-  const s = a + '||' + b + '||' + c;
-  let h = 0;
-  for (let i = 0; i < s.length; i++) h = Math.imul(31, h) + s.charCodeAt(i) | 0;
-  return 'id' + (h >>> 0).toString(36);
-}
-const allyId = (rv, slot, field) => sid('ally_' + slot, rv, field);
-const toggleId = rv => sid('tog', rv, 'ally');
-const allySectionId = rv => sid('allysec', rv, 'wrap');
+function sid(a,b,c){const s=a+'||'+b+'||'+c;let h=0;for(let i=0;i<s.length;i++)h=Math.imul(31,h)+s.charCodeAt(i)|0;return 'id'+(h>>>0).toString(36);}
+const allyId=(rv,slot,field)=>sid('ally_'+slot,rv,field);
+const toggleId=rv=>sid('tog',rv,'ally');
+const allySectionId=rv=>sid('allysec',rv,'wrap');
 
-/* ── Config ── */
-function getConfig() { try { return JSON.parse(localStorage.getItem(CFG_KEY) || '{}'); } catch(e) { return {}; } }
-function setConfig(c) { localStorage.setItem(CFG_KEY, JSON.stringify(c)); }
+function getConfig(){try{return JSON.parse(localStorage.getItem(CFG_KEY)||'{}')}catch(e){return {};}}
+function setConfig(c){localStorage.setItem(CFG_KEY,JSON.stringify(c));}
 
-/* ── Sync status ── */
-function setSyncStatus(state, label) {
-  document.getElementById('sync-dot').className = 'sync-dot' + (state ? ' ' + state : '');
-  document.getElementById('sync-label').textContent = label;
+function setSyncStatus(state,label){
+  document.getElementById('sync-dot').className='sync-dot'+(state?' '+state:'');
+  document.getElementById('sync-label').textContent=label;
 }
 
-/* ── Toast ── */
-let toastTimer = null;
-function showToast(msg, type) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.className = 'toast ' + (type||'ok') + ' show';
+let toastTimer=null;
+function showToast(msg,type){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.className='toast '+(type||'ok')+' show';
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.remove('show'), 3000);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),3000);
 }
 
-/* ── Settings panel ── */
-function toggleSettings() {
-  const p = document.getElementById('settings-panel');
-  const open = p.style.display === 'none';
-  p.style.display = open ? 'block' : 'none';
-  if (open) {
-    const cfg = getConfig();
-    document.getElementById('cfg-owner').value = cfg.owner || '';
-    document.getElementById('cfg-repo').value = cfg.repo || '';
-    document.getElementById('cfg-token').value = cfg.token || '';
+function toggleSettings(){
+  const p=document.getElementById('settings-panel');
+  const open=p.style.display==='none';
+  p.style.display=open?'block':'none';
+  if(open){
+    const cfg=getConfig();
+    document.getElementById('cfg-owner').value=cfg.owner||'';
+    document.getElementById('cfg-repo').value=cfg.repo||'';
+    document.getElementById('cfg-token').value=cfg.token||'';
   }
 }
 
-function saveConfig() {
-  const owner = document.getElementById('cfg-owner').value.trim();
-  const repo = document.getElementById('cfg-repo').value.trim();
-  const token = document.getElementById('cfg-token').value.trim();
-  if (!owner || !repo || !token) { showToast('Please fill in all fields', 'err'); return; }
-  setConfig({ owner, repo, token });
-  document.getElementById('settings-panel').style.display = 'none';
-  showToast('Connecting...', 'info');
+function saveConfig(){
+  const owner=document.getElementById('cfg-owner').value.trim();
+  const repo=document.getElementById('cfg-repo').value.trim();
+  const token=document.getElementById('cfg-token').value.trim();
+  if(!owner||!repo||!token){showToast('Please fill in all fields','err');return;}
+  setConfig({owner,repo,token});
+  document.getElementById('settings-panel').style.display='none';
+  showToast('Connecting...','info');
   loadFromGitHub();
 }
 
-/* ── Ally toggle ── */
-function onAllyToggle(rv) {
-  const cb = document.getElementById(toggleId(rv));
-  const sec = document.getElementById(allySectionId(rv));
-  const lbl = cb.closest('.ally-toggle-wrap').querySelector('.atl');
-  const on = cb.checked;
-  sec.style.display = on ? '' : 'none';
-  lbl.textContent = on ? 'Ally on' : 'Ally';
-  lbl.className = 'atl' + (on ? ' on' : '');
+// Re-sort cards: ally-enabled villages move to end of grid
+function reorderCards(){
+  const grid=document.getElementById('res-grid');
+  const cards=[...grid.querySelectorAll('.vcard[data-rv]')];
+  cards.sort((a,b)=>{
+    const cbA=document.getElementById(toggleId(a.dataset.rv));
+    const cbB=document.getElementById(toggleId(b.dataset.rv));
+    const aOn=cbA?cbA.checked:false;
+    const bOn=cbB?cbB.checked:false;
+    return aOn===bOn?0:aOn?1:-1;
+  });
+  cards.forEach(c=>grid.appendChild(c));
+}
+
+function onAllyToggle(rv){
+  const cb=document.getElementById(toggleId(rv));
+  const sec=document.getElementById(allySectionId(rv));
+  const lbl=cb.closest('.ally-toggle-wrap').querySelector('.atl');
+  const on=cb.checked;
+  sec.style.display=on?'':'none';
+  lbl.textContent=on?'Ally on':'Ally';
+  lbl.className='atl'+(on?' on':'');
+  reorderCards();
   recalc();
   triggerSave();
 }
 
-/* ── Collect all data from DOM ── */
-function collectData() {
-  const routes = {}, production = {}, ally = {}, allyEnabled = {};
-  RV.forEach(rv => {
-    production[rv] = {};
-    RES.forEach(res => {
-      const e = document.getElementById(sid(rv, 'PROD', res));
-      production[rv][res] = e ? (Math.max(0, parseInt(e.value) || 0)) : 0;
+function collectData(){
+  const routes={},production={},ally={},allyEnabled={};
+  RV.forEach(rv=>{
+    production[rv]={};
+    RES.forEach(res=>{
+      const e=document.getElementById(sid(rv,'PROD',res));
+      production[rv][res]=e?Math.max(0,parseInt(e.value)||0):0;
     });
-    routes[rv] = {};
-    AV.forEach(av => {
-      routes[rv][av] = {};
-      RES.forEach(res => {
-        const e = document.getElementById(sid(rv, av, res));
-        routes[rv][av][res] = e ? (Math.max(0, parseInt(e.value) || 0)) : 0;
+    routes[rv]={};
+    AV.forEach(av=>{
+      routes[rv][av]={};
+      RES.forEach(res=>{
+        const e=document.getElementById(sid(rv,av,res));
+        routes[rv][av][res]=e?Math.max(0,parseInt(e.value)||0):0;
       });
     });
-    const cb = document.getElementById(toggleId(rv));
-    allyEnabled[rv] = cb ? cb.checked : false;
-    ally[rv] = [];
-    for (let s = 0; s < MAX_ALLY; s++) {
-      const nameEl = document.getElementById(allyId(rv, s, 'name'));
-      const timesEl = document.getElementById(allyId(rv, s, 'times'));
-      const res = {};
-      RES.forEach(r => {
-        const e = document.getElementById(allyId(rv, s, r));
-        res[r] = e ? (Math.max(0, parseInt(e.value) || 0)) : 0;
+    const cb=document.getElementById(toggleId(rv));
+    allyEnabled[rv]=cb?cb.checked:false;
+    ally[rv]=[];
+    for(let s=0;s<MAX_ALLY;s++){
+      const nameEl=document.getElementById(allyId(rv,s,'name'));
+      const timesEl=document.getElementById(allyId(rv,s,'times'));
+      const res={};
+      RES.forEach(r=>{
+        const e=document.getElementById(allyId(rv,s,r));
+        res[r]=e?Math.max(0,parseInt(e.value)||0):0;
       });
-      ally[rv].push({
-        name: nameEl ? nameEl.value.trim() : '',
-        times: timesEl ? (parseInt(timesEl.value) || 1) : 1,
-        res
-      });
+      ally[rv].push({name:nameEl?nameEl.value.trim():'',times:timesEl?parseInt(timesEl.value)||1:1,res});
     }
   });
-  return { routes, production, ally, allyEnabled };
+  return {routes,production,ally,allyEnabled};
 }
 
-/* ── Apply data to DOM ── */
-function applyData(data) {
-  if (!data) return;
-  RV.forEach(rv => {
-    RES.forEach(res => {
-      const e = document.getElementById(sid(rv, 'PROD', res));
-      if (e) e.value = (data.production && data.production[rv] && data.production[rv][res] != null) ? data.production[rv][res] : 0;
+function applyData(data){
+  if(!data)return;
+  RV.forEach(rv=>{
+    RES.forEach(res=>{
+      const e=document.getElementById(sid(rv,'PROD',res));
+      if(e)e.value=(data.production&&data.production[rv]&&data.production[rv][res]!=null)?data.production[rv][res]:0;
     });
-    AV.forEach(av => {
-      RES.forEach(res => {
-        const e = document.getElementById(sid(rv, av, res));
-        if (e) e.value = (data.routes && data.routes[rv] && data.routes[rv][av] && data.routes[rv][av][res] != null) ? data.routes[rv][av][res] : 0;
+    AV.forEach(av=>{
+      RES.forEach(res=>{
+        const e=document.getElementById(sid(rv,av,res));
+        if(e)e.value=(data.routes&&data.routes[rv]&&data.routes[rv][av]&&data.routes[rv][av][res]!=null)?data.routes[rv][av][res]:0;
       });
     });
-    const enabled = !!(data.allyEnabled && data.allyEnabled[rv]);
-    const cb = document.getElementById(toggleId(rv));
-    const sec = document.getElementById(allySectionId(rv));
-    const lbl = cb ? cb.closest('.ally-toggle-wrap').querySelector('.atl') : null;
-    if (cb) {
-      cb.checked = enabled;
-      if (sec) sec.style.display = enabled ? '' : 'none';
-      if (lbl) { lbl.textContent = enabled ? 'Ally on' : 'Ally'; lbl.className = 'atl' + (enabled ? ' on' : ''); }
+    const enabled=!!(data.allyEnabled&&data.allyEnabled[rv]);
+    const cb=document.getElementById(toggleId(rv));
+    const sec=document.getElementById(allySectionId(rv));
+    const lbl=cb?cb.closest('.ally-toggle-wrap').querySelector('.atl'):null;
+    if(cb){
+      cb.checked=enabled;
+      if(sec)sec.style.display=enabled?'':'none';
+      if(lbl){lbl.textContent=enabled?'Ally on':'Ally';lbl.className='atl'+(enabled?' on':'');}
     }
-    if (data.ally && data.ally[rv]) {
-      data.ally[rv].forEach((slot, s) => {
-        const n = document.getElementById(allyId(rv, s, 'name'));
-        const t = document.getElementById(allyId(rv, s, 'times'));
-        if (n) n.value = slot.name || '';
-        if (t) t.value = slot.times || 1;
-        RES.forEach(r => {
-          const e = document.getElementById(allyId(rv, s, r));
-          if (e) e.value = (slot.res && slot.res[r] != null) ? slot.res[r] : 0;
+    if(data.ally&&data.ally[rv]){
+      data.ally[rv].forEach((slot,s)=>{
+        const n=document.getElementById(allyId(rv,s,'name'));
+        const t=document.getElementById(allyId(rv,s,'times'));
+        if(n)n.value=slot.name||'';
+        if(t)t.value=slot.times||1;
+        RES.forEach(r=>{
+          const e=document.getElementById(allyId(rv,s,r));
+          if(e)e.value=(slot.res&&slot.res[r]!=null)?slot.res[r]:0;
         });
       });
     }
   });
+  reorderCards();
   recalc();
 }
 
-/* ── Safe UTF-8 base64 decode ── */
-function b64DecodeUTF8(str) {
-  const bytes = atob(str);
-  const arr = new Uint8Array(bytes.length);
-  for (let i = 0; i < bytes.length; i++) arr[i] = bytes.charCodeAt(i);
+function b64DecodeUTF8(str){
+  const bytes=atob(str);
+  const arr=new Uint8Array(bytes.length);
+  for(let i=0;i<bytes.length;i++)arr[i]=bytes.charCodeAt(i);
   return new TextDecoder('utf-8').decode(arr);
 }
 
-/* ── Safe UTF-8 base64 encode ── */
-function b64EncodeUTF8(str) {
-  const arr = new TextEncoder().encode(str);
-  let binary = '';
-  arr.forEach(b => binary += String.fromCharCode(b));
-  return btoa(binary);
+function b64EncodeUTF8(str){
+  const arr=new TextEncoder().encode(str);
+  let bin='';
+  arr.forEach(b=>bin+=String.fromCharCode(b));
+  return btoa(bin);
 }
 
-/* ── Load from GitHub ── */
-let fileSha = null;
+let fileSha=null;
 
-async function loadFromGitHub() {
-  const cfg = getConfig();
-  if (!cfg.token || !cfg.owner || !cfg.repo) {
-    tryLoadLocal();
-    setSyncStatus('', 'Not configured');
-    return;
-  }
-  setSyncStatus('busy', 'Loading...');
-  try {
-    const res = await fetch(
-      `https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${DATA_FILE}`,
-      { headers: { 'Authorization': 'token ' + cfg.token, 'Accept': 'application/vnd.github.v3+json' } }
-    );
-    if (res.status === 404) {
-      setSyncStatus('ok', 'Connected');
-      showToast('Connected — no data yet', 'info');
-      tryLoadLocal();
-      return;
-    }
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    const json = await res.json();
-    fileSha = json.sha;
-    const raw = json.content.replace(/\n/g, '');
-    const decoded = JSON.parse(b64DecodeUTF8(raw));
-    localStorage.setItem(LSK, JSON.stringify(decoded));
+async function loadFromGitHub(){
+  const cfg=getConfig();
+  if(!cfg.token||!cfg.owner||!cfg.repo){tryLoadLocal();setSyncStatus('','Not configured');return;}
+  setSyncStatus('busy','Loading...');
+  try{
+    const res=await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${DATA_FILE}`,
+      {headers:{'Authorization':'token '+cfg.token,'Accept':'application/vnd.github.v3+json'}});
+    if(res.status===404){setSyncStatus('ok','Connected');showToast('Connected \u2014 no data yet','info');tryLoadLocal();return;}
+    if(!res.ok)throw new Error('HTTP '+res.status);
+    const json=await res.json();
+    fileSha=json.sha;
+    const decoded=JSON.parse(b64DecodeUTF8(json.content.replace(/\n/g,'')));
+    localStorage.setItem(LSK,JSON.stringify(decoded));
     applyData(decoded);
-    setSyncStatus('ok', 'Synced');
-    showToast('Data loaded \u2713', 'ok');
-  } catch(e) {
-    setSyncStatus('err', 'Load failed');
-    showToast('Load failed: ' + e.message, 'err');
+    setSyncStatus('ok','Synced');
+    showToast('Data loaded \u2713','ok');
+  }catch(e){
+    setSyncStatus('err','Load failed');
+    showToast('Load failed: '+e.message,'err');
     tryLoadLocal();
   }
 }
 
-function tryLoadLocal() {
-  const keys = [LSK, 'travian_v4', 'travian_v3', 'travian_v2', 'travian_tracker_v1'];
-  for (const k of keys) {
-    const raw = localStorage.getItem(k);
-    if (raw) {
-      try { applyData(JSON.parse(raw)); return; } catch(e) {}
-    }
+function tryLoadLocal(){
+  for(const k of [LSK,'travian_v4','travian_v3','travian_v2','travian_tracker_v1']){
+    const raw=localStorage.getItem(k);
+    if(raw){try{applyData(JSON.parse(raw));return;}catch(e){}}
   }
 }
 
-/* ── Save to GitHub ── */
-async function saveToGitHub() {
-  const cfg = getConfig();
-  if (!cfg.token || !cfg.owner || !cfg.repo) return;
-  setSyncStatus('busy', 'Saving...');
-  const data = collectData();
-  localStorage.setItem(LSK, JSON.stringify(data));
-  const content = b64EncodeUTF8(JSON.stringify(data, null, 2));
-  try {
-    let sha = fileSha;
-    if (!sha) {
-      const r = await fetch(
-        `https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${DATA_FILE}`,
-        { headers: { 'Authorization': 'token ' + cfg.token, 'Accept': 'application/vnd.github.v3+json' } }
-      );
-      if (r.ok) { const j = await r.json(); sha = j.sha; fileSha = sha; }
+async function saveToGitHub(){
+  const cfg=getConfig();
+  if(!cfg.token||!cfg.owner||!cfg.repo)return;
+  setSyncStatus('busy','Saving...');
+  const data=collectData();
+  localStorage.setItem(LSK,JSON.stringify(data));
+  const content=b64EncodeUTF8(JSON.stringify(data,null,2));
+  try{
+    let sha=fileSha;
+    if(!sha){
+      const r=await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${DATA_FILE}`,
+        {headers:{'Authorization':'token '+cfg.token,'Accept':'application/vnd.github.v3+json'}});
+      if(r.ok){const j=await r.json();sha=j.sha;fileSha=sha;}
     }
-    const body = { message: 'Update trade route data', content };
-    if (sha) body.sha = sha;
-    const res = await fetch(
-      `https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${DATA_FILE}`,
-      {
-        method: 'PUT',
-        headers: { 'Authorization': 'token ' + cfg.token, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
-        body: JSON.stringify(body)
-      }
-    );
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    const j = await res.json();
-    fileSha = j.content.sha;
-    setSyncStatus('ok', 'Saved');
-    showToast('Saved to GitHub \u2713', 'ok');
-  } catch(e) {
-    setSyncStatus('err', 'Save failed');
-    showToast('Save failed: ' + e.message, 'err');
+    const body={message:'Update trade route data',content};
+    if(sha)body.sha=sha;
+    const res=await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${DATA_FILE}`,{
+      method:'PUT',
+      headers:{'Authorization':'token '+cfg.token,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'},
+      body:JSON.stringify(body)
+    });
+    if(!res.ok)throw new Error('HTTP '+res.status);
+    const j=await res.json();
+    fileSha=j.content.sha;
+    setSyncStatus('ok','Saved');
+    showToast('Saved to GitHub \u2713','ok');
+  }catch(e){
+    setSyncStatus('err','Save failed');
+    showToast('Save failed: '+e.message,'err');
   }
 }
 
-/* ── Build resource village cards ── */
-function buildResView() {
-  const grid = document.getElementById('res-grid');
-  grid.innerHTML = '';
-  const timesOpts = [1,2,3,4,6,8,12,24].map(n => `<option value="${n}">${n}x/day</option>`).join('');
+function buildResView(){
+  const grid=document.getElementById('res-grid');
+  grid.innerHTML='';
+  const timesOpts=[1,2,3,4,6,8,12,24].map(n=>`<option value="${n}">${n}x/day</option>`).join('');
 
-  RV.forEach(rv => {
-    const card = document.createElement('div');
-    card.className = 'vcard';
+  RV.forEach(rv=>{
+    const card=document.createElement('div');
+    card.className='vcard';
+    card.dataset.rv=rv;
 
-    const prodInputs = RES.map(res =>
+    const prodInputs=RES.map(res=>
       `<div class="ps-item">
         <span class="ps-lbl ${RCLS[res]}">${RLBL[res]}</span>
         <input class="ps-input" type="number" min="0" step="100" value="0" id="${sid(rv,'PROD',res)}">
       </div>`
     ).join('');
 
-    const availItems = RES.map(res =>
+    const availItems=RES.map(res=>
       `<div class="ps-item">
         <span class="ps-lbl ${RCLS[res]}">${RLBL[res][0]}</span>
         <span class="avail-val avail-neutral" id="${sid(rv,'AVAIL',res)}">&#8212;</span>
       </div>`
     ).join('');
 
-    const routeRows = AV.map(av =>
+    const routeRows=AV.map(av=>
       `<div class="route-row">
         <span class="route-label">${av.replace(' River','')}</span>
         <div class="res-inputs">
-          ${RES.map(res =>
-            `<div class="ri">
-              <span class="ri-lbl ${RCLS[res]}">${RLBL[res][0]}</span>
-              <input type="number" min="0" step="100" value="0" id="${sid(rv,av,res)}">
-            </div>`
-          ).join('')}
+          ${RES.map(res=>`<div class="ri"><span class="ri-lbl ${RCLS[res]}">${RLBL[res][0]}</span><input type="number" min="0" step="100" value="0" id="${sid(rv,av,res)}"></div>`).join('')}
         </div>
       </div>`
     ).join('');
 
-    const allySlots = Array.from({length: MAX_ALLY}, (_, s) =>
+    const allySlots=Array.from({length:MAX_ALLY},(_,s)=>
       `<div class="ally-route">
         <div class="ally-top-row">
           <input class="ally-name-input" type="text" placeholder="Village name" id="${allyId(rv,s,'name')}">
           <select class="times-select" id="${allyId(rv,s,'times')}">${timesOpts}</select>
         </div>
         <div class="ally-res-row">
-          ${RES.map(res =>
-            `<div class="ally-ri">
-              <span class="ally-ri-lbl ${RCLS[res]}">${RLBL[res][0]}</span>
-              <input type="number" min="0" step="100" value="0" id="${allyId(rv,s,res)}">
-            </div>`
-          ).join('')}
+          ${RES.map(res=>`<div class="ally-ri"><span class="ally-ri-lbl ${RCLS[res]}">${RLBL[res][0]}</span><input type="number" min="0" step="100" value="0" id="${allyId(rv,s,res)}"></div>`).join('')}
         </div>
         <div class="ally-hr-row">
-          ${RES.map(res =>
-            `<div class="ally-hr-item">
-              <span class="ally-hr-val" id="${allyId(rv,s,res+'_hr')}">0</span>
-              <span class="ally-hr-unit">/hr</span>
-            </div>`
-          ).join('')}
+          ${RES.map(res=>`<div class="ally-hr-item"><span class="ally-hr-val" id="${allyId(rv,s,res+'_hr')}">0</span><span class="ally-hr-unit">/hr</span></div>`).join('')}
         </div>
       </div>`
     ).join('');
 
-    const tid = toggleId(rv);
-    const secId = allySectionId(rv);
-    const rvSafe = rv.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
-
-    card.innerHTML = `
+    const rvSafe=rv.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+    card.innerHTML=`
       <div class="vcard-header">
-        <div class="vcard-hl">
-          <span class="vcard-name">${rv}</span>
-          <span class="badge badge-res">res</span>
-        </div>
+        <div class="vcard-hl"><span class="vcard-name">${rv}</span><span class="badge badge-res">res</span></div>
         <div class="ally-toggle-wrap">
           <span class="atl">Ally</span>
           <label class="toggle">
-            <input type="checkbox" id="${tid}" onchange="onAllyToggle('${rvSafe}')">
-            <span class="ttrack"></span>
-            <span class="tthumb"></span>
+            <input type="checkbox" id="${toggleId(rv)}" onchange="onAllyToggle('${rvSafe}')">
+            <span class="ttrack"></span><span class="tthumb"></span>
           </label>
         </div>
       </div>
       <div class="prod-section">
         <div class="ps-row">${prodInputs}</div>
-        <div class="ps-divider">
-          <span class="ps-divider-line"></span>
-          <span class="ps-divider-txt">available</span>
-          <span class="ps-divider-line"></span>
-        </div>
+        <div class="ps-divider"><span class="ps-divider-line"></span><span class="ps-divider-txt">available</span><span class="ps-divider-line"></span></div>
         <div class="ps-row">${availItems}</div>
       </div>
       <div class="vcard-body">${routeRows}</div>
-      <div class="ally-section" id="${secId}" style="display:none">
+      <div class="ally-section" id="${allySectionId(rv)}" style="display:none">
         <div class="ally-section-lbl">Ally routes</div>
         ${allySlots}
       </div>`;
@@ -612,149 +520,104 @@ function buildResView() {
   });
 }
 
-/* ── Build army village cards ── */
-function buildArmyView() {
-  const grid = document.getElementById('army-grid');
-  grid.innerHTML = '';
-  AV.forEach(av => {
-    const card = document.createElement('div');
-    card.className = 'vcard';
-
-    const rows = RV.map(rv =>
+function buildArmyView(){
+  const grid=document.getElementById('army-grid');
+  grid.innerHTML='';
+  AV.forEach(av=>{
+    const card=document.createElement('div');
+    card.className='vcard';
+    const rows=RV.map(rv=>
       `<div class="incoming-row">
         <span class="incoming-from">${rv.replace(' River','')}</span>
         <div class="incoming-res">
-          ${RES.map(res =>
-            `<div class="ires">
-              <span class="ires-lbl ${RCLS[res]}">${RLBL[res][0]}</span>
-              <span class="ires-val zero" id="${sid(av,rv,res)}">&#8212;</span>
-            </div>`
-          ).join('')}
+          ${RES.map(res=>`<div class="ires"><span class="ires-lbl ${RCLS[res]}">${RLBL[res][0]}</span><span class="ires-val zero" id="${sid(av,rv,res)}">&#8212;</span></div>`).join('')}
         </div>
       </div>`
     ).join('');
-
-    const totCols = RES.map(res =>
-      `<div class="tfres">
-        <span class="tfres-lbl ${RCLS[res]}">${RLBL[res][0]}</span>
-        <span class="tfres-val" id="${sid(av,'TOT',res)}">0</span>
-      </div>`
+    const totCols=RES.map(res=>
+      `<div class="tfres"><span class="tfres-lbl ${RCLS[res]}">${RLBL[res][0]}</span><span class="tfres-val" id="${sid(av,'TOT',res)}">0</span></div>`
     ).join('');
-
-    card.innerHTML = `
-      <div class="vcard-header">
-        <div class="vcard-hl">
-          <span class="vcard-name">${av}</span>
-          <span class="badge badge-army">army</span>
-        </div>
-      </div>
+    card.innerHTML=`
+      <div class="vcard-header"><div class="vcard-hl"><span class="vcard-name">${av}</span><span class="badge badge-army">army</span></div></div>
       <div class="vcard-body">${rows}</div>
-      <div class="total-footer">
-        <span class="tfl">Total / hr</span>
-        <div class="tfres-row">${totCols}</div>
-        <span class="grand-pill" id="${sid(av,'TOT','ALL')}">0</span>
-      </div>`;
+      <div class="total-footer"><span class="tfl">Total / hr</span><div class="tfres-row">${totCols}</div><span class="grand-pill" id="${sid(av,'TOT','ALL')}">0</span></div>`;
     grid.appendChild(card);
   });
 }
 
-/* ── Recalculate all totals ── */
-function recalc() {
-  const gt = {wood:0, clay:0, metal:0, crop:0};
-  const out = {};
-  RV.forEach(rv => { out[rv] = {wood:0, clay:0, metal:0, crop:0}; });
+function recalc(){
+  const gt={wood:0,clay:0,metal:0,crop:0};
+  const out={};
+  RV.forEach(rv=>{out[rv]={wood:0,clay:0,metal:0,crop:0};});
 
-  AV.forEach(av => {
-    const avT = {wood:0, clay:0, metal:0, crop:0};
-    RV.forEach(rv => {
-      RES.forEach(res => {
-        const inp = document.getElementById(sid(rv, av, res));
-        const v = inp ? Math.max(0, parseInt(inp.value) || 0) : 0;
-        avT[res] += v;
-        gt[res] += v;
-        out[rv][res] += v;
-        const cell = document.getElementById(sid(av, rv, res));
-        if (cell) {
-          cell.textContent = v === 0 ? '\u2014' : v.toLocaleString();
-          cell.className = 'ires-val' + (v === 0 ? ' zero' : '');
-        }
+  AV.forEach(av=>{
+    const avT={wood:0,clay:0,metal:0,crop:0};
+    RV.forEach(rv=>{
+      RES.forEach(res=>{
+        const inp=document.getElementById(sid(rv,av,res));
+        const v=inp?Math.max(0,parseInt(inp.value)||0):0;
+        avT[res]+=v; gt[res]+=v; out[rv][res]+=v;
+        const cell=document.getElementById(sid(av,rv,res));
+        if(cell){cell.textContent=v===0?'\u2014':v.toLocaleString();cell.className='ires-val'+(v===0?' zero':'');}
       });
     });
-    let grand = 0;
-    RES.forEach(res => {
-      grand += avT[res];
-      const tc = document.getElementById(sid(av, 'TOT', res));
-      if (tc) tc.textContent = avT[res] === 0 ? '\u2014' : avT[res].toLocaleString();
+    let grand=0;
+    RES.forEach(res=>{
+      grand+=avT[res];
+      const tc=document.getElementById(sid(av,'TOT',res));
+      if(tc)tc.textContent=avT[res]===0?'\u2014':avT[res].toLocaleString();
     });
-    const gp = document.getElementById(sid(av, 'TOT', 'ALL'));
-    if (gp) gp.textContent = grand.toLocaleString();
+    const gp=document.getElementById(sid(av,'TOT','ALL'));
+    if(gp)gp.textContent=grand.toLocaleString();
   });
 
-  RES.forEach(res => {
-    document.getElementById('s-' + res).textContent = gt[res].toLocaleString();
-  });
+  RES.forEach(res=>document.getElementById('s-'+res).textContent=gt[res].toLocaleString());
 
-  RV.forEach(rv => {
-    const cb = document.getElementById(toggleId(rv));
-    const allyOn = cb && cb.checked;
-    const ahr = {wood:0, clay:0, metal:0, crop:0};
-
-    for (let s = 0; s < MAX_ALLY; s++) {
-      const timesEl = document.getElementById(allyId(rv, s, 'times'));
-      const times = timesEl ? (parseInt(timesEl.value) || 1) : 1;
-      RES.forEach(res => {
-        const e = document.getElementById(allyId(rv, s, res));
-        const perSend = e ? Math.max(0, parseInt(e.value) || 0) : 0;
-        const perHour = perSend * times / 24;
-        if (allyOn) ahr[res] += perHour;
-        const hrEl = document.getElementById(allyId(rv, s, res + '_hr'));
-        if (hrEl) hrEl.textContent = perHour === 0 ? '0' : (perHour % 1 === 0 ? perHour.toLocaleString() : perHour.toFixed(1));
+  RV.forEach(rv=>{
+    const cb=document.getElementById(toggleId(rv));
+    const allyOn=cb&&cb.checked;
+    const ahr={wood:0,clay:0,metal:0,crop:0};
+    for(let s=0;s<MAX_ALLY;s++){
+      const timesEl=document.getElementById(allyId(rv,s,'times'));
+      const times=timesEl?parseInt(timesEl.value)||1:1;
+      RES.forEach(res=>{
+        const e=document.getElementById(allyId(rv,s,res));
+        const perSend=e?Math.max(0,parseInt(e.value)||0):0;
+        const perHour=perSend*times/24;
+        if(allyOn)ahr[res]+=perHour;
+        const hrEl=document.getElementById(allyId(rv,s,res+'_hr'));
+        if(hrEl)hrEl.textContent=perHour===0?'0':(perHour%1===0?perHour.toLocaleString():perHour.toFixed(1));
       });
     }
-
-    RES.forEach(res => {
-      const pe = document.getElementById(sid(rv, 'PROD', res));
-      const prod = pe ? Math.max(0, parseInt(pe.value) || 0) : 0;
-      const avail = prod - out[rv][res] - ahr[res];
-      const el = document.getElementById(sid(rv, 'AVAIL', res));
-      if (el) {
-        if (prod === 0) {
-          el.textContent = '\u2014';
-          el.className = 'avail-val avail-neutral';
-        } else {
-          el.textContent = avail % 1 === 0 ? avail.toLocaleString() : avail.toFixed(1);
-          el.className = 'avail-val ' + (avail < 0 ? 'avail-warn' : 'avail-ok');
-        }
+    RES.forEach(res=>{
+      const pe=document.getElementById(sid(rv,'PROD',res));
+      const prod=pe?Math.max(0,parseInt(pe.value)||0):0;
+      const avail=prod-out[rv][res]-ahr[res];
+      const el=document.getElementById(sid(rv,'AVAIL',res));
+      if(el){
+        if(prod===0){el.textContent='\u2014';el.className='avail-val avail-neutral';}
+        else{el.textContent=avail%1===0?avail.toLocaleString():avail.toFixed(1);el.className='avail-val '+(avail<0?'avail-warn':'avail-ok');}
       }
     });
   });
 }
 
-/* ── View switching ── */
-function setView(v) {
-  document.getElementById('res-view').style.display = v === 'res' ? '' : 'none';
-  document.getElementById('army-view').style.display = v === 'army' ? '' : 'none';
-  document.querySelectorAll('.vtbtn').forEach((b, i) =>
-    b.classList.toggle('active', (i === 0 && v === 'res') || (i === 1 && v === 'army'))
-  );
+function setView(v){
+  document.getElementById('res-view').style.display=v==='res'?'':'none';
+  document.getElementById('army-view').style.display=v==='army'?'':'none';
+  document.querySelectorAll('.vtbtn').forEach((b,i)=>b.classList.toggle('active',(i===0&&v==='res')||(i===1&&v==='army')));
 }
 
-/* ── Debounced save ── */
-let saveTimer = null;
-function triggerSave() { clearTimeout(saveTimer); saveTimer = setTimeout(saveToGitHub, 1500); }
-function onInput() { recalc(); triggerSave(); }
+let saveTimer=null;
+function triggerSave(){clearTimeout(saveTimer);saveTimer=setTimeout(saveToGitHub,1500);}
+function onInput(){recalc();triggerSave();}
 
-/* ── Init ── */
 buildResView();
 buildArmyView();
 loadFromGitHub();
 
-document.getElementById('res-grid').addEventListener('input', e => {
-  if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') onInput();
-});
-document.getElementById('res-grid').addEventListener('change', e => {
-  if (e.target.tagName === 'SELECT') onInput();
-});
+document.getElementById('res-grid').addEventListener('input',e=>{if(e.target.tagName==='INPUT'||e.target.tagName==='SELECT')onInput();});
+document.getElementById('res-grid').addEventListener('change',e=>{if(e.target.tagName==='SELECT')onInput();});
 </script>
 </body>
 </html>
