@@ -594,7 +594,7 @@
   },
   "armyProduction": {
     "Congo River": {
-      "wood": 0,
+      "wood": 1750,
       "clay": 0,
       "metal": 0,
       "crop": 0
