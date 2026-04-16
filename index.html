@@ -20,7 +20,7 @@
 }
 body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--bg); color:var(--text); min-height:100vh; font-size:13px; }
 
-header { background:var(--bg2); border-bottom:1px solid var(--border); padding:0 20px; display:flex; align-items:center; justify-content:space-between; height:48px; position:sticky; top:0; z-index:10; gap:12px; }
+header { background:var(--bg2); border-bottom:1px solid var(--border); padding:0 20px; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; height:52px; position:sticky; top:0; z-index:10; gap:12px; }
 .logo { display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600; white-space:nowrap; }
 .logo-icon { width:24px; height:24px; background:var(--accent); border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:12px; flex-shrink:0; }
 .header-right { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
@@ -30,8 +30,9 @@ header { background:var(--bg2); border-bottom:1px solid var(--border); padding:0
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 .hbtn { padding:4px 10px; border-radius:6px; border:1px solid var(--border2); background:transparent; cursor:pointer; font-size:11px; color:var(--text2); font-family:inherit; transition:all .15s; white-space:nowrap; }
 .hbtn:hover{background:var(--bg3);color:var(--text)}
-.view-toggle { display:flex; background:var(--bg3); border:1px solid var(--border); border-radius:var(--r); padding:2px; gap:2px; }
-.vtbtn { padding:4px 12px; border-radius:6px; border:none; background:transparent; cursor:pointer; font-size:11px; color:var(--text2); font-family:inherit; transition:all .15s; white-space:nowrap; }
+.header-right { display:flex; align-items:center; gap:8px; justify-content:flex-end; }
+.view-toggle { display:flex; background:var(--bg3); border:1px solid var(--border); border-radius:var(--r); padding:3px; gap:2px; }
+.vtbtn { padding:6px 20px; border-radius:7px; border:none; background:transparent; cursor:pointer; font-size:12px; font-weight:500; color:var(--text2); font-family:inherit; transition:all .15s; white-space:nowrap; }
 .vtbtn.active{background:var(--accent);color:#fff;font-weight:500}
 .vtbtn:not(.active):hover{background:var(--border);color:var(--text)}
 
@@ -196,14 +197,14 @@ main { padding:16px 20px; max-width:1400px; margin:0 auto; }
 
 <header>
   <div class="logo"><div class="logo-icon">&#9876;</div>Trade Route Tracker</div>
+  <div class="view-toggle">
+    <button class="vtbtn active" onclick="setView('res')">Resource villages</button>
+    <button class="vtbtn" onclick="setView('army')">Army villages</button>
+  </div>
   <div class="header-right">
     <div class="sync-pill"><span class="sync-dot" id="sync-dot"></span><span id="sync-label">Not configured</span></div>
     <button class="hbtn" onclick="toggleSettings()">&#9881; Settings</button>
     <button class="hbtn" onclick="loadFromGitHub()">&#8635; Refresh</button>
-    <div class="view-toggle">
-      <button class="vtbtn active" onclick="setView('res')">Resource villages</button>
-      <button class="vtbtn" onclick="setView('army')">Army villages</button>
-    </div>
   </div>
 </header>
 
