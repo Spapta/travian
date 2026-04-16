@@ -26,138 +26,165 @@ header { background:var(--bg2); border-bottom:1px solid var(--border); padding:0
 .header-right { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
 .sync-pill { display:flex; align-items:center; gap:5px; font-size:11px; color:var(--text2); padding:3px 8px; border-radius:20px; border:1px solid var(--border); background:var(--bg3); white-space:nowrap; }
 .sync-dot { width:5px; height:5px; border-radius:50%; background:var(--text3); flex-shrink:0; transition:background .3s; }
-.sync-dot.ok { background:var(--success); }
-.sync-dot.err { background:var(--danger); }
-.sync-dot.busy { background:var(--warning); animation:blink 1s infinite; }
-@keyframes blink { 0%,100%{opacity:1}50%{opacity:.3} }
+.sync-dot.ok{background:var(--success)} .sync-dot.err{background:var(--danger)} .sync-dot.busy{background:var(--warning);animation:blink 1s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 .hbtn { padding:4px 10px; border-radius:6px; border:1px solid var(--border2); background:transparent; cursor:pointer; font-size:11px; color:var(--text2); font-family:inherit; transition:all .15s; white-space:nowrap; }
-.hbtn:hover { background:var(--bg3); color:var(--text); }
+.hbtn:hover{background:var(--bg3);color:var(--text)}
 .view-toggle { display:flex; background:var(--bg3); border:1px solid var(--border); border-radius:var(--r); padding:2px; gap:2px; }
 .vtbtn { padding:4px 12px; border-radius:6px; border:none; background:transparent; cursor:pointer; font-size:11px; color:var(--text2); font-family:inherit; transition:all .15s; white-space:nowrap; }
-.vtbtn.active { background:var(--accent); color:#fff; font-weight:500; }
-.vtbtn:not(.active):hover { background:var(--border); color:var(--text); }
+.vtbtn.active{background:var(--accent);color:#fff;font-weight:500}
+.vtbtn:not(.active):hover{background:var(--border);color:var(--text)}
 
 main { padding:16px 20px; max-width:1400px; margin:0 auto; }
 
+/* Settings */
 .settings-panel { background:var(--bg2); border:1px solid var(--border2); border-radius:var(--rl); padding:14px 18px; margin-bottom:16px; }
-.settings-title { font-size:12px; font-weight:600; margin-bottom:3px; }
-.settings-desc { font-size:11px; color:var(--text2); margin-bottom:12px; line-height:1.5; }
-.settings-desc a { color:var(--accent); text-decoration:none; }
-.settings-row { display:flex; gap:8px; flex-wrap:wrap; align-items:flex-end; }
-.sf { display:flex; flex-direction:column; gap:4px; flex:1; min-width:140px; }
-.sl { font-size:10px; font-weight:600; color:var(--text2); text-transform:uppercase; letter-spacing:.06em; }
-.si { background:var(--bg3); border:1px solid var(--border2); border-radius:var(--r); color:var(--text); font-size:12px; padding:6px 10px; font-family:inherit; }
-.si:focus { outline:none; border-color:var(--accent); }
-.si::placeholder { color:var(--text3); }
-.conn-btn { padding:6px 16px; border-radius:var(--r); border:none; background:var(--accent); color:#fff; font-size:12px; font-weight:500; cursor:pointer; font-family:inherit; white-space:nowrap; }
-.conn-btn:hover { opacity:.85; }
-.settings-note { font-size:10px; color:var(--text3); margin-top:8px; }
+.settings-title{font-size:12px;font-weight:600;margin-bottom:3px}
+.settings-desc{font-size:11px;color:var(--text2);margin-bottom:12px;line-height:1.5}
+.settings-desc a{color:var(--accent);text-decoration:none}
+.settings-row{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end}
+.sf{display:flex;flex-direction:column;gap:4px;flex:1;min-width:140px}
+.sl{font-size:10px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.06em}
+.si{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);color:var(--text);font-size:12px;padding:6px 10px;font-family:inherit}
+.si:focus{outline:none;border-color:var(--accent)}
+.si::placeholder{color:var(--text3)}
+.conn-btn{padding:6px 16px;border-radius:var(--r);border:none;background:var(--accent);color:#fff;font-size:12px;font-weight:500;cursor:pointer;font-family:inherit;white-space:nowrap}
+.conn-btn:hover{opacity:.85}
+.settings-note{font-size:10px;color:var(--text3);margin-top:8px}
 
-.summary-bar { display:flex; gap:8px; margin-bottom:16px; }
-.smet { background:var(--bg2); border:1px solid var(--border); border-radius:var(--r); padding:8px 14px; flex:1; display:flex; align-items:center; gap:8px; }
-.smet-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
-.smet-info { display:flex; flex-direction:column; gap:1px; }
-.smet-label { font-size:9px; color:var(--text2); text-transform:uppercase; letter-spacing:.06em; font-weight:600; }
-.smet-val { font-size:17px; font-weight:600; letter-spacing:-.01em; line-height:1; }
+/* Summary */
+.summary-bar{display:flex;gap:8px;margin-bottom:16px}
+.smet{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:8px 14px;flex:1;display:flex;align-items:center;gap:8px}
+.smet-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.smet-info{display:flex;flex-direction:column;gap:1px}
+.smet-label{font-size:9px;color:var(--text2);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+.smet-val{font-size:17px;font-weight:600;letter-spacing:-.01em;line-height:1}
 #s-wood{color:var(--wood)} #s-clay{color:var(--clay)} #s-metal{color:var(--metal)} #s-crop{color:var(--crop)}
 
-.section-head { font-size:10px; font-weight:600; letter-spacing:.08em; color:var(--text3); text-transform:uppercase; margin-bottom:10px; }
-.village-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(310px,1fr)); gap:10px; margin-bottom:16px; align-items:start; }
+/* Section header with add button */
+.section-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.section-head{font-size:10px;font-weight:600;letter-spacing:.08em;color:var(--text3);text-transform:uppercase}
+.add-village-btn{display:flex;align-items:center;gap:5px;padding:4px 10px;border-radius:6px;border:1px solid var(--border2);background:transparent;cursor:pointer;font-size:11px;color:var(--text2);font-family:inherit;transition:all .15s}
+.add-village-btn:hover{background:var(--bg3);color:var(--text)}
+.add-village-btn .plus{font-size:14px;line-height:1;color:var(--accent)}
 
-.vcard { background:var(--bg2); border:1px solid var(--border); border-radius:var(--rl); overflow:hidden; transition:border-color .15s; }
-.vcard:hover { border-color:var(--border2); }
-.vcard-header { padding:8px 12px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; background:var(--bg3); }
-.vcard-hl { display:flex; align-items:center; gap:6px; }
-.vcard-name { font-weight:600; font-size:12px; }
-.badge { font-size:9px; padding:1px 6px; border-radius:20px; font-weight:600; letter-spacing:.02em; }
-.badge-res { background:rgba(109,170,78,.12); color:var(--wood); border:1px solid rgba(109,170,78,.2); }
-.badge-army { background:var(--accent-bg); color:var(--accent); border:1px solid rgba(68,112,232,.2); }
+/* Add village inline form */
+.add-form{display:flex;gap:8px;align-items:center;margin-bottom:10px;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r);padding:8px 12px}
+.add-form input{flex:1;background:var(--bg3);border:1px solid var(--border2);border-radius:6px;color:var(--text);font-size:12px;padding:5px 10px;font-family:inherit}
+.add-form input:focus{outline:none;border-color:var(--accent)}
+.add-form input::placeholder{color:var(--text3)}
+.add-form-btn{padding:5px 14px;border-radius:6px;border:none;background:var(--accent);color:#fff;font-size:12px;font-weight:500;cursor:pointer;font-family:inherit;white-space:nowrap}
+.add-form-btn:hover{opacity:.85}
+.add-form-cancel{padding:5px 10px;border-radius:6px;border:1px solid var(--border2);background:transparent;color:var(--text2);font-size:12px;cursor:pointer;font-family:inherit}
+.add-form-cancel:hover{background:var(--bg3)}
 
-.ally-toggle-wrap { display:flex; align-items:center; gap:5px; }
-.atl { font-size:9px; color:var(--text3); font-weight:500; letter-spacing:.03em; transition:color .2s; }
-.atl.on { color:var(--ally); }
-.toggle { position:relative; width:28px; height:16px; flex-shrink:0; }
-.toggle input { opacity:0; width:0; height:0; position:absolute; }
-.ttrack { position:absolute; inset:0; background:var(--bg); border:1px solid var(--border2); border-radius:16px; cursor:pointer; transition:background .2s,border-color .2s; }
-.toggle input:checked + .ttrack { background:var(--ally-bg); border-color:var(--ally); }
-.tthumb { position:absolute; top:2px; left:2px; width:10px; height:10px; background:var(--text3); border-radius:50%; transition:transform .2s,background .2s; pointer-events:none; }
-.toggle input:checked ~ .tthumb { transform:translateX(12px); background:var(--ally); }
+.village-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:10px;margin-bottom:16px;align-items:start}
 
-.prod-section { padding:7px 12px; border-bottom:1px solid var(--border); }
-.ps-row { display:flex; gap:4px; }
-.ps-item { flex:1; display:flex; flex-direction:column; align-items:center; gap:2px; }
-.ps-lbl { font-size:8px; font-weight:700; letter-spacing:.05em; }
-.ps-input { width:100%; text-align:center; border:1px solid var(--border); border-radius:5px; background:var(--bg3); color:var(--text); font-size:11px; padding:3px 1px; font-family:inherit; -moz-appearance:textfield; }
-.ps-input::-webkit-inner-spin-button { -webkit-appearance:none; }
-.ps-input:hover { border-color:var(--border2); }
-.ps-input:focus { outline:none; border-color:var(--accent); background:var(--bg4); }
-.avail-val { font-size:11px; font-weight:600; width:100%; text-align:center; padding:2px 1px; border-radius:4px; }
-.avail-ok { color:var(--success); background:var(--success-bg); }
-.avail-warn { color:var(--danger); background:var(--danger-bg); }
-.avail-neutral { color:var(--text3); }
-.ps-divider { display:flex; align-items:center; gap:6px; margin:5px 0 4px; }
-.ps-divider-line { flex:1; height:1px; background:var(--border); }
-.ps-divider-txt { font-size:8px; font-weight:700; color:var(--text3); letter-spacing:.06em; text-transform:uppercase; white-space:nowrap; }
+/* Cards */
+.vcard{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;transition:border-color .15s}
+.vcard:hover{border-color:var(--border2)}
+.vcard-header{padding:8px 12px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--bg3)}
+.vcard-hl{display:flex;align-items:center;gap:6px;flex:1;min-width:0}
+.vcard-name{font-weight:600;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.badge{font-size:9px;padding:1px 6px;border-radius:20px;font-weight:600;letter-spacing:.02em}
+.badge-res{background:rgba(109,170,78,.12);color:var(--wood);border:1px solid rgba(109,170,78,.2)}
+.badge-army{background:var(--accent-bg);color:var(--accent);border:1px solid rgba(68,112,232,.2)}
+.vcard-actions{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.remove-btn{width:18px;height:18px;border-radius:4px;border:1px solid var(--border2);background:transparent;cursor:pointer;color:var(--text3);font-size:12px;display:flex;align-items:center;justify-content:center;line-height:1;transition:all .15s;flex-shrink:0}
+.remove-btn:hover{background:var(--danger-bg);border-color:var(--danger);color:var(--danger)}
 
-.vcard-body { padding:4px 12px 6px; }
-.route-row { display:flex; align-items:center; justify-content:space-between; padding:4px 0; border-bottom:1px solid var(--border); }
-.route-row:last-child { border-bottom:none; }
-.route-label { font-size:11px; color:var(--text2); width:80px; flex-shrink:0; }
-.res-inputs { display:flex; gap:3px; flex:1; justify-content:flex-end; }
-.ri { display:flex; flex-direction:column; align-items:center; gap:1px; }
-.ri-lbl { font-size:8px; font-weight:700; letter-spacing:.04em; }
-.ri input { width:48px; text-align:center; border:1px solid var(--border); border-radius:5px; background:var(--bg3); color:var(--text); font-size:11px; padding:3px 1px; font-family:inherit; -moz-appearance:textfield; }
-.ri input::-webkit-inner-spin-button { -webkit-appearance:none; }
-.ri input:hover { border-color:var(--border2); }
-.ri input:focus { outline:none; border-color:var(--accent); background:var(--bg4); }
+/* Toggle */
+.ally-toggle-wrap{display:flex;align-items:center;gap:5px}
+.atl{font-size:9px;color:var(--text3);font-weight:500;letter-spacing:.03em;transition:color .2s}
+.atl.on{color:var(--ally)}
+.toggle{position:relative;width:28px;height:16px;flex-shrink:0}
+.toggle input{opacity:0;width:0;height:0;position:absolute}
+.ttrack{position:absolute;inset:0;background:var(--bg);border:1px solid var(--border2);border-radius:16px;cursor:pointer;transition:background .2s,border-color .2s}
+.toggle input:checked + .ttrack{background:var(--ally-bg);border-color:var(--ally)}
+.tthumb{position:absolute;top:2px;left:2px;width:10px;height:10px;background:var(--text3);border-radius:50%;transition:transform .2s,background .2s;pointer-events:none}
+.toggle input:checked ~ .tthumb{transform:translateX(12px);background:var(--ally)}
 
-.ally-section { border-top:1px solid rgba(144,112,224,.12); padding:6px 12px 8px; background:rgba(144,112,224,.03); }
-.ally-section-lbl { font-size:8px; font-weight:700; color:var(--ally); letter-spacing:.07em; text-transform:uppercase; margin-bottom:6px; opacity:.8; }
-.ally-route { background:var(--bg3); border:1px solid var(--border); border-radius:var(--r); padding:6px 8px; margin-bottom:5px; }
-.ally-route:last-child { margin-bottom:0; }
-.ally-top-row { display:flex; align-items:center; gap:6px; margin-bottom:5px; }
-.ally-name-input { flex:1; background:var(--bg4); border:1px solid var(--border2); border-radius:5px; color:var(--text); font-size:11px; padding:3px 7px; font-family:inherit; min-width:0; }
-.ally-name-input:focus { outline:none; border-color:var(--ally); }
-.ally-name-input::placeholder { color:var(--text3); }
-.times-select { background:var(--bg4); border:1px solid var(--border2); border-radius:5px; color:var(--text2); font-size:10px; padding:3px 5px; font-family:inherit; cursor:pointer; flex-shrink:0; }
-.times-select:focus { outline:none; border-color:var(--ally); }
-.ally-res-row { display:flex; gap:3px; }
-.ally-ri { display:flex; flex-direction:column; align-items:center; gap:1px; flex:1; }
-.ally-ri-lbl { font-size:8px; font-weight:700; letter-spacing:.04em; }
-.ally-ri input { width:100%; text-align:center; border:1px solid var(--border); border-radius:5px; background:var(--bg4); color:var(--text); font-size:11px; padding:3px 1px; font-family:inherit; -moz-appearance:textfield; }
-.ally-ri input::-webkit-inner-spin-button { -webkit-appearance:none; }
-.ally-ri input:hover { border-color:rgba(144,112,224,.3); }
-.ally-ri input:focus { outline:none; border-color:var(--ally); }
-.ally-hr-row { display:flex; gap:3px; margin-top:4px; }
-.ally-hr-item { flex:1; text-align:center; font-size:10px; }
-.ally-hr-val { font-weight:600; color:var(--ally); }
-.ally-hr-unit { color:var(--text3); font-size:9px; }
+/* Production */
+.prod-section{padding:7px 12px;border-bottom:1px solid var(--border)}
+.ps-row{display:flex;gap:4px}
+.ps-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px}
+.ps-lbl{font-size:8px;font-weight:700;letter-spacing:.05em}
+.ps-input{width:100%;text-align:center;border:1px solid var(--border);border-radius:5px;background:var(--bg3);color:var(--text);font-size:11px;padding:3px 1px;font-family:inherit;-moz-appearance:textfield}
+.ps-input::-webkit-inner-spin-button{-webkit-appearance:none}
+.ps-input:hover{border-color:var(--border2)}
+.ps-input:focus{outline:none;border-color:var(--accent);background:var(--bg4)}
+.avail-val{font-size:11px;font-weight:600;width:100%;text-align:center;padding:2px 1px;border-radius:4px}
+.avail-ok{color:var(--success);background:var(--success-bg)}
+.avail-warn{color:var(--danger);background:var(--danger-bg)}
+.avail-neutral{color:var(--text3)}
+.ps-divider{display:flex;align-items:center;gap:6px;margin:5px 0 4px}
+.ps-divider-line{flex:1;height:1px;background:var(--border)}
+.ps-divider-txt{font-size:8px;font-weight:700;color:var(--text3);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+
+/* Routes */
+.vcard-body{padding:4px 12px 6px}
+.route-row{display:flex;align-items:center;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border)}
+.route-row:last-child{border-bottom:none}
+.route-label{font-size:11px;color:var(--text2);width:80px;flex-shrink:0}
+.res-inputs{display:flex;gap:3px;flex:1;justify-content:flex-end}
+.ri{display:flex;flex-direction:column;align-items:center;gap:1px}
+.ri-lbl{font-size:8px;font-weight:700;letter-spacing:.04em}
+.ri input{width:48px;text-align:center;border:1px solid var(--border);border-radius:5px;background:var(--bg3);color:var(--text);font-size:11px;padding:3px 1px;font-family:inherit;-moz-appearance:textfield}
+.ri input::-webkit-inner-spin-button{-webkit-appearance:none}
+.ri input:hover{border-color:var(--border2)}
+.ri input:focus{outline:none;border-color:var(--accent);background:var(--bg4)}
+
+/* Ally */
+.ally-section{border-top:1px solid rgba(144,112,224,.12);padding:6px 12px 8px;background:rgba(144,112,224,.03)}
+.ally-section-lbl{font-size:8px;font-weight:700;color:var(--ally);letter-spacing:.07em;text-transform:uppercase;margin-bottom:6px;opacity:.8}
+.ally-route{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:6px 8px;margin-bottom:5px}
+.ally-route:last-child{margin-bottom:0}
+.ally-top-row{display:flex;align-items:center;gap:6px;margin-bottom:5px}
+.ally-name-input{flex:1;background:var(--bg4);border:1px solid var(--border2);border-radius:5px;color:var(--text);font-size:11px;padding:3px 7px;font-family:inherit;min-width:0}
+.ally-name-input:focus{outline:none;border-color:var(--ally)}
+.ally-name-input::placeholder{color:var(--text3)}
+.times-select{background:var(--bg4);border:1px solid var(--border2);border-radius:5px;color:var(--text2);font-size:10px;padding:3px 5px;font-family:inherit;cursor:pointer;flex-shrink:0}
+.times-select:focus{outline:none;border-color:var(--ally)}
+.ally-res-row{display:flex;gap:3px}
+.ally-ri{display:flex;flex-direction:column;align-items:center;gap:1px;flex:1}
+.ally-ri-lbl{font-size:8px;font-weight:700;letter-spacing:.04em}
+.ally-ri input{width:100%;text-align:center;border:1px solid var(--border);border-radius:5px;background:var(--bg4);color:var(--text);font-size:11px;padding:3px 1px;font-family:inherit;-moz-appearance:textfield}
+.ally-ri input::-webkit-inner-spin-button{-webkit-appearance:none}
+.ally-ri input:hover{border-color:rgba(144,112,224,.3)}
+.ally-ri input:focus{outline:none;border-color:var(--ally)}
+.ally-hr-row{display:flex;gap:3px;margin-top:4px}
+.ally-hr-item{flex:1;text-align:center;font-size:10px}
+.ally-hr-val{font-weight:600;color:var(--ally)}
+.ally-hr-unit{color:var(--text3);font-size:9px}
 
 .wood-lbl{color:var(--wood)} .clay-lbl{color:var(--clay)} .metal-lbl{color:var(--metal)} .crop-lbl{color:var(--crop)}
 
-.incoming-row { display:flex; justify-content:space-between; align-items:center; padding:4px 0; border-bottom:1px solid var(--border); }
-.incoming-row:last-child { border-bottom:none; }
-.incoming-from { color:var(--text2); width:90px; flex-shrink:0; font-size:11px; }
-.incoming-res { display:flex; gap:3px; }
-.ires { display:flex; flex-direction:column; align-items:center; gap:1px; }
-.ires-lbl { font-size:8px; font-weight:700; letter-spacing:.04em; }
-.ires-val { font-size:11px; font-weight:500; min-width:44px; text-align:center; }
-.total-footer { display:flex; align-items:center; justify-content:space-between; padding:6px 12px; background:var(--bg3); border-top:1px solid var(--border2); }
-.tfl { font-size:9px; font-weight:700; color:var(--text2); text-transform:uppercase; letter-spacing:.06em; }
-.tfres-row { display:flex; gap:3px; }
-.tfres { display:flex; flex-direction:column; align-items:center; gap:1px; }
-.tfres-lbl { font-size:8px; font-weight:700; letter-spacing:.04em; }
-.tfres-val { font-size:12px; font-weight:600; min-width:44px; text-align:center; }
-.grand-pill { font-size:12px; font-weight:700; padding:2px 10px; border-radius:20px; background:var(--accent-bg); color:var(--accent); border:1px solid rgba(68,112,232,.2); }
-.zero { color:var(--text3); }
+/* Army */
+.incoming-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid var(--border)}
+.incoming-row:last-child{border-bottom:none}
+.incoming-from{color:var(--text2);width:90px;flex-shrink:0;font-size:11px}
+.incoming-res{display:flex;gap:3px}
+.ires{display:flex;flex-direction:column;align-items:center;gap:1px}
+.ires-lbl{font-size:8px;font-weight:700;letter-spacing:.04em}
+.ires-val{font-size:11px;font-weight:500;min-width:44px;text-align:center}
+.total-footer{display:flex;align-items:center;justify-content:space-between;padding:6px 12px;background:var(--bg3);border-top:1px solid var(--border2)}
+.tfl{font-size:9px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.06em}
+.tfres-row{display:flex;gap:3px}
+.tfres{display:flex;flex-direction:column;align-items:center;gap:1px}
+.tfres-lbl{font-size:8px;font-weight:700;letter-spacing:.04em}
+.tfres-val{font-size:12px;font-weight:600;min-width:44px;text-align:center}
+.zero{color:var(--text3)}
 
-.toast { position:fixed; bottom:16px; right:16px; padding:8px 14px; border-radius:var(--r); font-size:12px; font-weight:500; z-index:999; opacity:0; transition:opacity .3s; pointer-events:none; }
-.toast.show { opacity:1; }
-.toast.ok { background:var(--success-bg); color:var(--success); border:1px solid rgba(74,170,120,.3); }
-.toast.err { background:var(--danger-bg); color:var(--danger); border:1px solid rgba(204,68,68,.3); }
-.toast.info { background:var(--accent-bg); color:var(--accent); border:1px solid rgba(68,112,232,.3); }
+/* Empty state */
+.empty-state{color:var(--text3);font-size:12px;padding:20px 0;text-align:center;grid-column:1/-1}
 
-@media(max-width:640px) {
+.toast{position:fixed;bottom:16px;right:16px;padding:8px 14px;border-radius:var(--r);font-size:12px;font-weight:500;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:1}
+.toast.ok{background:var(--success-bg);color:var(--success);border:1px solid rgba(74,170,120,.3)}
+.toast.err{background:var(--danger-bg);color:var(--danger);border:1px solid rgba(204,68,68,.3)}
+.toast.info{background:var(--accent-bg);color:var(--accent);border:1px solid rgba(68,112,232,.3)}
+
+@media(max-width:640px){
   main{padding:12px}
   .summary-bar{flex-wrap:wrap}
   .smet{min-width:calc(50% - 4px)}
@@ -201,11 +228,28 @@ main { padding:16px 20px; max-width:1400px; margin:0 auto; }
   </div>
 
   <div id="res-view">
-    <div class="section-head">Resource villages</div>
+    <div class="section-bar">
+      <span class="section-head">Resource villages</span>
+      <button class="add-village-btn" onclick="showAddForm('res')"><span class="plus">+</span> Add village</button>
+    </div>
+    <div class="add-form" id="add-form-res" style="display:none">
+      <input type="text" id="add-input-res" placeholder="Village name e.g. Danube River" onkeydown="if(event.key==='Enter')confirmAdd('res')">
+      <button class="add-form-btn" onclick="confirmAdd('res')">Add</button>
+      <button class="add-form-cancel" onclick="hideAddForm('res')">Cancel</button>
+    </div>
     <div class="village-grid" id="res-grid"></div>
   </div>
+
   <div id="army-view" style="display:none">
-    <div class="section-head">Army villages</div>
+    <div class="section-bar">
+      <span class="section-head">Army villages</span>
+      <button class="add-village-btn" onclick="showAddForm('army')"><span class="plus">+</span> Add village</button>
+    </div>
+    <div class="add-form" id="add-form-army" style="display:none">
+      <input type="text" id="add-input-army" placeholder="Village name e.g. Rhine River" onkeydown="if(event.key==='Enter')confirmAdd('army')">
+      <button class="add-form-btn" onclick="confirmAdd('army')">Add</button>
+      <button class="add-form-cancel" onclick="hideAddForm('army')">Cancel</button>
+    </div>
     <div class="village-grid" id="army-grid"></div>
   </div>
 </main>
@@ -215,13 +259,14 @@ main { padding:16px 20px; max-width:1400px; margin:0 auto; }
 <script>
 'use strict';
 
-const RV = ["Amazon River","Brahmaputra River","Mississippi River","Yellow River","Kross\u00e1 River","Hv\u00edt\u00e1 River","Vltava River","Otava River"];
-const AV = ["Congo River","Ganga River","Yangtze River","Mekong River","Narmada River"];
+// Dynamic village lists — loaded from saved data or defaults
+let RV = ["Amazon River","Brahmaputra River","Mississippi River","Yellow River","Kross\u00e1 River","Hv\u00edt\u00e1 River","Vltava River","Otava River"];
+let AV = ["Congo River","Ganga River","Yangtze River","Mekong River","Narmada River"];
 const RES = ["wood","clay","metal","crop"];
 const RLBL = {wood:"Wood",clay:"Clay",metal:"Metal",crop:"Crop"};
 const RCLS = {wood:"wood-lbl",clay:"clay-lbl",metal:"metal-lbl",crop:"crop-lbl"};
 const MAX_ALLY = 3;
-const LSK = 'travian_v5';
+const LSK = 'travian_v6';
 const CFG_KEY = 'travian_cfg';
 const DATA_FILE = 'data.json';
 
@@ -250,12 +295,7 @@ function toggleSettings(){
   const p=document.getElementById('settings-panel');
   const open=p.style.display==='none';
   p.style.display=open?'block':'none';
-  if(open){
-    const cfg=getConfig();
-    document.getElementById('cfg-owner').value=cfg.owner||'';
-    document.getElementById('cfg-repo').value=cfg.repo||'';
-    document.getElementById('cfg-token').value=cfg.token||'';
-  }
+  if(open){const cfg=getConfig();document.getElementById('cfg-owner').value=cfg.owner||'';document.getElementById('cfg-repo').value=cfg.repo||'';document.getElementById('cfg-token').value=cfg.token||'';}
 }
 
 function saveConfig(){
@@ -269,16 +309,61 @@ function saveConfig(){
   loadFromGitHub();
 }
 
-// Re-sort cards: ally-enabled villages move to end of grid
+/* ── Add / Remove villages ── */
+function showAddForm(type){
+  document.getElementById('add-form-'+type).style.display='flex';
+  document.getElementById('add-input-'+type).focus();
+}
+function hideAddForm(type){
+  document.getElementById('add-form-'+type).style.display='none';
+  document.getElementById('add-input-'+type).value='';
+}
+
+function confirmAdd(type){
+  const input=document.getElementById('add-input-'+type);
+  const name=input.value.trim();
+  if(!name){showToast('Please enter a village name','err');return;}
+  if(type==='res'){
+    if(RV.includes(name)){showToast('Village already exists','err');return;}
+    RV.push(name);
+    addResCard(name);
+  } else {
+    if(AV.includes(name)){showToast('Village already exists','err');return;}
+    AV.push(name);
+    // Rebuild army view fully since new army village affects all resource cards
+    buildArmyView();
+    // Also rebuild res view to add new army route row to all resource cards
+    rebuildResView();
+  }
+  hideAddForm(type);
+  reorderCards();
+  recalc();
+  triggerSave();
+}
+
+function removeVillage(type, name){
+  if(!confirm('Remove "'+name+'" and all its route data?'))return;
+  if(type==='res'){
+    RV=RV.filter(v=>v!==name);
+    const card=document.querySelector('#res-grid .vcard[data-rv="'+CSS.escape(name)+'"]');
+    if(card)card.remove();
+  } else {
+    AV=AV.filter(v=>v!==name);
+    buildArmyView();
+    rebuildResView();
+  }
+  recalc();
+  triggerSave();
+}
+
+/* ── Reorder res cards (ally-enabled → bottom) ── */
 function reorderCards(){
   const grid=document.getElementById('res-grid');
   const cards=[...grid.querySelectorAll('.vcard[data-rv]')];
   cards.sort((a,b)=>{
     const cbA=document.getElementById(toggleId(a.dataset.rv));
     const cbB=document.getElementById(toggleId(b.dataset.rv));
-    const aOn=cbA?cbA.checked:false;
-    const bOn=cbB?cbB.checked:false;
-    return aOn===bOn?0:aOn?1:-1;
+    return (cbA&&cbA.checked?1:0)-(cbB&&cbB.checked?1:0);
   });
   cards.forEach(c=>grid.appendChild(c));
 }
@@ -296,21 +381,130 @@ function onAllyToggle(rv){
   triggerSave();
 }
 
+/* ── Build a single resource card ── */
+function buildResCard(rv){
+  const card=document.createElement('div');
+  card.className='vcard';
+  card.dataset.rv=rv;
+  const timesOpts=[1,2,3,4,6,8,12,24].map(n=>`<option value="${n}">${n}x/day</option>`).join('');
+
+  const prodInputs=RES.map(res=>
+    `<div class="ps-item"><span class="ps-lbl ${RCLS[res]}">${RLBL[res]}</span><input class="ps-input" type="number" min="0" step="100" value="0" id="${sid(rv,'PROD',res)}"></div>`
+  ).join('');
+
+  const availItems=RES.map(res=>
+    `<div class="ps-item"><span class="ps-lbl ${RCLS[res]}">${RLBL[res][0]}</span><span class="avail-val avail-neutral" id="${sid(rv,'AVAIL',res)}">&#8212;</span></div>`
+  ).join('');
+
+  const routeRows=AV.map(av=>
+    `<div class="route-row">
+      <span class="route-label">${av.replace(' River','')}</span>
+      <div class="res-inputs">
+        ${RES.map(res=>`<div class="ri"><span class="ri-lbl ${RCLS[res]}">${RLBL[res][0]}</span><input type="number" min="0" step="100" value="0" id="${sid(rv,av,res)}"></div>`).join('')}
+      </div>
+    </div>`
+  ).join('');
+
+  const allySlots=Array.from({length:MAX_ALLY},(_,s)=>
+    `<div class="ally-route">
+      <div class="ally-top-row">
+        <input class="ally-name-input" type="text" placeholder="Village name" id="${allyId(rv,s,'name')}">
+        <select class="times-select" id="${allyId(rv,s,'times')}">${timesOpts}</select>
+      </div>
+      <div class="ally-res-row">
+        ${RES.map(res=>`<div class="ally-ri"><span class="ally-ri-lbl ${RCLS[res]}">${RLBL[res][0]}</span><input type="number" min="0" step="100" value="0" id="${allyId(rv,s,res)}"></div>`).join('')}
+      </div>
+      <div class="ally-hr-row">
+        ${RES.map(res=>`<div class="ally-hr-item"><span class="ally-hr-val" id="${allyId(rv,s,res+'_hr')}">0</span><span class="ally-hr-unit">/hr</span></div>`).join('')}
+      </div>
+    </div>`
+  ).join('');
+
+  const rvSafe=rv.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+  card.innerHTML=`
+    <div class="vcard-header">
+      <div class="vcard-hl"><span class="vcard-name">${rv}</span><span class="badge badge-res">res</span></div>
+      <div class="vcard-actions">
+        <div class="ally-toggle-wrap">
+          <span class="atl">Ally</span>
+          <label class="toggle">
+            <input type="checkbox" id="${toggleId(rv)}" onchange="onAllyToggle('${rvSafe}')">
+            <span class="ttrack"></span><span class="tthumb"></span>
+          </label>
+        </div>
+        <button class="remove-btn" onclick="removeVillage('res','${rvSafe}')" title="Remove village">&#x2715;</button>
+      </div>
+    </div>
+    <div class="prod-section">
+      <div class="ps-row">${prodInputs}</div>
+      <div class="ps-divider"><span class="ps-divider-line"></span><span class="ps-divider-txt">available</span><span class="ps-divider-line"></span></div>
+      <div class="ps-row">${availItems}</div>
+    </div>
+    <div class="vcard-body">${routeRows}</div>
+    <div class="ally-section" id="${allySectionId(rv)}" style="display:none">
+      <div class="ally-section-lbl">Ally routes</div>
+      ${allySlots}
+    </div>`;
+  return card;
+}
+
+function addResCard(rv){
+  document.getElementById('res-grid').appendChild(buildResCard(rv));
+}
+
+function rebuildResView(){
+  const grid=document.getElementById('res-grid');
+  grid.innerHTML='';
+  RV.forEach(rv=>grid.appendChild(buildResCard(rv)));
+}
+
+/* ── Build army view ── */
+function buildArmyView(){
+  const grid=document.getElementById('army-grid');
+  grid.innerHTML='';
+  if(AV.length===0){
+    grid.innerHTML='<div class="empty-state">No army villages yet — click Add village to get started.</div>';
+    return;
+  }
+  AV.forEach(av=>{
+    const card=document.createElement('div');
+    card.className='vcard';
+    card.dataset.av=av;
+    const rows=RV.map(rv=>
+      `<div class="incoming-row">
+        <span class="incoming-from">${rv.replace(' River','')}</span>
+        <div class="incoming-res">
+          ${RES.map(res=>`<div class="ires"><span class="ires-lbl ${RCLS[res]}">${RLBL[res][0]}</span><span class="ires-val zero" id="${sid(av,rv,res)}">&#8212;</span></div>`).join('')}
+        </div>
+      </div>`
+    ).join('');
+    const totCols=RES.map(res=>
+      `<div class="tfres"><span class="tfres-lbl ${RCLS[res]}">${RLBL[res][0]}</span><span class="tfres-val" id="${sid(av,'TOT',res)}">0</span></div>`
+    ).join('');
+    const avSafe=av.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+    card.innerHTML=`
+      <div class="vcard-header">
+        <div class="vcard-hl"><span class="vcard-name">${av}</span><span class="badge badge-army">army</span></div>
+        <div class="vcard-actions">
+          <button class="remove-btn" onclick="removeVillage('army','${avSafe}')" title="Remove village">&#x2715;</button>
+        </div>
+      </div>
+      <div class="vcard-body">${rows}</div>
+      <div class="total-footer"><span class="tfl">Total / hr</span><div class="tfres-row">${totCols}</div></div>`;
+    grid.appendChild(card);
+  });
+}
+
+/* ── Collect all data ── */
 function collectData(){
   const routes={},production={},ally={},allyEnabled={};
   RV.forEach(rv=>{
     production[rv]={};
-    RES.forEach(res=>{
-      const e=document.getElementById(sid(rv,'PROD',res));
-      production[rv][res]=e?Math.max(0,parseInt(e.value)||0):0;
-    });
+    RES.forEach(res=>{const e=document.getElementById(sid(rv,'PROD',res));production[rv][res]=e?Math.max(0,parseInt(e.value)||0):0;});
     routes[rv]={};
     AV.forEach(av=>{
       routes[rv][av]={};
-      RES.forEach(res=>{
-        const e=document.getElementById(sid(rv,av,res));
-        routes[rv][av][res]=e?Math.max(0,parseInt(e.value)||0):0;
-      });
+      RES.forEach(res=>{const e=document.getElementById(sid(rv,av,res));routes[rv][av][res]=e?Math.max(0,parseInt(e.value)||0):0;});
     });
     const cb=document.getElementById(toggleId(rv));
     allyEnabled[rv]=cb?cb.checked:false;
@@ -319,18 +513,23 @@ function collectData(){
       const nameEl=document.getElementById(allyId(rv,s,'name'));
       const timesEl=document.getElementById(allyId(rv,s,'times'));
       const res={};
-      RES.forEach(r=>{
-        const e=document.getElementById(allyId(rv,s,r));
-        res[r]=e?Math.max(0,parseInt(e.value)||0):0;
-      });
+      RES.forEach(r=>{const e=document.getElementById(allyId(rv,s,r));res[r]=e?Math.max(0,parseInt(e.value)||0):0;});
       ally[rv].push({name:nameEl?nameEl.value.trim():'',times:timesEl?parseInt(timesEl.value)||1:1,res});
     }
   });
-  return {routes,production,ally,allyEnabled};
+  return {rv:RV, av:AV, routes, production, ally, allyEnabled};
 }
 
+/* ── Apply data to DOM ── */
 function applyData(data){
   if(!data)return;
+  // Restore village lists if saved
+  if(data.rv&&Array.isArray(data.rv))RV=data.rv;
+  if(data.av&&Array.isArray(data.av))AV=data.av;
+  // Rebuild both views with correct village lists
+  rebuildResView();
+  buildArmyView();
+  // Apply values
   RV.forEach(rv=>{
     RES.forEach(res=>{
       const e=document.getElementById(sid(rv,'PROD',res));
@@ -357,10 +556,7 @@ function applyData(data){
         const t=document.getElementById(allyId(rv,s,'times'));
         if(n)n.value=slot.name||'';
         if(t)t.value=slot.times||1;
-        RES.forEach(r=>{
-          const e=document.getElementById(allyId(rv,s,r));
-          if(e)e.value=(slot.res&&slot.res[r]!=null)?slot.res[r]:0;
-        });
+        RES.forEach(r=>{const e=document.getElementById(allyId(rv,s,r));if(e)e.value=(slot.res&&slot.res[r]!=null)?slot.res[r]:0;});
       });
     }
   });
@@ -368,17 +564,16 @@ function applyData(data){
   recalc();
 }
 
-function b64DecodeUTF8(str){
+/* ── UTF-8 base64 helpers ── */
+function b64Decode(str){
   const bytes=atob(str);
   const arr=new Uint8Array(bytes.length);
   for(let i=0;i<bytes.length;i++)arr[i]=bytes.charCodeAt(i);
   return new TextDecoder('utf-8').decode(arr);
 }
-
-function b64EncodeUTF8(str){
+function b64Encode(str){
   const arr=new TextEncoder().encode(str);
-  let bin='';
-  arr.forEach(b=>bin+=String.fromCharCode(b));
+  let bin='';arr.forEach(b=>bin+=String.fromCharCode(b));
   return btoa(bin);
 }
 
@@ -395,7 +590,7 @@ async function loadFromGitHub(){
     if(!res.ok)throw new Error('HTTP '+res.status);
     const json=await res.json();
     fileSha=json.sha;
-    const decoded=JSON.parse(b64DecodeUTF8(json.content.replace(/\n/g,'')));
+    const decoded=JSON.parse(b64Decode(json.content.replace(/\n/g,'')));
     localStorage.setItem(LSK,JSON.stringify(decoded));
     applyData(decoded);
     setSyncStatus('ok','Synced');
@@ -408,7 +603,7 @@ async function loadFromGitHub(){
 }
 
 function tryLoadLocal(){
-  for(const k of [LSK,'travian_v4','travian_v3','travian_v2','travian_tracker_v1']){
+  for(const k of [LSK,'travian_v5','travian_v4','travian_v3']){
     const raw=localStorage.getItem(k);
     if(raw){try{applyData(JSON.parse(raw));return;}catch(e){}}
   }
@@ -420,7 +615,7 @@ async function saveToGitHub(){
   setSyncStatus('busy','Saving...');
   const data=collectData();
   localStorage.setItem(LSK,JSON.stringify(data));
-  const content=b64EncodeUTF8(JSON.stringify(data,null,2));
+  const content=b64Encode(JSON.stringify(data,null,2));
   try{
     let sha=fileSha;
     if(!sha){
@@ -446,105 +641,7 @@ async function saveToGitHub(){
   }
 }
 
-function buildResView(){
-  const grid=document.getElementById('res-grid');
-  grid.innerHTML='';
-  const timesOpts=[1,2,3,4,6,8,12,24].map(n=>`<option value="${n}">${n}x/day</option>`).join('');
-
-  RV.forEach(rv=>{
-    const card=document.createElement('div');
-    card.className='vcard';
-    card.dataset.rv=rv;
-
-    const prodInputs=RES.map(res=>
-      `<div class="ps-item">
-        <span class="ps-lbl ${RCLS[res]}">${RLBL[res]}</span>
-        <input class="ps-input" type="number" min="0" step="100" value="0" id="${sid(rv,'PROD',res)}">
-      </div>`
-    ).join('');
-
-    const availItems=RES.map(res=>
-      `<div class="ps-item">
-        <span class="ps-lbl ${RCLS[res]}">${RLBL[res][0]}</span>
-        <span class="avail-val avail-neutral" id="${sid(rv,'AVAIL',res)}">&#8212;</span>
-      </div>`
-    ).join('');
-
-    const routeRows=AV.map(av=>
-      `<div class="route-row">
-        <span class="route-label">${av.replace(' River','')}</span>
-        <div class="res-inputs">
-          ${RES.map(res=>`<div class="ri"><span class="ri-lbl ${RCLS[res]}">${RLBL[res][0]}</span><input type="number" min="0" step="100" value="0" id="${sid(rv,av,res)}"></div>`).join('')}
-        </div>
-      </div>`
-    ).join('');
-
-    const allySlots=Array.from({length:MAX_ALLY},(_,s)=>
-      `<div class="ally-route">
-        <div class="ally-top-row">
-          <input class="ally-name-input" type="text" placeholder="Village name" id="${allyId(rv,s,'name')}">
-          <select class="times-select" id="${allyId(rv,s,'times')}">${timesOpts}</select>
-        </div>
-        <div class="ally-res-row">
-          ${RES.map(res=>`<div class="ally-ri"><span class="ally-ri-lbl ${RCLS[res]}">${RLBL[res][0]}</span><input type="number" min="0" step="100" value="0" id="${allyId(rv,s,res)}"></div>`).join('')}
-        </div>
-        <div class="ally-hr-row">
-          ${RES.map(res=>`<div class="ally-hr-item"><span class="ally-hr-val" id="${allyId(rv,s,res+'_hr')}">0</span><span class="ally-hr-unit">/hr</span></div>`).join('')}
-        </div>
-      </div>`
-    ).join('');
-
-    const rvSafe=rv.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
-    card.innerHTML=`
-      <div class="vcard-header">
-        <div class="vcard-hl"><span class="vcard-name">${rv}</span><span class="badge badge-res">res</span></div>
-        <div class="ally-toggle-wrap">
-          <span class="atl">Ally</span>
-          <label class="toggle">
-            <input type="checkbox" id="${toggleId(rv)}" onchange="onAllyToggle('${rvSafe}')">
-            <span class="ttrack"></span><span class="tthumb"></span>
-          </label>
-        </div>
-      </div>
-      <div class="prod-section">
-        <div class="ps-row">${prodInputs}</div>
-        <div class="ps-divider"><span class="ps-divider-line"></span><span class="ps-divider-txt">available</span><span class="ps-divider-line"></span></div>
-        <div class="ps-row">${availItems}</div>
-      </div>
-      <div class="vcard-body">${routeRows}</div>
-      <div class="ally-section" id="${allySectionId(rv)}" style="display:none">
-        <div class="ally-section-lbl">Ally routes</div>
-        ${allySlots}
-      </div>`;
-    grid.appendChild(card);
-  });
-}
-
-function buildArmyView(){
-  const grid=document.getElementById('army-grid');
-  grid.innerHTML='';
-  AV.forEach(av=>{
-    const card=document.createElement('div');
-    card.className='vcard';
-    const rows=RV.map(rv=>
-      `<div class="incoming-row">
-        <span class="incoming-from">${rv.replace(' River','')}</span>
-        <div class="incoming-res">
-          ${RES.map(res=>`<div class="ires"><span class="ires-lbl ${RCLS[res]}">${RLBL[res][0]}</span><span class="ires-val zero" id="${sid(av,rv,res)}">&#8212;</span></div>`).join('')}
-        </div>
-      </div>`
-    ).join('');
-    const totCols=RES.map(res=>
-      `<div class="tfres"><span class="tfres-lbl ${RCLS[res]}">${RLBL[res][0]}</span><span class="tfres-val" id="${sid(av,'TOT',res)}">0</span></div>`
-    ).join('');
-    card.innerHTML=`
-      <div class="vcard-header"><div class="vcard-hl"><span class="vcard-name">${av}</span><span class="badge badge-army">army</span></div></div>
-      <div class="vcard-body">${rows}</div>
-      <div class="total-footer"><span class="tfl">Total / hr</span><div class="tfres-row">${totCols}</div><span class="grand-pill" id="${sid(av,'TOT','ALL')}">0</span></div>`;
-    grid.appendChild(card);
-  });
-}
-
+/* ── Recalc ── */
 function recalc(){
   const gt={wood:0,clay:0,metal:0,crop:0};
   const out={};
@@ -556,19 +653,15 @@ function recalc(){
       RES.forEach(res=>{
         const inp=document.getElementById(sid(rv,av,res));
         const v=inp?Math.max(0,parseInt(inp.value)||0):0;
-        avT[res]+=v; gt[res]+=v; out[rv][res]+=v;
+        avT[res]+=v;gt[res]+=v;out[rv][res]+=v;
         const cell=document.getElementById(sid(av,rv,res));
         if(cell){cell.textContent=v===0?'\u2014':v.toLocaleString();cell.className='ires-val'+(v===0?' zero':'');}
       });
     });
-    let grand=0;
     RES.forEach(res=>{
-      grand+=avT[res];
       const tc=document.getElementById(sid(av,'TOT',res));
       if(tc)tc.textContent=avT[res]===0?'\u2014':avT[res].toLocaleString();
     });
-    const gp=document.getElementById(sid(av,'TOT','ALL'));
-    if(gp)gp.textContent=grand.toLocaleString();
   });
 
   RES.forEach(res=>document.getElementById('s-'+res).textContent=gt[res].toLocaleString());
@@ -612,7 +705,8 @@ let saveTimer=null;
 function triggerSave(){clearTimeout(saveTimer);saveTimer=setTimeout(saveToGitHub,1500);}
 function onInput(){recalc();triggerSave();}
 
-buildResView();
+// Init
+rebuildResView();
 buildArmyView();
 loadFromGitHub();
 
