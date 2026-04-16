@@ -131,7 +131,7 @@
     "Krossá River": {
       "Congo River": {
         "wood": 450,
-        "clay": 0,
+        "clay": 450,
         "metal": 0,
         "crop": 0
       },
