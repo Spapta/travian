@@ -15,6 +15,7 @@
     --danger: #e05252; --danger-bg: rgba(224,82,82,0.13);
     --success: #5ebf8a; --success-bg: rgba(94,191,138,0.11);
     --warning: #d4a843; --warning-bg: rgba(212,168,67,0.12);
+    --ally: #a78bfa; --ally-bg: rgba(167,139,250,0.12);
     --radius: 10px; --radius-lg: 14px;
   }
   body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; font-size: 14px; line-height: 1.5; }
@@ -38,14 +39,12 @@
 
   main { padding: 24px; max-width: 1300px; margin: 0 auto; }
 
-  /* Settings panel */
   .settings-panel { background: var(--bg2); border: 1px solid var(--border2); border-radius: var(--radius-lg); padding: 20px 24px; margin-bottom: 24px; }
   .settings-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
   .settings-desc { font-size: 12px; color: var(--text2); margin-bottom: 16px; line-height: 1.6; }
   .settings-desc a { color: var(--accent); text-decoration: none; }
-  .settings-desc a:hover { text-decoration: underline; }
   .settings-row { display: flex; gap: 10px; flex-wrap: wrap; }
-  .settings-field { display: flex; flex-direction: column; gap: 5px; flex: 1; min-width: 200px; }
+  .settings-field { display: flex; flex-direction: column; gap: 5px; flex: 1; min-width: 180px; }
   .settings-label { font-size: 11px; font-weight: 600; color: var(--text2); text-transform: uppercase; letter-spacing: .06em; }
   .settings-input { background: var(--bg3); border: 1px solid var(--border2); border-radius: var(--radius); color: var(--text); font-size: 13px; padding: 8px 12px; font-family: inherit; }
   .settings-input:focus { outline: none; border-color: var(--accent); }
@@ -62,7 +61,8 @@
   .metric-val { font-size: 24px; font-weight: 600; letter-spacing: -0.02em; }
 
   .section-head { font-size: 11px; font-weight: 600; letter-spacing: .08em; color: var(--text3); text-transform: uppercase; margin-bottom: 12px; }
-  .village-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); gap: 14px; margin-bottom: 24px; }
+  .village-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px,1fr)); gap: 14px; margin-bottom: 24px; }
+
   .vcard { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: border-color 0.15s; }
   .vcard:hover { border-color: var(--border2); }
   .vcard-header { padding: 11px 14px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--bg3); }
@@ -70,6 +70,7 @@
   .badge { font-size: 10px; padding: 2px 8px; border-radius: 20px; font-weight: 500; }
   .badge-res { background: rgba(125,191,94,0.15); color: var(--wood); border: 1px solid rgba(125,191,94,0.2); }
   .badge-army { background: rgba(79,126,248,0.15); color: var(--accent); border: 1px solid rgba(79,126,248,0.2); }
+  .badge-ally { background: var(--ally-bg); color: var(--ally); border: 1px solid rgba(167,139,250,0.2); }
 
   .prod-section { padding: 10px 14px; border-bottom: 1px solid var(--border); }
   .sub-label { font-size: 10px; font-weight: 600; letter-spacing: .07em; color: var(--text3); text-transform: uppercase; margin-bottom: 7px; }
@@ -86,17 +87,39 @@
   .avail-neutral { color: var(--text3); }
 
   .vcard-body { padding: 8px 14px; }
-  .route-section-label { font-size: 10px; font-weight: 600; letter-spacing: .07em; color: var(--text3); text-transform: uppercase; margin: 4px 0 8px; }
+  .route-section-label { font-size: 10px; font-weight: 600; letter-spacing: .07em; color: var(--text3); text-transform: uppercase; margin: 6px 0 8px; }
+
   .route-row { display: flex; align-items: center; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--border); }
   .route-row:last-child { border-bottom: none; }
   .route-label { font-size: 12px; color: var(--text2); width: 95px; flex-shrink: 0; }
   .res-inputs { display: flex; gap: 5px; flex: 1; justify-content: flex-end; }
   .ri { display: flex; flex-direction: column; align-items: center; gap: 2px; }
   .ri-lbl { font-size: 9px; font-weight: 600; letter-spacing: .05em; }
-  .ri input { width: 54px; text-align: center; border: 1px solid var(--border2); border-radius: 6px; background: var(--bg); color: var(--text); font-size: 12px; padding: 4px 2px; font-family: inherit; -moz-appearance: textfield; transition: border-color 0.15s; }
+  .ri input { width: 52px; text-align: center; border: 1px solid var(--border2); border-radius: 6px; background: var(--bg); color: var(--text); font-size: 12px; padding: 4px 2px; font-family: inherit; -moz-appearance: textfield; transition: border-color 0.15s; }
   .ri input::-webkit-inner-spin-button { -webkit-appearance: none; }
   .ri input:hover { border-color: var(--accent); }
   .ri input:focus { outline: none; border-color: var(--accent); background: var(--bg3); }
+
+  /* Ally section */
+  .ally-section { border-top: 1px solid var(--border); padding: 10px 14px; }
+  .ally-route { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 10px; margin-bottom: 8px; }
+  .ally-route:last-child { margin-bottom: 0; }
+  .ally-top-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .ally-name-input { flex: 1; background: var(--bg); border: 1px solid var(--border2); border-radius: 6px; color: var(--text); font-size: 12px; padding: 4px 8px; font-family: inherit; }
+  .ally-name-input:focus { outline: none; border-color: var(--ally); }
+  .ally-name-input::placeholder { color: var(--text3); }
+  .times-select { background: var(--bg); border: 1px solid var(--border2); border-radius: 6px; color: var(--text2); font-size: 11px; padding: 4px 6px; font-family: inherit; cursor: pointer; }
+  .times-select:focus { outline: none; border-color: var(--ally); }
+  .ally-res-row { display: flex; gap: 5px; align-items: flex-end; }
+  .ally-ri { display: flex; flex-direction: column; align-items: center; gap: 2px; flex: 1; }
+  .ally-ri-lbl { font-size: 9px; font-weight: 600; letter-spacing: .05em; }
+  .ally-ri input { width: 100%; text-align: center; border: 1px solid var(--border2); border-radius: 6px; background: var(--bg); color: var(--text); font-size: 12px; padding: 4px 2px; font-family: inherit; -moz-appearance: textfield; }
+  .ally-ri input::-webkit-inner-spin-button { -webkit-appearance: none; }
+  .ally-ri input:hover { border-color: var(--ally); }
+  .ally-ri input:focus { outline: none; border-color: var(--ally); background: var(--bg3); }
+  .ally-hr-row { display: flex; gap: 5px; margin-top: 6px; }
+  .ally-hr-item { flex: 1; text-align: center; font-size: 10px; color: var(--text3); }
+  .ally-hr-val { font-size: 11px; font-weight: 600; color: var(--ally); }
 
   .wood-lbl{color:var(--wood)} .clay-lbl{color:var(--clay)} .metal-lbl{color:var(--metal)} .crop-lbl{color:var(--crop)}
 
@@ -122,7 +145,7 @@
   .toast.err { background: var(--danger-bg); color: var(--danger); border: 1px solid rgba(224,82,82,0.3); }
   .toast.info { background: var(--accent-bg); color: var(--accent); border: 1px solid rgba(79,126,248,0.3); }
 
-  @media(max-width:600px){ main{padding:16px} .summary-strip{grid-template-columns:repeat(2,1fr)} header{padding:0 16px; height:auto; padding-top:8px; padding-bottom:8px;} }
+  @media(max-width:600px){ main{padding:16px} .summary-strip{grid-template-columns:repeat(2,1fr)} header{padding:0 16px;height:auto;padding-top:8px;padding-bottom:8px;} }
 </style>
 </head>
 <body>
@@ -146,10 +169,7 @@
 <main>
   <div class="settings-panel" id="settings-panel" style="display:none">
     <div class="settings-title">GitHub sync settings</div>
-    <div class="settings-desc">
-      Data is saved as <code>data.json</code> in your repo. Each person needs their own token.<br>
-      Create one at <a href="https://github.com/settings/tokens/new" target="_blank">github.com/settings/tokens/new</a> — select <strong>repo</strong> scope only. Your token is stored only in your browser, never shared.
-    </div>
+    <div class="settings-desc">Data is saved as <code>data.json</code> in your repo. Each person needs their own token from <a href="https://github.com/settings/tokens/new" target="_blank">github.com/settings/tokens/new</a> with <strong>repo</strong> scope.</div>
     <div class="settings-row">
       <div class="settings-field">
         <span class="settings-label">GitHub username</span>
@@ -165,7 +185,7 @@
       </div>
       <button class="save-btn" onclick="saveConfig()">Connect</button>
     </div>
-    <div class="settings-note">Token needs <strong>repo</strong> scope. Keep it private — do not share it with anyone.</div>
+    <div class="settings-note">Token needs <strong>repo</strong> scope. Stored only in your browser.</div>
   </div>
 
   <div class="summary-strip">
@@ -193,47 +213,42 @@ const AV=["Congo River","Ganga River","Yangtze River","Mekong River","Narmada Ri
 const RES=["wood","clay","metal","crop"];
 const RLBL={wood:"Wood",clay:"Clay",metal:"Metal",crop:"Crop"};
 const RCLS={wood:"wood-lbl",clay:"clay-lbl",metal:"metal-lbl",crop:"crop-lbl"};
-const LSK='travian_v2';
+const MAX_ALLY=3;
+const LSK='travian_v3';
 const CFG_KEY='travian_cfg';
 const DATA_FILE='data.json';
 
 function sid(a,b,c){const s=a+'||'+b+'||'+c;let h=0;for(let i=0;i<s.length;i++)h=Math.imul(31,h)+s.charCodeAt(i)|0;return 'id'+(h>>>0).toString(36);}
+function allyId(rv,slot,field){return sid('ally_'+slot,rv,field);}
 
-function getConfig(){ try{return JSON.parse(localStorage.getItem(CFG_KEY)||'{}')}catch(e){return {};} }
-function setConfig(c){ localStorage.setItem(CFG_KEY, JSON.stringify(c)); }
+function getConfig(){try{return JSON.parse(localStorage.getItem(CFG_KEY)||'{}')}catch(e){return {};}}
+function setConfig(c){localStorage.setItem(CFG_KEY,JSON.stringify(c));}
 
-function setSyncStatus(state, label){
-  const dot=document.getElementById('sync-dot');
-  const lbl=document.getElementById('sync-label');
-  dot.className='sync-dot '+state;
-  lbl.textContent=label;
+function setSyncStatus(state,label){
+  document.getElementById('sync-dot').className='sync-dot '+state;
+  document.getElementById('sync-label').textContent=label;
 }
 
 let toastTimer=null;
-function showToast(msg, type='ok'){
+function showToast(msg,type='ok'){
   const t=document.getElementById('toast');
-  t.textContent=msg; t.className='toast '+type+' show';
+  t.textContent=msg;t.className='toast '+type+' show';
   clearTimeout(toastTimer);
   toastTimer=setTimeout(()=>t.classList.remove('show'),3000);
 }
 
 function toggleSettings(){
   const p=document.getElementById('settings-panel');
-  const visible=p.style.display!=='none';
-  p.style.display=visible?'none':'block';
-  if(!visible){
-    const cfg=getConfig();
-    if(cfg.owner) document.getElementById('cfg-owner').value=cfg.owner;
-    if(cfg.repo) document.getElementById('cfg-repo').value=cfg.repo;
-    if(cfg.token) document.getElementById('cfg-token').value=cfg.token;
-  }
+  const vis=p.style.display!=='none';
+  p.style.display=vis?'none':'block';
+  if(!vis){const cfg=getConfig();if(cfg.owner)document.getElementById('cfg-owner').value=cfg.owner;if(cfg.repo)document.getElementById('cfg-repo').value=cfg.repo;if(cfg.token)document.getElementById('cfg-token').value=cfg.token;}
 }
 
 function saveConfig(){
   const owner=document.getElementById('cfg-owner').value.trim();
   const repo=document.getElementById('cfg-repo').value.trim();
   const token=document.getElementById('cfg-token').value.trim();
-  if(!owner||!repo||!token){ showToast('Please fill in all fields','err'); return; }
+  if(!owner||!repo||!token){showToast('Please fill in all fields','err');return;}
   setConfig({owner,repo,token});
   document.getElementById('settings-panel').style.display='none';
   showToast('Config saved — loading data...','info');
@@ -241,38 +256,54 @@ function saveConfig(){
 }
 
 function collectData(){
-  const routes={}, production={};
+  const routes={},production={},ally={};
   RV.forEach(rv=>{
     production[rv]={};
-    RES.forEach(res=>{
-      const e=document.getElementById(sid(rv,'PROD',res));
-      production[rv][res]=e?Math.max(0,parseInt(e.value)||0):0;
-    });
+    RES.forEach(res=>{const e=document.getElementById(sid(rv,'PROD',res));production[rv][res]=e?Math.max(0,parseInt(e.value)||0):0;});
     routes[rv]={};
     AV.forEach(av=>{
       routes[rv][av]={};
-      RES.forEach(res=>{
-        const e=document.getElementById(sid(rv,av,res));
-        routes[rv][av][res]=e?Math.max(0,parseInt(e.value)||0):0;
-      });
+      RES.forEach(res=>{const e=document.getElementById(sid(rv,av,res));routes[rv][av][res]=e?Math.max(0,parseInt(e.value)||0):0;});
     });
+    ally[rv]=[];
+    for(let s=0;s<MAX_ALLY;s++){
+      const nameEl=document.getElementById(allyId(rv,s,'name'));
+      const timesEl=document.getElementById(allyId(rv,s,'times'));
+      const name=nameEl?nameEl.value.trim():'';
+      const times=timesEl?parseInt(timesEl.value)||1:1;
+      const res={};
+      RES.forEach(r=>{const e=document.getElementById(allyId(rv,s,r));res[r]=e?Math.max(0,parseInt(e.value)||0):0;});
+      ally[rv].push({name,times,res});
+    }
   });
-  return {routes,production};
+  return {routes,production,ally};
 }
 
 function applyData(data){
-  if(!data) return;
+  if(!data)return;
   RV.forEach(rv=>{
     RES.forEach(res=>{
       const e=document.getElementById(sid(rv,'PROD',res));
-      if(e) e.value=(data.production&&data.production[rv]&&data.production[rv][res])||0;
+      if(e)e.value=(data.production&&data.production[rv]&&data.production[rv][res])||0;
     });
     AV.forEach(av=>{
       RES.forEach(res=>{
         const e=document.getElementById(sid(rv,av,res));
-        if(e) e.value=(data.routes&&data.routes[rv]&&data.routes[rv][av]&&data.routes[rv][av][res])||0;
+        if(e)e.value=(data.routes&&data.routes[rv]&&data.routes[rv][av]&&data.routes[rv][av][res])||0;
       });
     });
+    if(data.ally&&data.ally[rv]){
+      data.ally[rv].forEach((slot,s)=>{
+        const nameEl=document.getElementById(allyId(rv,s,'name'));
+        const timesEl=document.getElementById(allyId(rv,s,'times'));
+        if(nameEl)nameEl.value=slot.name||'';
+        if(timesEl)timesEl.value=slot.times||1;
+        RES.forEach(r=>{
+          const e=document.getElementById(allyId(rv,s,r));
+          if(e)e.value=(slot.res&&slot.res[r])||0;
+        });
+      });
+    }
   });
   recalc();
 }
@@ -281,7 +312,7 @@ async function loadFromGitHub(){
   const cfg=getConfig();
   if(!cfg.token||!cfg.owner||!cfg.repo){
     const local=localStorage.getItem(LSK);
-    if(local){ try{ applyData(JSON.parse(local)); }catch(e){} }
+    if(local){try{applyData(JSON.parse(local));}catch(e){}}
     setSyncStatus('','Not configured');
     return;
   }
@@ -290,52 +321,44 @@ async function loadFromGitHub(){
     const res=await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${DATA_FILE}`,{
       headers:{'Authorization':'token '+cfg.token,'Accept':'application/vnd.github.v3+json'}
     });
-    if(res.status===404){
-      setSyncStatus('ok','Connected — no data yet');
-      showToast('Connected! Start entering data.','info');
-      return;
-    }
-    if(!res.ok) throw new Error('HTTP '+res.status);
+    if(res.status===404){setSyncStatus('ok','Connected — no data yet');showToast('Connected! Start entering data.','info');return;}
+    if(!res.ok)throw new Error('HTTP '+res.status);
     const json=await res.json();
     const decoded=JSON.parse(atob(json.content.replace(/\n/g,'')));
-    localStorage.setItem(LSK, JSON.stringify(decoded));
+    localStorage.setItem(LSK,JSON.stringify(decoded));
     applyData(decoded);
     setSyncStatus('ok','Synced');
     showToast('Data loaded from GitHub ✓','ok');
   }catch(e){
     setSyncStatus('err','Load failed');
-    showToast('Could not load from GitHub: '+e.message,'err');
+    showToast('Could not load: '+e.message,'err');
     const local=localStorage.getItem(LSK);
-    if(local){ try{ applyData(JSON.parse(local)); }catch(ex){} }
+    if(local){try{applyData(JSON.parse(local));}catch(ex){}}
   }
 }
 
 let fileSha=null;
-
 async function saveToGitHub(){
   const cfg=getConfig();
-  if(!cfg.token||!cfg.owner||!cfg.repo) return;
+  if(!cfg.token||!cfg.owner||!cfg.repo)return;
   setSyncStatus('busy','Saving...');
   const data=collectData();
-  localStorage.setItem(LSK, JSON.stringify(data));
+  localStorage.setItem(LSK,JSON.stringify(data));
   const content=btoa(unescape(encodeURIComponent(JSON.stringify(data,null,2))));
   try{
-    // get current sha
     let sha=fileSha;
     if(!sha){
-      const r=await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${DATA_FILE}`,{
-        headers:{'Authorization':'token '+cfg.token,'Accept':'application/vnd.github.v3+json'}
-      });
-      if(r.ok){ const j=await r.json(); sha=j.sha; fileSha=sha; }
+      const r=await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${DATA_FILE}`,{headers:{'Authorization':'token '+cfg.token,'Accept':'application/vnd.github.v3+json'}});
+      if(r.ok){const j=await r.json();sha=j.sha;fileSha=sha;}
     }
     const body={message:'Update trade route data',content};
-    if(sha) body.sha=sha;
+    if(sha)body.sha=sha;
     const res=await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${DATA_FILE}`,{
       method:'PUT',
       headers:{'Authorization':'token '+cfg.token,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'},
       body:JSON.stringify(body)
     });
-    if(!res.ok) throw new Error('HTTP '+res.status);
+    if(!res.ok)throw new Error('HTTP '+res.status);
     const j=await res.json();
     fileSha=j.content.sha;
     setSyncStatus('ok','Saved to GitHub');
@@ -352,31 +375,58 @@ function buildResView(){
   RV.forEach(rv=>{
     const card=document.createElement('div');
     card.className='vcard';
+
     const prodInputs=RES.map(res=>{
       const id=sid(rv,'PROD',res);
-      return `<div class="four-item"><span class="four-lbl ${RCLS[res]}">${RLBL[res]}</span><input class="prod-input" type="number" min="0" step="100" value="0" id="${id}" data-type="prod"></div>`;
+      return `<div class="four-item"><span class="four-lbl ${RCLS[res]}">${RLBL[res]}</span><input class="prod-input" type="number" min="0" step="100" value="0" id="${id}"></div>`;
     }).join('');
+
     const availItems=RES.map(res=>
       `<div class="four-item"><span class="four-lbl ${RCLS[res]}">${RLBL[res][0]}</span><span class="avail-val avail-neutral" id="${sid(rv,'AVAIL',res)}">—</span></div>`
     ).join('');
+
     const routeRows=AV.map(av=>{
       let inputs=RES.map(res=>{
         const id=sid(rv,av,res);
-        return `<div class="ri"><span class="ri-lbl ${RCLS[res]}">${RLBL[res][0]}</span><input type="number" min="0" step="100" value="0" id="${id}" data-type="route"></div>`;
+        return `<div class="ri"><span class="ri-lbl ${RCLS[res]}">${RLBL[res][0]}</span><input type="number" min="0" step="100" value="0" id="${id}"></div>`;
       }).join('');
       return `<div class="route-row"><span class="route-label">${av.replace(' River','')}</span><div class="res-inputs">${inputs}</div></div>`;
     }).join('');
+
+    const timesOptions=[1,2,3,4,6,8,12,24].map(n=>`<option value="${n}">${n}x/day</option>`).join('');
+
+    const allySlots=Array.from({length:MAX_ALLY},(_,s)=>{
+      const resInputs=RES.map(res=>
+        `<div class="ally-ri"><span class="ally-ri-lbl ${RCLS[res]}">${RLBL[res][0]}</span><input type="number" min="0" step="100" value="0" id="${allyId(rv,s,res)}"></div>`
+      ).join('');
+      const hrVals=RES.map(res=>
+        `<div class="ally-hr-item"><span class="ally-hr-val" id="${allyId(rv,s,res+'_hr')}">0</span><br><span style="font-size:9px;color:var(--text3)">/hr</span></div>`
+      ).join('');
+      return `<div class="ally-route">
+        <div class="ally-top-row">
+          <input class="ally-name-input" type="text" placeholder="Ally village name" id="${allyId(rv,s,'name')}">
+          <select class="times-select" id="${allyId(rv,s,'times')}">${timesOptions}</select>
+        </div>
+        <div class="ally-res-row">${resInputs}</div>
+        <div class="ally-hr-row">${hrVals}</div>
+      </div>`;
+    }).join('');
+
     card.innerHTML=`
       <div class="vcard-header"><span class="vcard-name">${rv}</span><span class="badge badge-res">resource</span></div>
       <div class="prod-section">
         <div class="sub-label">Hourly production</div>
         <div class="four-row">${prodInputs}</div>
-        <div class="sub-label">Available after routes</div>
+        <div class="sub-label">Available after all routes</div>
         <div class="four-row">${availItems}</div>
       </div>
       <div class="vcard-body">
-        <div class="route-section-label">Trade routes</div>
+        <div class="route-section-label">Army routes (per hour)</div>
         ${routeRows}
+      </div>
+      <div class="ally-section">
+        <div class="sub-label" style="margin-bottom:8px">Ally routes (per send)</div>
+        ${allySlots}
       </div>`;
     grid.appendChild(card);
   });
@@ -409,13 +459,14 @@ function recalc(){
   const globalTotals={wood:0,clay:0,metal:0,crop:0};
   const outgoing={};
   RV.forEach(rv=>{outgoing[rv]={wood:0,clay:0,metal:0,crop:0};});
+
   AV.forEach(av=>{
     const avT={wood:0,clay:0,metal:0,crop:0};
     RV.forEach(rv=>{
       RES.forEach(res=>{
         const inp=document.getElementById(sid(rv,av,res));
         const v=inp?Math.max(0,parseInt(inp.value)||0):0;
-        avT[res]+=v; globalTotals[res]+=v; outgoing[rv][res]+=v;
+        avT[res]+=v;globalTotals[res]+=v;outgoing[rv][res]+=v;
         const cell=document.getElementById(sid(av,rv,res));
         if(cell){cell.textContent=v===0?'—':v.toLocaleString();cell.className='ires-val'+(v===0?' zero':'');}
       });
@@ -429,17 +480,40 @@ function recalc(){
     const gp=document.getElementById(sid(av,'TOT','ALL'));
     if(gp)gp.textContent=grand.toLocaleString();
   });
+
   RES.forEach(res=>document.getElementById('s-'+res).textContent=globalTotals[res].toLocaleString());
+
   RV.forEach(rv=>{
+    let allyHrTotal={wood:0,clay:0,metal:0,crop:0};
+    for(let s=0;s<MAX_ALLY;s++){
+      const timesEl=document.getElementById(allyId(rv,s,'times'));
+      const times=timesEl?parseInt(timesEl.value)||1:1;
+      RES.forEach(res=>{
+        const e=document.getElementById(allyId(rv,s,res));
+        const perSend=e?Math.max(0,parseInt(e.value)||0):0;
+        const perHour=perSend*times/24;
+        allyHrTotal[res]+=perHour;
+        const hrEl=document.getElementById(allyId(rv,s,res+'_hr'));
+        if(hrEl){
+          hrEl.textContent=perHour===0?'0':perHour%1===0?perHour.toLocaleString():perHour.toFixed(1);
+        }
+      });
+    }
+
     RES.forEach(res=>{
       const pe=document.getElementById(sid(rv,'PROD',res));
       const prod=pe?Math.max(0,parseInt(pe.value)||0):0;
-      const out=outgoing[rv][res];
-      const avail=prod-out;
+      const armyOut=outgoing[rv][res];
+      const allyOut=allyHrTotal[res];
+      const totalOut=armyOut+allyOut;
+      const avail=prod-totalOut;
       const el=document.getElementById(sid(rv,'AVAIL',res));
       if(el){
         if(prod===0){el.textContent='—';el.className='avail-val avail-neutral';}
-        else{el.textContent=avail.toLocaleString();el.className='avail-val '+(avail<0?'avail-warn':'avail-ok');}
+        else{
+          el.textContent=avail%1===0?avail.toLocaleString():avail.toFixed(1);
+          el.className='avail-val '+(avail<0?'avail-warn':'avail-ok');
+        }
       }
     });
   });
@@ -452,17 +526,14 @@ function setView(v){
 }
 
 let saveTimer=null;
-function onInput(){
-  recalc();
-  clearTimeout(saveTimer);
-  saveTimer=setTimeout(saveToGitHub, 1500);
-}
+function onInput(){recalc();clearTimeout(saveTimer);saveTimer=setTimeout(saveToGitHub,1500);}
 
 buildResView();
 buildArmyView();
 loadFromGitHub();
 
-document.getElementById('res-grid').addEventListener('input',e=>{if(e.target.tagName==='INPUT')onInput();});
+document.getElementById('res-grid').addEventListener('input',e=>{if(e.target.tagName==='INPUT'||e.target.tagName==='SELECT')onInput();});
+document.getElementById('res-grid').addEventListener('change',e=>{if(e.target.tagName==='SELECT')onInput();});
 </script>
 </body>
 </html>
