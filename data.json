@@ -345,7 +345,7 @@
         "name": "WW 1",
         "times": 2,
         "res": {
-          "wood": 0,
+          "wood": 12000,
           "clay": 0,
           "metal": 0,
           "crop": 0
