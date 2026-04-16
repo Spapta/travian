@@ -5,7 +5,7 @@
         "wood": 0,
         "clay": 0,
         "metal": 0,
-        "crop": 0
+        "crop": 7000
       },
       "Ganga River": {
         "wood": 0,
@@ -306,5 +306,273 @@
       "metal": 0,
       "crop": 0
     }
+  },
+  "ally": {
+    "Amazon River": [
+      {
+        "name": "",
+        "times": 1,
+        "res": {
+          "wood": 0,
+          "clay": 0,
+          "metal": 0,
+          "crop": 0
+        }
+      },
+      {
+        "name": "",
+        "times": 1,
+        "res": {
+          "wood": 0,
+          "clay": 0,
+          "metal": 0,
+          "crop": 0
+        }
+      },
+      {
+        "name": "",
+        "times": 1,
+        "res": {
+          "wood": 0,
+          "clay": 0,
+          "metal": 0,
+          "crop": 0
+        }
+      }
+    ],
+    "Brahmaputra River": [
+      {
+        "name": "",
+        "times": 1,
+        "res": {
+          "wood": 0,
+          "clay": 0,
+          "metal": 0,
+          "crop": 0
+        }
+      },
+      {
+        "name": "",
+        "times": 1,
+        "res": {
+          "wood": 0,
+          "clay": 0,
+          "metal": 0,
+          "crop": 0
+        }
+      },
+      {
+        "name": "",
+        "times": 1,
+        "res": {
+          "wood": 0,
+          "clay": 0,
+          "metal": 0,
+          "crop": 0
+        }
+      }
+    ],
+    "Mississippi River": [
+      {
+        "name": "",
+        "times": 1,
+        "res": {
+          "wood": 0,
+          "clay": 0,
+          "metal": 0,
+          "crop": 0
+        }
+      },
+      {
+        "name": "",
+        "times": 1,
+        "res": {
+          "wood": 0,
+          "clay": 0,
+          "metal": 0,
+          "crop": 0
+        }
+      },
+      {
+        "name": "",
+        "times": 1,
+        "res": {
+          "wood": 0,
+          "clay": 0,
+          "metal": 0,
+          "crop": 0
+        }
+      }
+    ],
+    "Yellow River": [
+      {
+        "name": "",
+        "times": 1,
+        "res": {
+          "wood": 0,
+          "clay": 0,
+          "metal": 0,
+          "crop": 0
+        }
+      },
+      {
+        "name": "",
+        "times": 1,
+        "res": {
+          "wood": 0,
+          "clay": 0,
+          "metal": 0,
+          "crop": 0
+        }
+      },
+      {
+        "name": "",
+        "times": 1,
+        "res": {
+          "wood": 0,
+          "clay": 0,
+          "metal": 0,
+          "crop": 0
+        }
+      }
+    ],
+    "Krossá River": [
+      {
+        "name": "",
+        "times": 1,
+        "res": {
+          "wood": 0,
+          "clay": 0,
+          "metal": 0,
+          "crop": 0
+        }
+      },
+      {
+        "name": "",
+        "times": 1,
+        "res": {
+          "wood": 0,
+          "clay": 0,
+          "metal": 0,
+          "crop": 0
+        }
+      },
+      {
+        "name": "",
+        "times": 1,
+        "res": {
+          "wood": 0,
+          "clay": 0,
+          "metal": 0,
+          "crop": 0
+        }
+      }
+    ],
+    "Hvítá River": [
+      {
+        "name": "",
+        "times": 1,
+        "res": {
+          "wood": 0,
+          "clay": 0,
+          "metal": 0,
+          "crop": 0
+        }
+      },
+      {
+        "name": "",
+        "times": 1,
+        "res": {
+          "wood": 0,
+          "clay": 0,
+          "metal": 0,
+          "crop": 0
+        }
+      },
+      {
+        "name": "",
+        "times": 1,
+        "res": {
+          "wood": 0,
+          "clay": 0,
+          "metal": 0,
+          "crop": 0
+        }
+      }
+    ],
+    "Vltava River": [
+      {
+        "name": "",
+        "times": 1,
+        "res": {
+          "wood": 0,
+          "clay": 0,
+          "metal": 0,
+          "crop": 0
+        }
+      },
+      {
+        "name": "",
+        "times": 1,
+        "res": {
+          "wood": 0,
+          "clay": 0,
+          "metal": 0,
+          "crop": 0
+        }
+      },
+      {
+        "name": "",
+        "times": 1,
+        "res": {
+          "wood": 0,
+          "clay": 0,
+          "metal": 0,
+          "crop": 0
+        }
+      }
+    ],
+    "Otava River": [
+      {
+        "name": "",
+        "times": 1,
+        "res": {
+          "wood": 0,
+          "clay": 0,
+          "metal": 0,
+          "crop": 0
+        }
+      },
+      {
+        "name": "",
+        "times": 1,
+        "res": {
+          "wood": 0,
+          "clay": 0,
+          "metal": 0,
+          "crop": 0
+        }
+      },
+      {
+        "name": "",
+        "times": 1,
+        "res": {
+          "wood": 0,
+          "clay": 0,
+          "metal": 0,
+          "crop": 0
+        }
+      }
+    ]
+  },
+  "allyEnabled": {
+    "Amazon River": false,
+    "Brahmaputra River": false,
+    "Mississippi River": false,
+    "Yellow River": false,
+    "Krossá River": false,
+    "Hvítá River": false,
+    "Vltava River": false,
+    "Otava River": false
   }
 }
