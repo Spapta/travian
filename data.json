@@ -168,22 +168,22 @@
         "crop": 500
       },
       "Ganga River": {
-        "wood": 0,
-        "clay": 0,
-        "metal": 0,
-        "crop": 0
+        "wood": 350,
+        "clay": 350,
+        "metal": 250,
+        "crop": 500
       },
       "Yangtze River": {
-        "wood": 0,
-        "clay": 0,
-        "metal": 0,
-        "crop": 0
+        "wood": 350,
+        "clay": 350,
+        "metal": 250,
+        "crop": 500
       },
       "Mekong River": {
-        "wood": 0,
-        "clay": 0,
-        "metal": 0,
-        "crop": 0
+        "wood": 350,
+        "clay": 350,
+        "metal": 250,
+        "crop": 500
       },
       "Narmada River": {
         "wood": 0,
