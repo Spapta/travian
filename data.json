@@ -567,7 +567,7 @@
   },
   "allyEnabled": {
     "Amazon River": false,
-    "Brahmaputra River": false,
+    "Brahmaputra River": true,
     "Mississippi River": false,
     "Yellow River": false,
     "Krossá River": false,
