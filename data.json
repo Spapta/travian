@@ -260,7 +260,7 @@
   "production": {
     "Amazon River": {
       "wood": 438,
-      "clay": 0,
+      "clay": 438,
       "metal": 0,
       "crop": 0
     },
