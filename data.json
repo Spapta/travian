@@ -602,7 +602,7 @@
     "Ganga River": {
       "wood": 1750,
       "clay": 1750,
-      "metal": 0,
+      "metal": 1750,
       "crop": 0
     },
     "Yangtze River": {
