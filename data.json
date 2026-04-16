@@ -1,4 +1,21 @@
 {
+  "rv": [
+    "Amazon River",
+    "Brahmaputra River",
+    "Mississippi River",
+    "Yellow River",
+    "Krossá River",
+    "Hvítá River",
+    "Vltava River",
+    "Otava River"
+  ],
+  "av": [
+    "Congo River",
+    "Ganga River",
+    "Yangtze River",
+    "Mekong River",
+    "Narmada River"
+  ],
   "routes": {
     "Amazon River": {
       "Congo River": {
@@ -574,5 +591,37 @@
     "Hvítá River": false,
     "Vltava River": false,
     "Otava River": false
+  },
+  "armyProduction": {
+    "Congo River": {
+      "wood": 0,
+      "clay": 0,
+      "metal": 0,
+      "crop": 0
+    },
+    "Ganga River": {
+      "wood": 0,
+      "clay": 0,
+      "metal": 0,
+      "crop": 0
+    },
+    "Yangtze River": {
+      "wood": 0,
+      "clay": 0,
+      "metal": 0,
+      "crop": 0
+    },
+    "Mekong River": {
+      "wood": 0,
+      "clay": 0,
+      "metal": 0,
+      "crop": 0
+    },
+    "Narmada River": {
+      "wood": 0,
+      "clay": 0,
+      "metal": 0,
+      "crop": 0
+    }
   }
 }
