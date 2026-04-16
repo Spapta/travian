@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travian Trade Route Tracker</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0f1117;
+    --bg2: #181c27;
+    --bg3: #1e2333;
+    --border: rgba(255,255,255,0.08);
+    --border2: rgba(255,255,255,0.14);
+    --text: #e8eaf0;
+    --text2: #8b90a0;
+    --text3: #555a6e;
+    --wood: #7dbf5e;
+    --clay: #e07a52;
+    --metal: #5b9bd5;
+    --crop: #d4a843;
+    --accent: #4f7ef8;
+    --accent-bg: rgba(79,126,248,0.12);
+    --radius: 10px;
+    --radius-lg: 14px;
+  }
+
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  header {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .logo-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--accent);
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+
+  .view-toggle {
+    display: flex;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 3px;
+    gap: 3px;
+  }
+
+  .vtbtn {
+    padding: 5px 16px;
+    border-radius: 7px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--text2);
+    font-family: inherit;
+    transition: all 0.15s;
+  }
+
+  .vtbtn.active {
+    background: var(--accent);
+    color: #fff;
+    font-weight: 500;
+  }
+
+  .vtbtn:not(.active):hover { background: var(--border); color: var(--text); }
+
+  main { padding: 24px; max-width: 1200px; margin: 0 auto; }
+
+  .summary-strip {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .metric {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+  }
+
+  .metric-label {
+    font-size: 11px;
+    color: var(--text2);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+
+  .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .wood-dot { background: var(--wood); }
+  .clay-dot { background: var(--clay); }
+  .metal-dot { background: var(--metal); }
+  .crop-dot { background: var(--crop); }
+
+  .metric-val { font-size: 24px; font-weight: 600; letter-spacing: -0.02em; }
+
+  .section-head {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    color: var(--text3);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .village-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .vcard {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: border-color 0.15s;
+  }
+
+  .vcard:hover { border-color: var(--border2); }
+
+  .vcard-header {
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg3);
+  }
+
+  .vcard-name { font-weight: 600; font-size: 13px; letter-spacing: -0.01em; }
+
+  .badge {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 500;
+    letter-spacing: .02em;
+  }
+
+  .badge-res { background: rgba(125,191,94,0.15); color: var(--wood); border: 1px solid rgba(125,191,94,0.2); }
+  .badge-army { background: rgba(79,126,248,0.15); color: var(--accent); border: 1px solid rgba(79,126,248,0.2); }
+
+  .vcard-body { padding: 8px 14px; }
+
+  .route-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .route-row:last-child { border-bottom: none; }
+
+  .route-label { font-size: 12px; color: var(--text2); width: 95px; flex-shrink: 0; }
+
+  .res-inputs { display: flex; gap: 5px; flex: 1; justify-content: flex-end; }
+
+  .ri { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+
+  .ri-lbl { font-size: 9px; font-weight: 600; letter-spacing: .05em; }
+
+  .ri input {
+    width: 54px;
+    text-align: center;
+    border: 1px solid var(--border2);
+    border-radius: 6px;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 12px;
+    padding: 4px 2px;
+    font-family: inherit;
+    -moz-appearance: textfield;
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .ri input::-webkit-inner-spin-button { -webkit-appearance: none; }
+  .ri input:hover { border-color: var(--accent); }
+  .ri input:focus { outline: none; border-color: var(--accent); background: var(--bg3); }
+
+  .wood-lbl { color: var(--wood); }
+  .clay-lbl { color: var(--clay); }
+  .metal-lbl { color: var(--metal); }
+  .crop-lbl { color: var(--crop); }
+
+  .incoming-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+  }
+
+  .incoming-row:last-child { border-bottom: none; }
+  .incoming-from { color: var(--text2); width: 95px; flex-shrink: 0; font-size: 12px; }
+
+  .incoming-res { display: flex; gap: 5px; }
+
+  .ires { display: flex; flex-direction: column; align-items: center; gap: 1px; }
+  .ires-lbl { font-size: 9px; font-weight: 600; letter-spacing: .05em; }
+  .ires-val { font-size: 12px; font-weight: 500; min-width: 46px; text-align: center; }
+
+  .total-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 14px;
+    background: var(--bg3);
+    border-top: 1px solid var(--border2);
+  }
+
+  .total-footer-label { font-size: 11px; font-weight: 600; color: var(--text2); text-transform: uppercase; letter-spacing: .05em; }
+
+  .total-footer-res { display: flex; gap: 5px; }
+
+  .tfres { display: flex; flex-direction: column; align-items: center; gap: 1px; }
+  .tfres-lbl { font-size: 9px; font-weight: 600; letter-spacing: .05em; }
+  .tfres-val { font-size: 13px; font-weight: 600; min-width: 46px; text-align: center; }
+
+  .grand-pill {
+    font-size: 13px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+    background: var(--accent-bg);
+    color: var(--accent);
+    border: 1px solid rgba(79,126,248,0.25);
+    letter-spacing: -0.01em;
+  }
+
+  .zero { color: var(--text3); }
+
+  @media (max-width: 600px) {
+    main { padding: 16px; }
+    .summary-strip { grid-template-columns: repeat(2, 1fr); }
+    header { padding: 0 16px; }
+    .logo span { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon">&#9876;</div>
+    <span>Trade Route Tracker</span>
+  </div>
+  <div class="view-toggle">
+    <button class="vtbtn active" onclick="setView('res')">Resource villages</button>
+    <button class="vtbtn" onclick="setView('army')">Army villages</button>
+  </div>
+</header>
+
+<main>
+  <div class="summary-strip">
+    <div class="metric"><div class="metric-label"><span class="dot wood-dot"></span>Wood / hr</div><div class="metric-val" id="s-wood">0</div></div>
+    <div class="metric"><div class="metric-label"><span class="dot clay-dot"></span>Clay / hr</div><div class="metric-val" id="s-clay">0</div></div>
+    <div class="metric"><div class="metric-label"><span class="dot metal-dot"></span>Metal / hr</div><div class="metric-val" id="s-metal">0</div></div>
+    <div class="metric"><div class="metric-label"><span class="dot crop-dot"></span>Crop / hr</div><div class="metric-val" id="s-crop">0</div></div>
+  </div>
+
+  <div id="res-view">
+    <div class="section-head">Resource villages — set outgoing amounts</div>
+    <div class="village-grid" id="res-grid"></div>
+  </div>
+
+  <div id="army-view" style="display:none">
+    <div class="section-head">Army villages — incoming resources per hour</div>
+    <div class="village-grid" id="army-grid"></div>
+  </div>
+</main>
+
+<script>
+const RV = ["Amazon River","Brahmaputra River","Mississippi River","Yellow River","Krossá River","Hvítá River","Vltava River","Otava River"];
+const AV = ["Congo River","Ganga River","Yangtze River","Mekong River","Narmada River"];
+const RES = ["wood","clay","metal","crop"];
+const RLBL = {wood:"Wood",clay:"Clay",metal:"Metal",crop:"Crop"};
+const RCLS = {wood:"wood-lbl",clay:"clay-lbl",metal:"metal-lbl",crop:"crop-lbl"};
+
+const data = {};
+RV.forEach(rv => { data[rv] = {}; AV.forEach(av => { data[rv][av] = {wood:0,clay:0,metal:0,crop:0}; }); });
+
+function sid(a,b,c){
+  const str = a+'||'+b+'||'+c;
+  let h = 0;
+  for(let i=0;i<str.length;i++){ h = Math.imul(31,h)+str.charCodeAt(i)|0; }
+  return 'id'+(h>>>0).toString(36);
+}
+
+function buildResView(){
+  const grid = document.getElementById('res-grid');
+  grid.innerHTML = '';
+  RV.forEach(rv => {
+    const card = document.createElement('div');
+    card.className = 'vcard';
+    let rows = AV.map(av => {
+      let inputs = RES.map(res => {
+        const id = sid(rv,av,res);
+        return `<div class="ri"><span class="ri-lbl ${RCLS[res]}">${RLBL[res][0]}</span><input type="number" min="0" step="100" value="0" id="${id}" data-rv="${rv}" data-av="${av}" data-res="${res}"></div>`;
+      }).join('');
+      return `<div class="route-row"><span class="route-label">${av.replace(' River','')}</span><div class="res-inputs">${inputs}</div></div>`;
+    }).join('');
+    card.innerHTML = `<div class="vcard-header"><span class="vcard-name">${rv}</span><span class="badge badge-res">resource</span></div><div class="vcard-body">${rows}</div>`;
+    grid.appendChild(card);
+  });
+}
+
+function buildArmyView(){
+  const grid = document.getElementById('army-grid');
+  grid.innerHTML = '';
+  AV.forEach(av => {
+    const card = document.createElement('div');
+    card.className = 'vcard';
+    let rows = RV.map(rv => {
+      let resvals = RES.map(res =>
+        `<div class="ires"><span class="ires-lbl ${RCLS[res]}">${RLBL[res][0]}</span><span class="ires-val zero" id="${sid(av,rv,res)}">—</span></div>`
+      ).join('');
+      return `<div class="incoming-row"><span class="incoming-from">${rv.replace(' River','')}</span><div class="incoming-res">${resvals}</div></div>`;
+    }).join('');
+
+    let totalCols = RES.map(res =>
+      `<div class="tfres"><span class="tfres-lbl ${RCLS[res]}">${RLBL[res][0]}</span><span class="tfres-val" id="${sid(av,'TOT',res)}">0</span></div>`
+    ).join('');
+
+    card.innerHTML = `
+      <div class="vcard-header"><span class="vcard-name">${av}</span><span class="badge badge-army">army</span></div>
+      <div class="vcard-body">${rows}</div>
+      <div class="total-footer">
+        <span class="total-footer-label">Total / hr</span>
+        <div class="total-footer-res">${totalCols}</div>
+        <span class="grand-pill" id="${sid(av,'TOT','ALL')}">0</span>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+
+function recalc(){
+  const globalTotals = {wood:0,clay:0,metal:0,crop:0};
+  AV.forEach(av => {
+    const avTotals = {wood:0,clay:0,metal:0,crop:0};
+    RV.forEach(rv => {
+      RES.forEach(res => {
+        const inp = document.getElementById(sid(rv,av,res));
+        const v = inp ? Math.max(0, parseInt(inp.value)||0) : 0;
+        data[rv][av][res] = v;
+        avTotals[res] += v;
+        globalTotals[res] += v;
+        const cell = document.getElementById(sid(av,rv,res));
+        if(cell){ cell.textContent = v===0?'—':v.toLocaleString(); cell.className='ires-val'+(v===0?' zero':''); }
+      });
+    });
+    let grand = 0;
+    RES.forEach(res => {
+      grand += avTotals[res];
+      const tc = document.getElementById(sid(av,'TOT',res));
+      if(tc) tc.textContent = avTotals[res]===0?'—':avTotals[res].toLocaleString();
+    });
+    const gp = document.getElementById(sid(av,'TOT','ALL'));
+    if(gp) gp.textContent = grand.toLocaleString();
+  });
+  RES.forEach(res => { document.getElementById('s-'+res).textContent = globalTotals[res].toLocaleString(); });
+}
+
+function setView(v){
+  document.getElementById('res-view').style.display = v==='res'?'':'none';
+  document.getElementById('army-view').style.display = v==='army'?'':'none';
+  document.querySelectorAll('.vtbtn').forEach((b,i) => b.classList.toggle('active',(i===0&&v==='res')||(i===1&&v==='army')));
+}
+
+buildResView();
+buildArmyView();
+recalc();
+
+document.getElementById('res-grid').addEventListener('input', e => { if(e.target.tagName==='INPUT') recalc(); });
+</script>
+</body>
+</html>
