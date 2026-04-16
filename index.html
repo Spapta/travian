@@ -60,6 +60,10 @@
   .smet-info { display: flex; flex-direction: column; gap: 1px; }
   .smet-label { font-size: 9px; color: var(--text2); text-transform: uppercase; letter-spacing: .06em; font-weight: 600; }
   .smet-val { font-size: 17px; font-weight: 600; letter-spacing: -.01em; line-height: 1; }
+  #s-wood { color: var(--wood); }
+  #s-clay { color: var(--clay); }
+  #s-metal { color: var(--metal); }
+  #s-crop { color: var(--crop); }
 
   .section-head { font-size: 10px; font-weight: 600; letter-spacing: .08em; color: var(--text3); text-transform: uppercase; margin-bottom: 10px; }
 
@@ -307,13 +311,18 @@ function applyData(data){
   recalc();
 }
 
+function loadLocalFallback(){
+  const keys=['travian_v4','travian_v3','travian_v2','travian_tracker_v1'];
+  for(const k of keys){const raw=localStorage.getItem(k);if(raw){try{applyData(JSON.parse(raw));return;}catch(e){}}}
+}
+
 async function loadFromGitHub(){
   const cfg=getConfig();
-  if(!cfg.token||!cfg.owner||!cfg.repo){const local=localStorage.getItem(LSK);if(local){try{applyData(JSON.parse(local));}catch(e){}}setSyncStatus('','Not configured');return;}
+  if(!cfg.token||!cfg.owner||!cfg.repo){loadLocalFallback();setSyncStatus('','Not configured');return;}
   setSyncStatus('busy','Loading...');
   try{
     const res=await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${DATA_FILE}`,{headers:{'Authorization':'token '+cfg.token,'Accept':'application/vnd.github.v3+json'}});
-    if(res.status===404){setSyncStatus('ok','Connected');showToast('Connected — no data yet','info');return;}
+    if(res.status===404){setSyncStatus('ok','Connected');showToast('Connected — no data yet','info');loadLocalFallback();return;}
     if(!res.ok)throw new Error('HTTP '+res.status);
     const json=await res.json();
     const decoded=JSON.parse(atob(json.content.replace(/\n/g,'')));
@@ -321,7 +330,7 @@ async function loadFromGitHub(){
     setSyncStatus('ok','Synced');showToast('Loaded ✓','ok');
   }catch(e){
     setSyncStatus('err','Failed');showToast('Load failed: '+e.message,'err');
-    const local=localStorage.getItem(LSK);if(local){try{applyData(JSON.parse(local));}catch(ex){}}
+    loadLocalFallback();
   }
 }
 
