@@ -7,169 +7,178 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --bg: #0f1117; --bg2: #181c27; --bg3: #1e2333;
-    --border: rgba(255,255,255,0.08); --border2: rgba(255,255,255,0.14);
-    --text: #e8eaf0; --text2: #8b90a0; --text3: #555a6e;
-    --wood: #7dbf5e; --clay: #e07a52; --metal: #5b9bd5; --crop: #d4a843;
-    --accent: #4f7ef8; --accent-bg: rgba(79,126,248,0.12);
-    --danger: #e05252; --danger-bg: rgba(224,82,82,0.13);
-    --success: #5ebf8a; --success-bg: rgba(94,191,138,0.11);
-    --warning: #d4a843; --warning-bg: rgba(212,168,67,0.12);
-    --ally: #a78bfa; --ally-bg: rgba(167,139,250,0.12);
-    --radius: 10px; --radius-lg: 14px;
+    --bg: #0d1018; --bg2: #141820; --bg3: #1a1f2e; --bg4: #1f2535;
+    --border: rgba(255,255,255,0.07); --border2: rgba(255,255,255,0.12);
+    --text: #dde0ea; --text2: #6b7080; --text3: #404555;
+    --wood: #6daa4e; --clay: #cc6b42; --metal: #4d8bc4; --crop: #c09430;
+    --accent: #4470e8; --accent-bg: rgba(68,112,232,0.1);
+    --danger: #cc4444; --danger-bg: rgba(204,68,68,0.1);
+    --success: #4aaa78; --success-bg: rgba(74,170,120,0.1);
+    --warning: #c09430;
+    --ally: #9070e0; --ally-bg: rgba(144,112,224,0.1);
+    --r: 8px; --rl: 11px;
   }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; font-size: 14px; line-height: 1.5; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; font-size: 13px; }
 
-  header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 56px; position: sticky; top: 0; z-index: 10; }
-  .logo { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; }
-  .logo-icon { width: 28px; height: 28px; background: var(--accent); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
-  .header-right { display: flex; align-items: center; gap: 12px; }
-  .sync-status { font-size: 11px; color: var(--text3); display: flex; align-items: center; gap: 5px; }
-  .sync-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--text3); flex-shrink: 0; }
-  .sync-dot.ok { background: var(--success); }
-  .sync-dot.err { background: var(--danger); }
-  .sync-dot.busy { background: var(--warning); animation: pulse 1s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
-  .view-toggle { display: flex; background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 3px; gap: 3px; }
-  .vtbtn { padding: 5px 14px; border-radius: 7px; border: none; background: transparent; cursor: pointer; font-size: 13px; color: var(--text2); font-family: inherit; transition: all 0.15s; }
+  /* HEADER */
+  header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 0 20px; display: flex; align-items: center; justify-content: space-between; height: 48px; position: sticky; top: 0; z-index: 10; gap: 12px; }
+  .logo { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--text); white-space: nowrap; }
+  .logo-icon { width: 24px; height: 24px; background: var(--accent); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; }
+  .header-right { display: flex; align-items: center; gap: 8px; }
+  .sync-pill { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--text2); padding: 3px 8px; border-radius: 20px; border: 1px solid var(--border); background: var(--bg3); white-space: nowrap; }
+  .sync-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--text3); flex-shrink: 0; }
+  .sync-dot.ok { background: var(--success); } .sync-dot.err { background: var(--danger); } .sync-dot.busy { background: var(--warning); animation: p 1s infinite; }
+  @keyframes p { 0%,100%{opacity:1}50%{opacity:.3} }
+  .hbtn { padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border2); background: transparent; cursor: pointer; font-size: 11px; color: var(--text2); font-family: inherit; transition: all .15s; white-space: nowrap; }
+  .hbtn:hover { background: var(--bg3); color: var(--text); }
+  .view-toggle { display: flex; background: var(--bg3); border: 1px solid var(--border); border-radius: var(--r); padding: 2px; gap: 2px; }
+  .vtbtn { padding: 4px 12px; border-radius: 6px; border: none; background: transparent; cursor: pointer; font-size: 11px; color: var(--text2); font-family: inherit; transition: all .15s; white-space: nowrap; }
   .vtbtn.active { background: var(--accent); color: #fff; font-weight: 500; }
   .vtbtn:not(.active):hover { background: var(--border); color: var(--text); }
-  .icon-btn { padding: 5px 10px; border-radius: 7px; border: 1px solid var(--border2); background: transparent; cursor: pointer; font-size: 13px; color: var(--text2); font-family: inherit; transition: all 0.15s; }
-  .icon-btn:hover { background: var(--bg3); color: var(--text); }
 
-  main { padding: 24px; max-width: 1300px; margin: 0 auto; }
+  main { padding: 16px 20px; max-width: 1400px; margin: 0 auto; }
 
-  .settings-panel { background: var(--bg2); border: 1px solid var(--border2); border-radius: var(--radius-lg); padding: 20px 24px; margin-bottom: 24px; }
-  .settings-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
-  .settings-desc { font-size: 12px; color: var(--text2); margin-bottom: 16px; line-height: 1.6; }
+  /* SETTINGS */
+  .settings-panel { background: var(--bg2); border: 1px solid var(--border2); border-radius: var(--rl); padding: 14px 18px; margin-bottom: 16px; }
+  .settings-title { font-size: 12px; font-weight: 600; margin-bottom: 3px; }
+  .settings-desc { font-size: 11px; color: var(--text2); margin-bottom: 12px; line-height: 1.5; }
   .settings-desc a { color: var(--accent); text-decoration: none; }
-  .settings-row { display: flex; gap: 10px; flex-wrap: wrap; }
-  .settings-field { display: flex; flex-direction: column; gap: 5px; flex: 1; min-width: 180px; }
-  .settings-label { font-size: 11px; font-weight: 600; color: var(--text2); text-transform: uppercase; letter-spacing: .06em; }
-  .settings-input { background: var(--bg3); border: 1px solid var(--border2); border-radius: var(--radius); color: var(--text); font-size: 13px; padding: 8px 12px; font-family: inherit; }
-  .settings-input:focus { outline: none; border-color: var(--accent); }
-  .settings-input::placeholder { color: var(--text3); }
-  .save-btn { align-self: flex-end; padding: 8px 20px; border-radius: var(--radius); border: none; background: var(--accent); color: #fff; font-size: 13px; font-weight: 500; cursor: pointer; font-family: inherit; }
-  .save-btn:hover { opacity: 0.85; }
-  .settings-note { font-size: 11px; color: var(--text3); margin-top: 10px; }
+  .settings-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: flex-end; }
+  .sf { display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 140px; }
+  .sl { font-size: 10px; font-weight: 600; color: var(--text2); text-transform: uppercase; letter-spacing: .06em; }
+  .si { background: var(--bg3); border: 1px solid var(--border2); border-radius: var(--r); color: var(--text); font-size: 12px; padding: 6px 10px; font-family: inherit; }
+  .si:focus { outline: none; border-color: var(--accent); }
+  .si::placeholder { color: var(--text3); }
+  .conn-btn { padding: 6px 16px; border-radius: var(--r); border: none; background: var(--accent); color: #fff; font-size: 12px; font-weight: 500; cursor: pointer; font-family: inherit; white-space: nowrap; }
+  .conn-btn:hover { opacity: .85; }
+  .settings-note { font-size: 10px; color: var(--text3); margin-top: 8px; }
 
-  .summary-strip { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px; margin-bottom: 24px; }
-  .metric { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 16px; }
-  .metric-label { font-size: 11px; color: var(--text2); margin-bottom: 4px; display: flex; align-items: center; gap: 6px; text-transform: uppercase; letter-spacing: .06em; }
-  .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-  .wood-dot{background:var(--wood)} .clay-dot{background:var(--clay)} .metal-dot{background:var(--metal)} .crop-dot{background:var(--crop)}
-  .metric-val { font-size: 24px; font-weight: 600; letter-spacing: -0.02em; }
+  /* SUMMARY BAR */
+  .summary-bar { display: flex; gap: 8px; margin-bottom: 16px; }
+  .smet { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r); padding: 8px 14px; flex: 1; display: flex; align-items: center; gap: 8px; }
+  .smet-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  .smet-info { display: flex; flex-direction: column; gap: 1px; }
+  .smet-label { font-size: 9px; color: var(--text2); text-transform: uppercase; letter-spacing: .06em; font-weight: 600; }
+  .smet-val { font-size: 17px; font-weight: 600; letter-spacing: -.01em; line-height: 1; }
 
-  .section-head { font-size: 11px; font-weight: 600; letter-spacing: .08em; color: var(--text3); text-transform: uppercase; margin-bottom: 12px; }
-  .village-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px,1fr)); gap: 14px; margin-bottom: 24px; }
+  .section-head { font-size: 10px; font-weight: 600; letter-spacing: .08em; color: var(--text3); text-transform: uppercase; margin-bottom: 10px; }
 
-  .vcard { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: border-color 0.15s; }
+  /* VILLAGE GRID */
+  .village-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px,1fr)); gap: 10px; margin-bottom: 16px; }
+
+  .vcard { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--rl); overflow: hidden; }
   .vcard:hover { border-color: var(--border2); }
-  .vcard-header { padding: 11px 14px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--bg3); }
-  .vcard-header-left { display: flex; align-items: center; gap: 8px; }
-  .vcard-name { font-weight: 600; font-size: 13px; }
-  .badge { font-size: 10px; padding: 2px 8px; border-radius: 20px; font-weight: 500; }
-  .badge-res { background: rgba(125,191,94,0.15); color: var(--wood); border: 1px solid rgba(125,191,94,0.2); }
-  .badge-army { background: rgba(79,126,248,0.15); color: var(--accent); border: 1px solid rgba(79,126,248,0.2); }
 
-  /* Toggle switch */
-  .ally-toggle-wrap { display: flex; align-items: center; gap: 6px; }
-  .ally-toggle-label { font-size: 10px; color: var(--text3); font-weight: 500; letter-spacing: .04em; white-space: nowrap; }
-  .ally-toggle-label.on { color: var(--ally); }
-  .toggle { position: relative; width: 32px; height: 18px; flex-shrink: 0; }
+  /* Card header */
+  .vcard-header { padding: 8px 12px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--bg3); }
+  .vcard-hl { display: flex; align-items: center; gap: 6px; }
+  .vcard-name { font-weight: 600; font-size: 12px; }
+  .badge { font-size: 9px; padding: 1px 6px; border-radius: 20px; font-weight: 600; letter-spacing: .02em; }
+  .badge-res { background: rgba(109,170,78,.12); color: var(--wood); border: 1px solid rgba(109,170,78,.2); }
+  .badge-army { background: var(--accent-bg); color: var(--accent); border: 1px solid rgba(68,112,232,.2); }
+
+  /* Toggle */
+  .ally-toggle-wrap { display: flex; align-items: center; gap: 5px; }
+  .atl { font-size: 9px; color: var(--text3); font-weight: 500; letter-spacing: .03em; }
+  .atl.on { color: var(--ally); }
+  .toggle { position: relative; width: 28px; height: 16px; flex-shrink: 0; }
   .toggle input { opacity: 0; width: 0; height: 0; position: absolute; }
-  .toggle-track { position: absolute; inset: 0; background: var(--bg); border: 1px solid var(--border2); border-radius: 18px; cursor: pointer; transition: background 0.2s, border-color 0.2s; }
-  .toggle input:checked + .toggle-track { background: var(--ally-bg); border-color: var(--ally); }
-  .toggle-thumb { position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; background: var(--text3); border-radius: 50%; transition: transform 0.2s, background 0.2s; pointer-events: none; }
-  .toggle input:checked ~ .toggle-thumb { transform: translateX(14px); background: var(--ally); }
+  .ttrack { position: absolute; inset: 0; background: var(--bg); border: 1px solid var(--border2); border-radius: 16px; cursor: pointer; transition: background .2s, border-color .2s; }
+  .toggle input:checked + .ttrack { background: var(--ally-bg); border-color: var(--ally); }
+  .tthumb { position: absolute; top: 2px; left: 2px; width: 10px; height: 10px; background: var(--text3); border-radius: 50%; transition: transform .2s, background .2s; pointer-events: none; }
+  .toggle input:checked ~ .tthumb { transform: translateX(12px); background: var(--ally); }
 
-  .prod-section { padding: 10px 14px; border-bottom: 1px solid var(--border); }
-  .sub-label { font-size: 10px; font-weight: 600; letter-spacing: .07em; color: var(--text3); text-transform: uppercase; margin-bottom: 7px; }
-  .four-row { display: flex; gap: 6px; margin-bottom: 8px; }
-  .four-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; }
-  .four-lbl { font-size: 9px; font-weight: 600; letter-spacing: .05em; }
-  .prod-input { width: 100%; text-align: center; border: 1px solid var(--border2); border-radius: 6px; background: var(--bg); color: var(--text); font-size: 12px; padding: 5px 2px; font-family: inherit; -moz-appearance: textfield; }
-  .prod-input::-webkit-inner-spin-button { -webkit-appearance: none; }
-  .prod-input:hover { border-color: var(--accent); }
-  .prod-input:focus { outline: none; border-color: var(--accent); background: var(--bg3); }
-  .avail-val { font-size: 12px; font-weight: 600; width: 100%; text-align: center; padding: 4px 2px; border-radius: 5px; }
+  /* Production section */
+  .prod-section { padding: 7px 12px; border-bottom: 1px solid var(--border); }
+  .ps-row { display: flex; gap: 4px; }
+  .ps-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  .ps-lbl { font-size: 8px; font-weight: 700; letter-spacing: .05em; }
+  .ps-input { width: 100%; text-align: center; border: 1px solid var(--border); border-radius: 5px; background: var(--bg3); color: var(--text); font-size: 11px; padding: 3px 1px; font-family: inherit; -moz-appearance: textfield; }
+  .ps-input::-webkit-inner-spin-button { -webkit-appearance: none; }
+  .ps-input:hover { border-color: var(--border2); }
+  .ps-input:focus { outline: none; border-color: var(--accent); background: var(--bg4); }
+  .avail-val { font-size: 11px; font-weight: 600; width: 100%; text-align: center; padding: 2px 1px; border-radius: 4px; }
   .avail-ok { color: var(--success); background: var(--success-bg); }
   .avail-warn { color: var(--danger); background: var(--danger-bg); }
   .avail-neutral { color: var(--text3); }
 
-  .vcard-body { padding: 8px 14px; }
-  .route-section-label { font-size: 10px; font-weight: 600; letter-spacing: .07em; color: var(--text3); text-transform: uppercase; margin: 6px 0 8px; }
-  .route-row { display: flex; align-items: center; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--border); }
+  /* Prod row divider label */
+  .ps-divider { display: flex; align-items: center; gap: 6px; margin: 5px 0 4px; }
+  .ps-divider-line { flex: 1; height: 1px; background: var(--border); }
+  .ps-divider-txt { font-size: 8px; font-weight: 700; color: var(--text3); letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+
+  /* Route rows */
+  .vcard-body { padding: 4px 12px 6px; }
+  .route-row { display: flex; align-items: center; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid var(--border); }
   .route-row:last-child { border-bottom: none; }
-  .route-label { font-size: 12px; color: var(--text2); width: 95px; flex-shrink: 0; }
-  .res-inputs { display: flex; gap: 5px; flex: 1; justify-content: flex-end; }
-  .ri { display: flex; flex-direction: column; align-items: center; gap: 2px; }
-  .ri-lbl { font-size: 9px; font-weight: 600; letter-spacing: .05em; }
-  .ri input { width: 52px; text-align: center; border: 1px solid var(--border2); border-radius: 6px; background: var(--bg); color: var(--text); font-size: 12px; padding: 4px 2px; font-family: inherit; -moz-appearance: textfield; transition: border-color 0.15s; }
+  .route-label { font-size: 11px; color: var(--text2); width: 80px; flex-shrink: 0; }
+  .res-inputs { display: flex; gap: 3px; flex: 1; justify-content: flex-end; }
+  .ri { display: flex; flex-direction: column; align-items: center; gap: 1px; }
+  .ri-lbl { font-size: 8px; font-weight: 700; letter-spacing: .04em; }
+  .ri input { width: 48px; text-align: center; border: 1px solid var(--border); border-radius: 5px; background: var(--bg3); color: var(--text); font-size: 11px; padding: 3px 1px; font-family: inherit; -moz-appearance: textfield; }
   .ri input::-webkit-inner-spin-button { -webkit-appearance: none; }
-  .ri input:hover { border-color: var(--accent); }
-  .ri input:focus { outline: none; border-color: var(--accent); background: var(--bg3); }
+  .ri input:hover { border-color: var(--border2); }
+  .ri input:focus { outline: none; border-color: var(--accent); background: var(--bg4); }
 
   /* Ally section */
-  .ally-section { border-top: 1px solid rgba(167,139,250,0.15); padding: 10px 14px; background: rgba(167,139,250,0.04); }
-  .ally-route { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 10px; margin-bottom: 8px; }
+  .ally-section { border-top: 1px solid rgba(144,112,224,.12); padding: 6px 12px 8px; background: rgba(144,112,224,.03); }
+  .ally-section-lbl { font-size: 8px; font-weight: 700; color: var(--ally); letter-spacing: .07em; text-transform: uppercase; margin-bottom: 6px; opacity: .8; }
+  .ally-route { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--r); padding: 6px 8px; margin-bottom: 5px; }
   .ally-route:last-child { margin-bottom: 0; }
-  .ally-top-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-  .ally-name-input { flex: 1; background: var(--bg); border: 1px solid var(--border2); border-radius: 6px; color: var(--text); font-size: 12px; padding: 4px 8px; font-family: inherit; }
+  .ally-top-row { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+  .ally-name-input { flex: 1; background: var(--bg4); border: 1px solid var(--border2); border-radius: 5px; color: var(--text); font-size: 11px; padding: 3px 7px; font-family: inherit; min-width: 0; }
   .ally-name-input:focus { outline: none; border-color: var(--ally); }
   .ally-name-input::placeholder { color: var(--text3); }
-  .times-select { background: var(--bg); border: 1px solid var(--border2); border-radius: 6px; color: var(--text2); font-size: 11px; padding: 4px 6px; font-family: inherit; cursor: pointer; }
+  .times-select { background: var(--bg4); border: 1px solid var(--border2); border-radius: 5px; color: var(--text2); font-size: 10px; padding: 3px 5px; font-family: inherit; cursor: pointer; flex-shrink: 0; }
   .times-select:focus { outline: none; border-color: var(--ally); }
-  .ally-res-row { display: flex; gap: 5px; }
-  .ally-ri { display: flex; flex-direction: column; align-items: center; gap: 2px; flex: 1; }
-  .ally-ri-lbl { font-size: 9px; font-weight: 600; letter-spacing: .05em; }
-  .ally-ri input { width: 100%; text-align: center; border: 1px solid var(--border2); border-radius: 6px; background: var(--bg); color: var(--text); font-size: 12px; padding: 4px 2px; font-family: inherit; -moz-appearance: textfield; }
+  .ally-res-row { display: flex; gap: 3px; }
+  .ally-ri { display: flex; flex-direction: column; align-items: center; gap: 1px; flex: 1; }
+  .ally-ri-lbl { font-size: 8px; font-weight: 700; letter-spacing: .04em; }
+  .ally-ri input { width: 100%; text-align: center; border: 1px solid var(--border); border-radius: 5px; background: var(--bg4); color: var(--text); font-size: 11px; padding: 3px 1px; font-family: inherit; -moz-appearance: textfield; }
   .ally-ri input::-webkit-inner-spin-button { -webkit-appearance: none; }
-  .ally-ri input:hover { border-color: var(--ally); }
-  .ally-ri input:focus { outline: none; border-color: var(--ally); background: var(--bg3); }
-  .ally-hr-row { display: flex; gap: 5px; margin-top: 5px; }
-  .ally-hr-item { flex: 1; text-align: center; }
-  .ally-hr-val { font-size: 11px; font-weight: 600; color: var(--ally); }
-  .ally-hr-unit { font-size: 9px; color: var(--text3); }
+  .ally-ri input:hover { border-color: rgba(144,112,224,.3); }
+  .ally-ri input:focus { outline: none; border-color: var(--ally); }
+  .ally-hr-row { display: flex; gap: 3px; margin-top: 4px; }
+  .ally-hr-item { flex: 1; text-align: center; font-size: 10px; }
+  .ally-hr-val { font-weight: 600; color: var(--ally); }
+  .ally-hr-unit { color: var(--text3); font-size: 9px; }
 
   .wood-lbl{color:var(--wood)} .clay-lbl{color:var(--clay)} .metal-lbl{color:var(--metal)} .crop-lbl{color:var(--crop)}
 
-  .incoming-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 12px; }
+  /* Army view */
+  .incoming-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; border-bottom: 1px solid var(--border); }
   .incoming-row:last-child { border-bottom: none; }
-  .incoming-from { color: var(--text2); width: 95px; flex-shrink: 0; }
-  .incoming-res { display: flex; gap: 5px; }
+  .incoming-from { color: var(--text2); width: 90px; flex-shrink: 0; font-size: 11px; }
+  .incoming-res { display: flex; gap: 3px; }
   .ires { display: flex; flex-direction: column; align-items: center; gap: 1px; }
-  .ires-lbl { font-size: 9px; font-weight: 600; letter-spacing: .05em; }
-  .ires-val { font-size: 12px; font-weight: 500; min-width: 46px; text-align: center; }
-  .total-footer { display: flex; align-items: center; justify-content: space-between; padding: 9px 14px; background: var(--bg3); border-top: 1px solid var(--border2); }
-  .total-footer-label { font-size: 11px; font-weight: 600; color: var(--text2); text-transform: uppercase; letter-spacing: .05em; }
-  .total-footer-res { display: flex; gap: 5px; }
+  .ires-lbl { font-size: 8px; font-weight: 700; letter-spacing: .04em; }
+  .ires-val { font-size: 11px; font-weight: 500; min-width: 44px; text-align: center; }
+  .total-footer { display: flex; align-items: center; justify-content: space-between; padding: 6px 12px; background: var(--bg3); border-top: 1px solid var(--border2); }
+  .tfl { font-size: 9px; font-weight: 700; color: var(--text2); text-transform: uppercase; letter-spacing: .06em; }
+  .tfres-row { display: flex; gap: 3px; }
   .tfres { display: flex; flex-direction: column; align-items: center; gap: 1px; }
-  .tfres-lbl { font-size: 9px; font-weight: 600; letter-spacing: .05em; }
-  .tfres-val { font-size: 13px; font-weight: 600; min-width: 46px; text-align: center; }
-  .grand-pill { font-size: 13px; font-weight: 700; padding: 3px 12px; border-radius: 20px; background: var(--accent-bg); color: var(--accent); border: 1px solid rgba(79,126,248,0.25); }
+  .tfres-lbl { font-size: 8px; font-weight: 700; letter-spacing: .04em; }
+  .tfres-val { font-size: 12px; font-weight: 600; min-width: 44px; text-align: center; }
+  .grand-pill { font-size: 12px; font-weight: 700; padding: 2px 10px; border-radius: 20px; background: var(--accent-bg); color: var(--accent); border: 1px solid rgba(68,112,232,.2); }
   .zero { color: var(--text3); }
 
-  .toast { position: fixed; bottom: 20px; right: 20px; padding: 10px 18px; border-radius: var(--radius); font-size: 13px; font-weight: 500; z-index: 999; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+  .toast { position: fixed; bottom: 16px; right: 16px; padding: 8px 14px; border-radius: var(--r); font-size: 12px; font-weight: 500; z-index: 999; opacity: 0; transition: opacity .3s; pointer-events: none; }
   .toast.show { opacity: 1; }
-  .toast.ok { background: var(--success-bg); color: var(--success); border: 1px solid rgba(94,191,138,0.3); }
-  .toast.err { background: var(--danger-bg); color: var(--danger); border: 1px solid rgba(224,82,82,0.3); }
-  .toast.info { background: var(--accent-bg); color: var(--accent); border: 1px solid rgba(79,126,248,0.3); }
+  .toast.ok { background: var(--success-bg); color: var(--success); border: 1px solid rgba(74,170,120,.25); }
+  .toast.err { background: var(--danger-bg); color: var(--danger); border: 1px solid rgba(204,68,68,.25); }
+  .toast.info { background: var(--accent-bg); color: var(--accent); border: 1px solid rgba(68,112,232,.25); }
 
-  @media(max-width:600px){ main{padding:16px} .summary-strip{grid-template-columns:repeat(2,1fr)} header{padding:0 16px;height:auto;padding-top:8px;padding-bottom:8px;} }
+  @media(max-width:640px){ main{padding:12px} .summary-bar{flex-wrap:wrap} .smet{min-width:calc(50% - 4px)} header{flex-wrap:wrap;height:auto;padding:8px 12px;gap:6px} }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">
-    <div class="logo-icon">&#9876;</div>
-    <span>Trade Route Tracker</span>
-  </div>
+  <div class="logo"><div class="logo-icon">&#9876;</div>Trade Route Tracker</div>
   <div class="header-right">
-    <div class="sync-status"><span class="sync-dot" id="sync-dot"></span><span id="sync-label">Not configured</span></div>
-    <button class="icon-btn" onclick="toggleSettings()">&#9881; Settings</button>
-    <button class="icon-btn" onclick="loadFromGitHub()">&#8635; Refresh</button>
+    <div class="sync-pill"><span class="sync-dot" id="sync-dot"></span><span id="sync-label">Not configured</span></div>
+    <button class="hbtn" onclick="toggleSettings()">&#9881; Settings</button>
+    <button class="hbtn" onclick="loadFromGitHub()">&#8635; Refresh</button>
     <div class="view-toggle">
       <button class="vtbtn active" onclick="setView('res')">Resource villages</button>
       <button class="vtbtn" onclick="setView('army')">Army villages</button>
@@ -179,39 +188,30 @@
 
 <main>
   <div class="settings-panel" id="settings-panel" style="display:none">
-    <div class="settings-title">GitHub sync settings</div>
-    <div class="settings-desc">Data is saved as <code>data.json</code> in your repo. Each person needs their own token from <a href="https://github.com/settings/tokens/new" target="_blank">github.com/settings/tokens/new</a> with <strong>repo</strong> scope.</div>
+    <div class="settings-title">GitHub sync</div>
+    <div class="settings-desc">Data is saved as <code>data.json</code> in your repo. Each person needs their own token from <a href="https://github.com/settings/tokens/new" target="_blank">github.com/settings/tokens/new</a> — select <strong>repo</strong> scope.</div>
     <div class="settings-row">
-      <div class="settings-field">
-        <span class="settings-label">GitHub username</span>
-        <input class="settings-input" id="cfg-owner" placeholder="e.g. spapta">
-      </div>
-      <div class="settings-field">
-        <span class="settings-label">Repository name</span>
-        <input class="settings-input" id="cfg-repo" placeholder="e.g. travian">
-      </div>
-      <div class="settings-field" style="flex:2">
-        <span class="settings-label">Personal access token</span>
-        <input class="settings-input" id="cfg-token" type="password" placeholder="ghp_...">
-      </div>
-      <button class="save-btn" onclick="saveConfig()">Connect</button>
+      <div class="sf"><span class="sl">Username</span><input class="si" id="cfg-owner" placeholder="spapta"></div>
+      <div class="sf"><span class="sl">Repository</span><input class="si" id="cfg-repo" placeholder="travian"></div>
+      <div class="sf" style="flex:2"><span class="sl">Personal access token</span><input class="si" id="cfg-token" type="password" placeholder="ghp_..."></div>
+      <button class="conn-btn" onclick="saveConfig()">Connect</button>
     </div>
-    <div class="settings-note">Token needs <strong>repo</strong> scope. Stored only in your browser.</div>
+    <div class="settings-note">Token stored only in your browser — never shared.</div>
   </div>
 
-  <div class="summary-strip">
-    <div class="metric"><div class="metric-label"><span class="dot wood-dot"></span>Wood / hr</div><div class="metric-val" id="s-wood">0</div></div>
-    <div class="metric"><div class="metric-label"><span class="dot clay-dot"></span>Clay / hr</div><div class="metric-val" id="s-clay">0</div></div>
-    <div class="metric"><div class="metric-label"><span class="dot metal-dot"></span>Metal / hr</div><div class="metric-val" id="s-metal">0</div></div>
-    <div class="metric"><div class="metric-label"><span class="dot crop-dot"></span>Crop / hr</div><div class="metric-val" id="s-crop">0</div></div>
+  <div class="summary-bar">
+    <div class="smet"><span class="smet-dot wood-dot"></span><div class="smet-info"><span class="smet-label">Wood / hr</span><span class="smet-val" id="s-wood">0</span></div></div>
+    <div class="smet"><span class="smet-dot clay-dot"></span><div class="smet-info"><span class="smet-label">Clay / hr</span><span class="smet-val" id="s-clay">0</span></div></div>
+    <div class="smet"><span class="smet-dot metal-dot"></span><div class="smet-info"><span class="smet-label">Metal / hr</span><span class="smet-val" id="s-metal">0</span></div></div>
+    <div class="smet"><span class="smet-dot crop-dot"></span><div class="smet-info"><span class="smet-label">Crop / hr</span><span class="smet-val" id="s-crop">0</span></div></div>
   </div>
 
   <div id="res-view">
-    <div class="section-head">Resource villages — production &amp; outgoing routes</div>
+    <div class="section-head">Resource villages</div>
     <div class="village-grid" id="res-grid"></div>
   </div>
   <div id="army-view" style="display:none">
-    <div class="section-head">Army villages — incoming resources per hour</div>
+    <div class="section-head">Army villages</div>
     <div class="village-grid" id="army-grid"></div>
   </div>
 </main>
@@ -236,24 +236,13 @@ function allySectionId(rv){return sid('allysec',rv,'wrap');}
 
 function getConfig(){try{return JSON.parse(localStorage.getItem(CFG_KEY)||'{}')}catch(e){return {};}}
 function setConfig(c){localStorage.setItem(CFG_KEY,JSON.stringify(c));}
-
-function setSyncStatus(state,label){
-  document.getElementById('sync-dot').className='sync-dot '+state;
-  document.getElementById('sync-label').textContent=label;
-}
+function setSyncStatus(state,label){document.getElementById('sync-dot').className='sync-dot '+state;document.getElementById('sync-label').textContent=label;}
 
 let toastTimer=null;
-function showToast(msg,type='ok'){
-  const t=document.getElementById('toast');
-  t.textContent=msg;t.className='toast '+type+' show';
-  clearTimeout(toastTimer);
-  toastTimer=setTimeout(()=>t.classList.remove('show'),3000);
-}
+function showToast(msg,type='ok'){const t=document.getElementById('toast');t.textContent=msg;t.className='toast '+type+' show';clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),3000);}
 
 function toggleSettings(){
-  const p=document.getElementById('settings-panel');
-  const vis=p.style.display!=='none';
-  p.style.display=vis?'none':'block';
+  const p=document.getElementById('settings-panel');const vis=p.style.display!=='none';p.style.display=vis?'none':'block';
   if(!vis){const cfg=getConfig();if(cfg.owner)document.getElementById('cfg-owner').value=cfg.owner;if(cfg.repo)document.getElementById('cfg-repo').value=cfg.repo;if(cfg.token)document.getElementById('cfg-token').value=cfg.token;}
 }
 
@@ -264,20 +253,19 @@ function saveConfig(){
   if(!owner||!repo||!token){showToast('Please fill in all fields','err');return;}
   setConfig({owner,repo,token});
   document.getElementById('settings-panel').style.display='none';
-  showToast('Config saved — loading data...','info');
+  showToast('Connecting...','info');
   loadFromGitHub();
 }
 
 function onAllyToggle(rv){
   const cb=document.getElementById(toggleId(rv));
   const sec=document.getElementById(allySectionId(rv));
-  const lbl=cb.closest('.ally-toggle-wrap').querySelector('.ally-toggle-label');
+  const lbl=cb.closest('.ally-toggle-wrap').querySelector('.atl');
   const on=cb.checked;
   sec.style.display=on?'':'none';
-  lbl.textContent=on?'Ally routes on':'Ally routes';
-  lbl.className='ally-toggle-label'+(on?' on':'');
-  recalc();
-  triggerSave();
+  lbl.textContent=on?'Ally on':'Ally';
+  lbl.className='atl'+(on?' on':'');
+  recalc();triggerSave();
 }
 
 function collectData(){
@@ -286,21 +274,14 @@ function collectData(){
     production[rv]={};
     RES.forEach(res=>{const e=document.getElementById(sid(rv,'PROD',res));production[rv][res]=e?Math.max(0,parseInt(e.value)||0):0;});
     routes[rv]={};
-    AV.forEach(av=>{
-      routes[rv][av]={};
-      RES.forEach(res=>{const e=document.getElementById(sid(rv,av,res));routes[rv][av][res]=e?Math.max(0,parseInt(e.value)||0):0;});
-    });
-    const cb=document.getElementById(toggleId(rv));
-    allyEnabled[rv]=cb?cb.checked:false;
+    AV.forEach(av=>{routes[rv][av]={};RES.forEach(res=>{const e=document.getElementById(sid(rv,av,res));routes[rv][av][res]=e?Math.max(0,parseInt(e.value)||0):0;});});
+    const cb=document.getElementById(toggleId(rv));allyEnabled[rv]=cb?cb.checked:false;
     ally[rv]=[];
     for(let s=0;s<MAX_ALLY;s++){
       const nameEl=document.getElementById(allyId(rv,s,'name'));
       const timesEl=document.getElementById(allyId(rv,s,'times'));
-      const name=nameEl?nameEl.value.trim():'';
-      const times=timesEl?parseInt(timesEl.value)||1:1;
-      const res={};
-      RES.forEach(r=>{const e=document.getElementById(allyId(rv,s,r));res[r]=e?Math.max(0,parseInt(e.value)||0):0;});
-      ally[rv].push({name,times,res});
+      const res={};RES.forEach(r=>{const e=document.getElementById(allyId(rv,s,r));res[r]=e?Math.max(0,parseInt(e.value)||0):0;});
+      ally[rv].push({name:nameEl?nameEl.value.trim():'',times:timesEl?parseInt(timesEl.value)||1:1,res});
     }
   });
   return {routes,production,ally,allyEnabled};
@@ -309,31 +290,16 @@ function collectData(){
 function applyData(data){
   if(!data)return;
   RV.forEach(rv=>{
-    RES.forEach(res=>{
-      const e=document.getElementById(sid(rv,'PROD',res));
-      if(e)e.value=(data.production&&data.production[rv]&&data.production[rv][res])||0;
-    });
-    AV.forEach(av=>{
-      RES.forEach(res=>{
-        const e=document.getElementById(sid(rv,av,res));
-        if(e)e.value=(data.routes&&data.routes[rv]&&data.routes[rv][av]&&data.routes[rv][av][res])||0;
-      });
-    });
+    RES.forEach(res=>{const e=document.getElementById(sid(rv,'PROD',res));if(e)e.value=(data.production&&data.production[rv]&&data.production[rv][res])||0;});
+    AV.forEach(av=>{RES.forEach(res=>{const e=document.getElementById(sid(rv,av,res));if(e)e.value=(data.routes&&data.routes[rv]&&data.routes[rv][av]&&data.routes[rv][av][res])||0;});});
     const enabled=data.allyEnabled&&data.allyEnabled[rv]===true;
-    const cb=document.getElementById(toggleId(rv));
-    const sec=document.getElementById(allySectionId(rv));
-    const lbl=cb&&cb.closest('.ally-toggle-wrap').querySelector('.ally-toggle-label');
-    if(cb){
-      cb.checked=enabled;
-      if(sec)sec.style.display=enabled?'':'none';
-      if(lbl){lbl.textContent=enabled?'Ally routes on':'Ally routes';lbl.className='ally-toggle-label'+(enabled?' on':'');}
-    }
+    const cb=document.getElementById(toggleId(rv));const sec=document.getElementById(allySectionId(rv));
+    const lbl=cb&&cb.closest('.ally-toggle-wrap').querySelector('.atl');
+    if(cb){cb.checked=enabled;if(sec)sec.style.display=enabled?'':'none';if(lbl){lbl.textContent=enabled?'Ally on':'Ally';lbl.className='atl'+(enabled?' on':'');}}
     if(data.ally&&data.ally[rv]){
       data.ally[rv].forEach((slot,s)=>{
-        const nameEl=document.getElementById(allyId(rv,s,'name'));
-        const timesEl=document.getElementById(allyId(rv,s,'times'));
-        if(nameEl)nameEl.value=slot.name||'';
-        if(timesEl)timesEl.value=slot.times||1;
+        const n=document.getElementById(allyId(rv,s,'name'));const t=document.getElementById(allyId(rv,s,'times'));
+        if(n)n.value=slot.name||'';if(t)t.value=slot.times||1;
         RES.forEach(r=>{const e=document.getElementById(allyId(rv,s,r));if(e)e.value=(slot.res&&slot.res[r])||0;});
       });
     }
@@ -343,122 +309,69 @@ function applyData(data){
 
 async function loadFromGitHub(){
   const cfg=getConfig();
-  if(!cfg.token||!cfg.owner||!cfg.repo){
-    const local=localStorage.getItem(LSK);
-    if(local){try{applyData(JSON.parse(local));}catch(e){}}
-    setSyncStatus('','Not configured');
-    return;
-  }
+  if(!cfg.token||!cfg.owner||!cfg.repo){const local=localStorage.getItem(LSK);if(local){try{applyData(JSON.parse(local));}catch(e){}}setSyncStatus('','Not configured');return;}
   setSyncStatus('busy','Loading...');
   try{
-    const res=await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${DATA_FILE}`,{
-      headers:{'Authorization':'token '+cfg.token,'Accept':'application/vnd.github.v3+json'}
-    });
-    if(res.status===404){setSyncStatus('ok','Connected — no data yet');showToast('Connected! Start entering data.','info');return;}
+    const res=await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${DATA_FILE}`,{headers:{'Authorization':'token '+cfg.token,'Accept':'application/vnd.github.v3+json'}});
+    if(res.status===404){setSyncStatus('ok','Connected');showToast('Connected — no data yet','info');return;}
     if(!res.ok)throw new Error('HTTP '+res.status);
     const json=await res.json();
     const decoded=JSON.parse(atob(json.content.replace(/\n/g,'')));
-    localStorage.setItem(LSK,JSON.stringify(decoded));
-    applyData(decoded);
-    setSyncStatus('ok','Synced');
-    showToast('Data loaded from GitHub ✓','ok');
+    localStorage.setItem(LSK,JSON.stringify(decoded));applyData(decoded);
+    setSyncStatus('ok','Synced');showToast('Loaded ✓','ok');
   }catch(e){
-    setSyncStatus('err','Load failed');
-    showToast('Could not load: '+e.message,'err');
-    const local=localStorage.getItem(LSK);
-    if(local){try{applyData(JSON.parse(local));}catch(ex){}}
+    setSyncStatus('err','Failed');showToast('Load failed: '+e.message,'err');
+    const local=localStorage.getItem(LSK);if(local){try{applyData(JSON.parse(local));}catch(ex){}}
   }
 }
 
 let fileSha=null;
 async function saveToGitHub(){
-  const cfg=getConfig();
-  if(!cfg.token||!cfg.owner||!cfg.repo)return;
+  const cfg=getConfig();if(!cfg.token||!cfg.owner||!cfg.repo)return;
   setSyncStatus('busy','Saving...');
-  const data=collectData();
-  localStorage.setItem(LSK,JSON.stringify(data));
+  const data=collectData();localStorage.setItem(LSK,JSON.stringify(data));
   const content=btoa(unescape(encodeURIComponent(JSON.stringify(data,null,2))));
   try{
     let sha=fileSha;
-    if(!sha){
-      const r=await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${DATA_FILE}`,{headers:{'Authorization':'token '+cfg.token,'Accept':'application/vnd.github.v3+json'}});
-      if(r.ok){const j=await r.json();sha=j.sha;fileSha=sha;}
-    }
-    const body={message:'Update trade route data',content};
-    if(sha)body.sha=sha;
-    const res=await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${DATA_FILE}`,{
-      method:'PUT',
-      headers:{'Authorization':'token '+cfg.token,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'},
-      body:JSON.stringify(body)
-    });
+    if(!sha){const r=await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${DATA_FILE}`,{headers:{'Authorization':'token '+cfg.token,'Accept':'application/vnd.github.v3+json'}});if(r.ok){const j=await r.json();sha=j.sha;fileSha=sha;}}
+    const body={message:'Update trade route data',content};if(sha)body.sha=sha;
+    const res=await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${DATA_FILE}`,{method:'PUT',headers:{'Authorization':'token '+cfg.token,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'},body:JSON.stringify(body)});
     if(!res.ok)throw new Error('HTTP '+res.status);
-    const j=await res.json();
-    fileSha=j.content.sha;
-    setSyncStatus('ok','Saved to GitHub');
-    showToast('Saved to GitHub ✓','ok');
-  }catch(e){
-    setSyncStatus('err','Save failed');
-    showToast('Save failed: '+e.message,'err');
-  }
+    const j=await res.json();fileSha=j.content.sha;
+    setSyncStatus('ok','Saved');showToast('Saved to GitHub ✓','ok');
+  }catch(e){setSyncStatus('err','Save failed');showToast('Save failed: '+e.message,'err');}
 }
 
 function buildResView(){
-  const grid=document.getElementById('res-grid');
-  grid.innerHTML='';
+  const grid=document.getElementById('res-grid');grid.innerHTML='';
   RV.forEach(rv=>{
-    const card=document.createElement('div');
-    card.className='vcard';
-    const tid=toggleId(rv);
-    const secId=allySectionId(rv);
+    const card=document.createElement('div');card.className='vcard';
+    const tid=toggleId(rv);const secId=allySectionId(rv);
+    const rvEsc=rv.replace(/'/g,"\\'");
 
-    const prodInputs=RES.map(res=>`<div class="four-item"><span class="four-lbl ${RCLS[res]}">${RLBL[res]}</span><input class="prod-input" type="number" min="0" step="100" value="0" id="${sid(rv,'PROD',res)}"></div>`).join('');
-    const availItems=RES.map(res=>`<div class="four-item"><span class="four-lbl ${RCLS[res]}">${RLBL[res][0]}</span><span class="avail-val avail-neutral" id="${sid(rv,'AVAIL',res)}">—</span></div>`).join('');
-    const routeRows=AV.map(av=>{
-      let inputs=RES.map(res=>`<div class="ri"><span class="ri-lbl ${RCLS[res]}">${RLBL[res][0]}</span><input type="number" min="0" step="100" value="0" id="${sid(rv,av,res)}"></div>`).join('');
-      return `<div class="route-row"><span class="route-label">${av.replace(' River','')}</span><div class="res-inputs">${inputs}</div></div>`;
-    }).join('');
-
-    const timesOptions=[1,2,3,4,6,8,12,24].map(n=>`<option value="${n}">${n}x / day</option>`).join('');
-    const allySlots=Array.from({length:MAX_ALLY},(_,s)=>{
-      const resInputs=RES.map(res=>`<div class="ally-ri"><span class="ally-ri-lbl ${RCLS[res]}">${RLBL[res][0]}</span><input type="number" min="0" step="100" value="0" id="${allyId(rv,s,res)}"></div>`).join('');
-      const hrVals=RES.map(res=>`<div class="ally-hr-item"><span class="ally-hr-val" id="${allyId(rv,s,res+'_hr')}">0</span> <span class="ally-hr-unit">/hr</span></div>`).join('');
-      return `<div class="ally-route">
-        <div class="ally-top-row">
-          <input class="ally-name-input" type="text" placeholder="Ally village name" id="${allyId(rv,s,'name')}">
-          <select class="times-select" id="${allyId(rv,s,'times')}">${timesOptions}</select>
-        </div>
-        <div class="ally-res-row">${resInputs}</div>
-        <div class="ally-hr-row">${hrVals}</div>
-      </div>`;
-    }).join('');
+    const prodInputs=RES.map(res=>`<div class="ps-item"><span class="ps-lbl ${RCLS[res]}">${RLBL[res]}</span><input class="ps-input" type="number" min="0" step="100" value="0" id="${sid(rv,'PROD',res)}"></div>`).join('');
+    const availItems=RES.map(res=>`<div class="ps-item"><span class="ps-lbl ${RCLS[res]}">${RLBL[res][0]}</span><span class="avail-val avail-neutral" id="${sid(rv,'AVAIL',res)}">—</span></div>`).join('');
+    const routeRows=AV.map(av=>`<div class="route-row"><span class="route-label">${av.replace(' River','')}</span><div class="res-inputs">${RES.map(res=>`<div class="ri"><span class="ri-lbl ${RCLS[res]}">${RLBL[res][0]}</span><input type="number" min="0" step="100" value="0" id="${sid(rv,av,res)}"></div>`).join('')}</div></div>`).join('');
+    const timesOpts=[1,2,3,4,6,8,12,24].map(n=>`<option value="${n}">${n}x/day</option>`).join('');
+    const allySlots=Array.from({length:MAX_ALLY},(_,s)=>`<div class="ally-route">
+      <div class="ally-top-row"><input class="ally-name-input" type="text" placeholder="Village name" id="${allyId(rv,s,'name')}"><select class="times-select" id="${allyId(rv,s,'times')}">${timesOpts}</select></div>
+      <div class="ally-res-row">${RES.map(res=>`<div class="ally-ri"><span class="ally-ri-lbl ${RCLS[res]}">${RLBL[res][0]}</span><input type="number" min="0" step="100" value="0" id="${allyId(rv,s,res)}"></div>`).join('')}</div>
+      <div class="ally-hr-row">${RES.map(res=>`<div class="ally-hr-item"><span class="ally-hr-val" id="${allyId(rv,s,res+'_hr')}">0</span><span class="ally-hr-unit">/hr</span></div>`).join('')}</div>
+    </div>`).join('');
 
     card.innerHTML=`
       <div class="vcard-header">
-        <div class="vcard-header-left">
-          <span class="vcard-name">${rv}</span>
-          <span class="badge badge-res">resource</span>
-        </div>
-        <div class="ally-toggle-wrap">
-          <span class="ally-toggle-label">Ally routes</span>
-          <label class="toggle">
-            <input type="checkbox" id="${tid}" onchange="onAllyToggle('${rv.replace(/'/g,"\\'")}')">
-            <span class="toggle-track"></span>
-            <span class="toggle-thumb"></span>
-          </label>
-        </div>
+        <div class="vcard-hl"><span class="vcard-name">${rv}</span><span class="badge badge-res">res</span></div>
+        <div class="ally-toggle-wrap"><span class="atl">Ally</span><label class="toggle"><input type="checkbox" id="${tid}" onchange="onAllyToggle('${rvEsc}')"><span class="ttrack"></span><span class="tthumb"></span></label></div>
       </div>
       <div class="prod-section">
-        <div class="sub-label">Hourly production</div>
-        <div class="four-row">${prodInputs}</div>
-        <div class="sub-label">Available after all routes</div>
-        <div class="four-row">${availItems}</div>
+        <div class="ps-row">${prodInputs}</div>
+        <div class="ps-divider"><span class="ps-divider-line"></span><span class="ps-divider-txt">available</span><span class="ps-divider-line"></span></div>
+        <div class="ps-row">${availItems}</div>
       </div>
-      <div class="vcard-body">
-        <div class="route-section-label">Army routes (per hour)</div>
-        ${routeRows}
-      </div>
+      <div class="vcard-body">${routeRows}</div>
       <div class="ally-section" id="${secId}" style="display:none">
-        <div class="sub-label" style="margin-bottom:8px;color:var(--ally)">Ally routes (per send)</div>
+        <div class="ally-section-lbl">Ally routes</div>
         ${allySlots}
       </div>`;
     grid.appendChild(card);
@@ -466,78 +379,41 @@ function buildResView(){
 }
 
 function buildArmyView(){
-  const grid=document.getElementById('army-grid');
-  grid.innerHTML='';
+  const grid=document.getElementById('army-grid');grid.innerHTML='';
   AV.forEach(av=>{
-    const card=document.createElement('div');
-    card.className='vcard';
-    let rows=RV.map(rv=>{
-      let rv_=RES.map(res=>`<div class="ires"><span class="ires-lbl ${RCLS[res]}">${RLBL[res][0]}</span><span class="ires-val zero" id="${sid(av,rv,res)}">—</span></div>`).join('');
-      return `<div class="incoming-row"><span class="incoming-from">${rv.replace(' River','')}</span><div class="incoming-res">${rv_}</div></div>`;
-    }).join('');
-    let totCols=RES.map(res=>`<div class="tfres"><span class="tfres-lbl ${RCLS[res]}">${RLBL[res][0]}</span><span class="tfres-val" id="${sid(av,'TOT',res)}">0</span></div>`).join('');
+    const card=document.createElement('div');card.className='vcard';
+    const rows=RV.map(rv=>`<div class="incoming-row"><span class="incoming-from">${rv.replace(' River','')}</span><div class="incoming-res">${RES.map(res=>`<div class="ires"><span class="ires-lbl ${RCLS[res]}">${RLBL[res][0]}</span><span class="ires-val zero" id="${sid(av,rv,res)}">—</span></div>`).join('')}</div></div>`).join('');
+    const totCols=RES.map(res=>`<div class="tfres"><span class="tfres-lbl ${RCLS[res]}">${RLBL[res][0]}</span><span class="tfres-val" id="${sid(av,'TOT',res)}">0</span></div>`).join('');
     card.innerHTML=`
-      <div class="vcard-header"><span class="vcard-name">${av}</span><span class="badge badge-army">army</span></div>
+      <div class="vcard-header"><div class="vcard-hl"><span class="vcard-name">${av}</span><span class="badge badge-army">army</span></div></div>
       <div class="vcard-body">${rows}</div>
-      <div class="total-footer">
-        <span class="total-footer-label">Total / hr</span>
-        <div class="total-footer-res">${totCols}</div>
-        <span class="grand-pill" id="${sid(av,'TOT','ALL')}">0</span>
-      </div>`;
+      <div class="total-footer"><span class="tfl">Total / hr</span><div class="tfres-row">${totCols}</div><span class="grand-pill" id="${sid(av,'TOT','ALL')}">0</span></div>`;
     grid.appendChild(card);
   });
 }
 
 function recalc(){
-  const globalTotals={wood:0,clay:0,metal:0,crop:0};
-  const outgoing={};
-  RV.forEach(rv=>{outgoing[rv]={wood:0,clay:0,metal:0,crop:0};});
-
+  const gt={wood:0,clay:0,metal:0,crop:0};const out={};
+  RV.forEach(rv=>{out[rv]={wood:0,clay:0,metal:0,crop:0};});
   AV.forEach(av=>{
     const avT={wood:0,clay:0,metal:0,crop:0};
-    RV.forEach(rv=>{
-      RES.forEach(res=>{
-        const inp=document.getElementById(sid(rv,av,res));
-        const v=inp?Math.max(0,parseInt(inp.value)||0):0;
-        avT[res]+=v;globalTotals[res]+=v;outgoing[rv][res]+=v;
-        const cell=document.getElementById(sid(av,rv,res));
-        if(cell){cell.textContent=v===0?'—':v.toLocaleString();cell.className='ires-val'+(v===0?' zero':'');}
-      });
-    });
-    let grand=0;
-    RES.forEach(res=>{grand+=avT[res];const tc=document.getElementById(sid(av,'TOT',res));if(tc)tc.textContent=avT[res]===0?'—':avT[res].toLocaleString();});
-    const gp=document.getElementById(sid(av,'TOT','ALL'));
-    if(gp)gp.textContent=grand.toLocaleString();
+    RV.forEach(rv=>{RES.forEach(res=>{const inp=document.getElementById(sid(rv,av,res));const v=inp?Math.max(0,parseInt(inp.value)||0):0;avT[res]+=v;gt[res]+=v;out[rv][res]+=v;const cell=document.getElementById(sid(av,rv,res));if(cell){cell.textContent=v===0?'—':v.toLocaleString();cell.className='ires-val'+(v===0?' zero':'');}});});
+    let grand=0;RES.forEach(res=>{grand+=avT[res];const tc=document.getElementById(sid(av,'TOT',res));if(tc)tc.textContent=avT[res]===0?'—':avT[res].toLocaleString();});
+    const gp=document.getElementById(sid(av,'TOT','ALL'));if(gp)gp.textContent=grand.toLocaleString();
   });
-
-  RES.forEach(res=>document.getElementById('s-'+res).textContent=globalTotals[res].toLocaleString());
-
+  RES.forEach(res=>document.getElementById('s-'+res).textContent=gt[res].toLocaleString());
   RV.forEach(rv=>{
-    const cb=document.getElementById(toggleId(rv));
-    const allyOn=cb&&cb.checked;
-    let allyHrTotal={wood:0,clay:0,metal:0,crop:0};
+    const cb=document.getElementById(toggleId(rv));const allyOn=cb&&cb.checked;
+    let ahr={wood:0,clay:0,metal:0,crop:0};
     for(let s=0;s<MAX_ALLY;s++){
-      const timesEl=document.getElementById(allyId(rv,s,'times'));
-      const times=timesEl?parseInt(timesEl.value)||1:1;
-      RES.forEach(res=>{
-        const e=document.getElementById(allyId(rv,s,res));
-        const perSend=e?Math.max(0,parseInt(e.value)||0):0;
-        const perHour=perSend*times/24;
-        if(allyOn)allyHrTotal[res]+=perHour;
-        const hrEl=document.getElementById(allyId(rv,s,res+'_hr'));
-        if(hrEl)hrEl.textContent=perHour===0?'0':perHour%1===0?perHour.toLocaleString():perHour.toFixed(1);
-      });
+      const timesEl=document.getElementById(allyId(rv,s,'times'));const times=timesEl?parseInt(timesEl.value)||1:1;
+      RES.forEach(res=>{const e=document.getElementById(allyId(rv,s,res));const ps=e?Math.max(0,parseInt(e.value)||0):0;const ph=ps*times/24;if(allyOn)ahr[res]+=ph;const hrEl=document.getElementById(allyId(rv,s,res+'_hr'));if(hrEl)hrEl.textContent=ph===0?'0':ph%1===0?ph.toLocaleString():ph.toFixed(1);});
     }
     RES.forEach(res=>{
-      const pe=document.getElementById(sid(rv,'PROD',res));
-      const prod=pe?Math.max(0,parseInt(pe.value)||0):0;
-      const totalOut=outgoing[rv][res]+allyHrTotal[res];
-      const avail=prod-totalOut;
+      const pe=document.getElementById(sid(rv,'PROD',res));const prod=pe?Math.max(0,parseInt(pe.value)||0):0;
+      const avail=prod-out[rv][res]-ahr[res];
       const el=document.getElementById(sid(rv,'AVAIL',res));
-      if(el){
-        if(prod===0){el.textContent='—';el.className='avail-val avail-neutral';}
-        else{el.textContent=avail%1===0?avail.toLocaleString():avail.toFixed(1);el.className='avail-val '+(avail<0?'avail-warn':'avail-ok');}
-      }
+      if(el){if(prod===0){el.textContent='—';el.className='avail-val avail-neutral';}else{el.textContent=avail%1===0?avail.toLocaleString():avail.toFixed(1);el.className='avail-val '+(avail<0?'avail-warn':'avail-ok');}}
     });
   });
 }
@@ -552,9 +428,7 @@ let saveTimer=null;
 function triggerSave(){clearTimeout(saveTimer);saveTimer=setTimeout(saveToGitHub,1500);}
 function onInput(){recalc();triggerSave();}
 
-buildResView();
-buildArmyView();
-loadFromGitHub();
+buildResView();buildArmyView();loadFromGitHub();
 
 document.getElementById('res-grid').addEventListener('input',e=>{if(e.target.tagName==='INPUT'||e.target.tagName==='SELECT')onInput();});
 document.getElementById('res-grid').addEventListener('change',e=>{if(e.target.tagName==='SELECT')onInput();});
