@@ -346,7 +346,7 @@
         "times": 2,
         "res": {
           "wood": 12000,
-          "clay": 0,
+          "clay": 12000,
           "metal": 0,
           "crop": 0
         }
