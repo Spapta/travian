@@ -236,7 +236,7 @@
       },
       "Narmada River": {
         "wood": 0,
-        "clay": 0,
+        "clay": 200,
         "metal": 0,
         "crop": 0
       }
