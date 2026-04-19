@@ -269,7 +269,7 @@
       "Narmada River": {
         "wood": 350,
         "clay": 350,
-        "metal": 0,
+        "metal": 350,
         "crop": 0
       }
     }
