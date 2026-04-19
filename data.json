@@ -214,25 +214,25 @@
         "wood": 350,
         "clay": 350,
         "metal": 350,
-        "crop": 400
+        "crop": 550
       },
       "Ganga River": {
         "wood": 350,
         "clay": 350,
         "metal": 350,
-        "crop": 400
+        "crop": 550
       },
       "Yangtze River": {
         "wood": 350,
         "clay": 350,
         "metal": 350,
-        "crop": 400
+        "crop": 550
       },
       "Mekong River": {
         "wood": 350,
         "clay": 350,
         "metal": 350,
-        "crop": 400
+        "crop": 550
       },
       "Narmada River": {
         "wood": 200,
