@@ -203,10 +203,10 @@
         "crop": 500
       },
       "Narmada River": {
-        "wood": 0,
-        "clay": 0,
-        "metal": 0,
-        "crop": 0
+        "wood": 200,
+        "clay": 200,
+        "metal": 200,
+        "crop": 200
       }
     },
     "Vltava River": {
