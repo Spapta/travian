@@ -7,7 +7,8 @@
     "Krossá River",
     "Hvítá River",
     "Vltava River",
-    "Otava River"
+    "Otava River",
+    "Urubamba"
   ],
   "av": [
     "Congo River",
@@ -272,6 +273,38 @@
         "metal": 350,
         "crop": 350
       }
+    },
+    "Urubamba": {
+      "Congo River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Ganga River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Yangtze River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Mekong River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      },
+      "Narmada River": {
+        "wood": 0,
+        "clay": 0,
+        "metal": 0,
+        "crop": 0
+      }
     }
   },
   "production": {
@@ -322,6 +355,12 @@
       "clay": 1750,
       "metal": 1750,
       "crop": 2625
+    },
+    "Urubamba": {
+      "wood": 0,
+      "clay": 0,
+      "metal": 0,
+      "crop": 0
     }
   },
   "ally": {
@@ -580,6 +619,38 @@
           "crop": 0
         }
       }
+    ],
+    "Urubamba": [
+      {
+        "name": "",
+        "times": 1,
+        "res": {
+          "wood": 0,
+          "clay": 0,
+          "metal": 0,
+          "crop": 0
+        }
+      },
+      {
+        "name": "",
+        "times": 1,
+        "res": {
+          "wood": 0,
+          "clay": 0,
+          "metal": 0,
+          "crop": 0
+        }
+      },
+      {
+        "name": "",
+        "times": 1,
+        "res": {
+          "wood": 0,
+          "clay": 0,
+          "metal": 0,
+          "crop": 0
+        }
+      }
     ]
   },
   "allyEnabled": {
@@ -590,7 +661,8 @@
     "Krossá River": false,
     "Hvítá River": false,
     "Vltava River": false,
-    "Otava River": false
+    "Otava River": false,
+    "Urubamba": false
   },
   "armyProduction": {
     "Congo River": {
